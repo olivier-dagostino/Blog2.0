@@ -32,7 +32,7 @@ class Categorie
         $catego= $sth->fetchAll(PDO::FETCH_ASSOC);
         return$catego;
     }
-    public function getAllCatego()
+    public function getAllCategories()
     {
         $sth=$this->bd->prepare("SELECT * FROM `categories`");
         $sth->execute();
@@ -40,7 +40,7 @@ class Categorie
         return $res;
     }
 
-    public function getCategoByName($name)
+    public function getCategoriesByName($name)
     {
         $sth=$this->bd->prepare("SELECT * FROM `categories` WHERE `nom` = '$name'");
         $sth->execute();
@@ -55,7 +55,7 @@ class Categorie
         echo"<p> Votre Catégorie a bien été modifié</p>";
     }
 
-    public function create($nom)
+    public function createCategories($nom)
     {
         $sth=$this->bd->prepare("INSERT INTO `categories`(`nom`) VALUES (?)");
         $sth->execute(array($nom));
