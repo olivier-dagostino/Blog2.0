@@ -1,0 +1,168 @@
+/* HEADER */
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+body {
+  font-family: "Comfortaa", cursive;
+}
+nav {
+  width: 100%;
+  background-color: #4589cf;
+}
+nav > ul {
+  margin: 0px;
+  padding: 0px;
+}
+
+nav li {
+  list-style-type: none;
+}
+
+nav > ul > li {
+  float: left;
+  position: relative;
+}
+
+nav > ul::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.submenu {
+  display: none;
+}
+
+nav input[type="checkbox"] {
+  display: none;
+}
+
+nav label {
+  display: none;
+}
+
+nav a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+nav > ul > li > a {
+  padding: 20px;
+  color: #fff;
+}
+
+nav > ul > li:hover a {
+  padding: 15px 30px 20px 30px;
+}
+
+nav li:hover .submenu {
+  display: inline-block;
+  position: absolute;
+  top: 100%;
+  left: 0px;
+  padding: 0px;
+  z-index: 1000;
+}
+
+.submenu li a {
+  padding: 15px 30px;
+  font-size: 13px;
+  columns: #4589cf;
+  width: 270px;
+}
+nav li:hover .submenu {
+  display: inline-block;
+  position: absolute;
+  top: 100%;
+  left: 0px;
+  padding: 0px;
+  z-index: 1000;
+}
+
+.submenu li {
+  border-bottom: 1px solid #ccc;
+}
+
+.menu-home:hover {
+  border-top: 5px solid #45cfc9;
+}
+.menu-log:hover {
+  border-top: 5px solid #45cfc9;
+}
+.menu-log:hover {
+  border-top: 5px solid #45cfc9;
+}
+.menu-sign:hover {
+  border-top: 5px solid #45cfc9;
+}
+.menu-cat:hover {
+  border-top: 5px solid #45cfc9;
+}
+
+.menu-contact:hover {
+  border-top: 5px solid #45cfc9;
+}
+
+.menu-edit :hover {
+  border-top: 5px solid #45cfc9;
+}
+.menu-edit .submenu {
+  background-color: #45cfc9;
+}
+
+.menu-cat .submenu {
+  background-color: #45cfc9;
+}
+
+.menu-edit .submenu {
+  background-color: #45cfc9;
+}
+.menu-admin :hover {
+  background-color: #45cfc9;
+}
+.menu-admin .submenu {
+  background-color: #45cfc9;
+}
+
+.submenu li:hover a {
+  color: #eee;
+  font-weight: bold;
+}
+
+nav input[type="checkbox"]:checked ~ ul {
+  display: block;
+}
+
+@media screen and (max-width: 780px) {
+  .menu-mobile {
+    display: block;
+    color: #fff;
+    background-color: rgba(29, 197, 151, 0.97);
+    text-align: center;
+    padding: 12px 0px;
+  }
+
+  nav ul {
+    display: none;
+  }
+
+  nav ul li,
+  nav ul li a {
+    width: 96%;
+    text-align: center;
+  }
+
+  nav ul li,
+  nav ul li:hover a {
+    padding: 10px 0px;
+  }
+
+  nav li:hover .submenu {
+    display: block;
+    position: static;
+  }
+}
+
+/* FIN DU HEADER */

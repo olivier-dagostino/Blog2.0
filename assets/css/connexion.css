@@ -1,0 +1,56 @@
+/*Module Connexion*/
+main {
+  background-image: url(https://kreativedecks.com/wp-content/uploads/2021/01/1200x630_100_300_000000x30x0.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 80vh;
+}
+.error1 {
+  color: red;
+}
+
+.form-connexion {
+  padding: 30px;
+  height: fit-content;
+  width: fit-content;
+  border-radius: 20px;
+  box-shadow: 16px -14px 5px 0px rgb(76 76 84 / 20%);
+  background-color: #3181c5bf;
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  color: #ebeff1;
+}
+
+#form-connexion {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  margin: 20px;
+  border-radius: 20px;
+  font-size: inherit;
+  box-shadow: none;
+  border: none;
+  text-shadow: none;
+  padding: 0.5rem 0.8rem;
+}
+
+.first > .form-connexion > #form-connexion > a {
+  text-align: center;
+}
+
+#pas-inscrit {
+  margin: 20px;
+}
+
+.first > .form-connexion > h2 {
+  text-align: center;
+}
+
+.first > .form-connexion > form > label {
+  text-align: center;
+}
