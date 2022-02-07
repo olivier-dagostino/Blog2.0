@@ -94,8 +94,7 @@ if ($_SESSION['droits'] != 1337) {
                     <tr>
                         <?php
 
-                        foreach ($res1 as $key => $value) {        // pour chaque valeur qui se trouve dans la $res1 (pour chaques étudiants) 
-
+                        foreach ($res1 as $key => $value) { // pour chaque valeur qui se trouve dans la $res1 (pour chaques étudiants) 
                             echo '<tr>'; //on echo une ligne
 
                             foreach ($value as $key1 => $value1) //Pour chaque info de l'étudiant on écho une case
