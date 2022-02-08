@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
 if (isset($_SESSION['droits'])) { /*utilisateurs*/
 
     switch ($_SESSION['droits']) {
@@ -58,7 +56,7 @@ if (isset($_SESSION['droits'])) { /*utilisateurs*/
                         <li class="menu-edit"><a href="#">Edition</a>
                             <ul class="submenu">
                                 <li><a href="profil.php">Modifier Mon Profil</a></li>
-                                <li><a href="">Rédiger un article</a></li>
+                                <li><a href="./edition_articles.php">Edition d\'un article</a></li>
                                 <li><a href="#">Mes articles</a></li> 
                             </ul>
                         </li>

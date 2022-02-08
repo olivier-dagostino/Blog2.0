@@ -1,7 +1,7 @@
 <?php
-
-if (isset($_SESSION['id'])) {
-
+session_start();
+if (!isset($_SESSION['droits'])) {
+    
     header('Location: index.php');
 
 } else {

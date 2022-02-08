@@ -3,6 +3,7 @@
     require('php/class/class_categorie.php');
     require('php/class/class_commentaire.php');
     require('php/class/class_user.php')
+    
 ?>
 
 <!doctype html>

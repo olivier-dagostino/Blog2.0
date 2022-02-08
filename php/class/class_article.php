@@ -17,12 +17,11 @@ class Article
     public function creation($article, $id_utilisateur, $id_categorie)
     {
 
-        $sth = $this->bd->prepare("INSERT INTO `articles`(`article`,`id_utilisateur`,`id_categorie`,`date`,enligne) VALUES(?,?,?,?,?)");
+        $sth = $this->bd->prepare("INSERT INTO `articles`(`article`,`id_utilisateur`,`id_categorie`,`date`) VALUES(?,?,?,?)");
         $date = new DateTime();
         $date->setTimestamp(time());
         $jour = $date->format('Y-m-d H:i:s');
-        $online=0;
-        $sth->execute(array($article, $id_utilisateur, $id_categorie, $jour,$online));
+        $sth->execute(array($article, $id_utilisateur, $id_categorie, $jour));
 
 
     }

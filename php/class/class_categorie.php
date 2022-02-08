@@ -8,10 +8,10 @@ class Categorie
 
     public function __construct()
     {
-        $this->bd = new PDO('mysql:host=localhost:8889;blog','root','root');
+        $this->bd = new PDO('mysql:host=localhost:8889;dbname=blog', 'root', 'root');
     }
 
-    public function getcatego()
+    public function getcategories()
     {
         $sth = $this->bd->prepare("SELECT * FROM `categories` ");
         $sth->execute();
