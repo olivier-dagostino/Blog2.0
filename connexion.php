@@ -46,7 +46,7 @@ require ('php/class/class_user.php');
             } else {
 
                 $connect = new User();
-                $connect->connect($_POST['login'], $_POST['password']);
+                $connect->login($_POST['login'], $_POST['password']);
             }
         }
     ?>
