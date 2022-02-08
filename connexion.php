@@ -1,13 +1,7 @@
 <?php
+session_start();
 
-    if (!isset($_SESSION['id'])) {
-        
-        header ('Location: index.php');
-
-    } else {
-        
-        require ('php/class/class_user.php');
-        session_start()
+require ('php/class/class_user.php');
 
 ?>
 
@@ -85,5 +79,3 @@
 </body>
 
 </html>
-
-<?php } ?>
