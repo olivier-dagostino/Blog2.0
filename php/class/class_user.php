@@ -1,5 +1,5 @@
 <?php
-require('class_dbh.php');
+require_once('class_dbh.php');
 
 class User extends Dbh
 {
@@ -49,7 +49,7 @@ class User extends Dbh
     $sth = $this->connect()->prepare("SELECT * FROM `utilisateurs` WHERE `login` =?");
     $sth->execute(array($login));
     $res = $sth->fetch(PDO::FETCH_ASSOC);
-
+    
     if ($login === $res['login'] && password_verify($password, $res['password'])) {
 
       $this->id = $res['id'];

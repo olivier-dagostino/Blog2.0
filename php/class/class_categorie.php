@@ -1,5 +1,5 @@
 <?php
-require('class_dbh.php');
+require_once('class_dbh.php');
 
 class Categorie extends Dbh
 {
@@ -15,8 +15,8 @@ class Categorie extends Dbh
     }
     public function getid($nom)
     {
-        $sth=$this->connect()->prepare("SELECT `id` FROM `categories` WHERE nom='$nom'");
-        $sth->execute();
+        $sth=$this->connect()->prepare("SELECT `id` FROM `categories` WHERE nom=':nom'");
+        $sth->execute(array(':nom'=>$nom));
         $res=$sth->fetch(PDO::FETCH_ASSOC);
         return$res;
     }

@@ -1,5 +1,5 @@
 <?php
-require('class_dbh.php');
+require_once('class_dbh.php');
 
 class Commentaire extends Dbh
 {

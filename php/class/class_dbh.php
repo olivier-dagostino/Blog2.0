@@ -10,7 +10,7 @@ class Dbh
 
             $username = "root";
             $password = "";
-            $dbh = new PDO('mysql:host=localhost; dbname=reservationsalles', $username, $password);
+            $dbh = new PDO('mysql:host=localhost; dbname=blog', $username, $password);
             return $dbh;
             
         } catch (PDOException $e) {
@@ -18,14 +18,6 @@ class Dbh
             die();
         }
 
-    }
-
-    protected function test_input($data)
-    {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
     }
 
 }
