@@ -26,11 +26,14 @@ class Article
 
     }
 
-    public function get5Article($get, $categorie = '')
+    // récupère les 5 derniers article
+    public function get5Article($get, $categorie = '') 
     {
 
         if (empty($categorie)) {
+
             $sth = $this->bd->prepare("SELECT `articles.article`, `articles.date`, `utilisateurs.login`, `utilisateurs.active`,` articles.id`  FROM `articles` INNER JOIN `utilisateurs` on `utilisateurs.id` = `articles.id_utilisateur` WHERE `articles.enligne` != 1 ORDER BY date DESC LIMIT $get,5 ");
+            
         } else {
             $sth = $this->bd->prepare("SELECT `articles.article`, `articles.date`, `utilisateurs.login`, `utilisateurs.active`, `articles.id`  FROM `articles` INNER JOIN `utilisateurs` on `utilisateurs.id` = `articles.id_utilisateur` WHERE `articles.enligne` !=1 AND `articles.id_categorie` = $categorie ORDER BY date DESC LIMIT $get,5 ");
         }
@@ -43,7 +46,7 @@ class Article
     {
         $sth = $this->bd->prepare("SELECT `articles.article`, `utilisateurs.login`, `articles.date` FROM `articles` INNER JOIN `utilisateurs` ON `articles.id_utilisateur` = `utilisateurs.id` WHERE `articles.id` = $get");
         $sth->execute();
-        $article= $sth->fetch();
+        $article= $sth->fetchAll();
         return$article;
     }
 

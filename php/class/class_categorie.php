@@ -22,7 +22,7 @@ class Categorie
     {
         $sth=$this->bd->prepare("SELECT `id` FROM `categories` WHERE nom='$nom'");
         $sth->execute();
-        $res=$sth->fetch(PDO::FETCH_ASSOC);
+        $res=$sth->fetchAll(PDO::FETCH_ASSOC);
         return$res;
     }
     public function getAllInfoById($id)

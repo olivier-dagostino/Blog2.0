@@ -6,7 +6,7 @@ if (!isset($_SESSION['id'])) {
 
 } else {
 
-    require('php/class/class_user.php');
+    require('php/include/autoloader.inc.php');
     
 ?>
 <!DOCTYPE html>
