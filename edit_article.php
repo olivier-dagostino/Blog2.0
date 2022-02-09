@@ -1,10 +1,12 @@
 <?php
 
-if ($_SESSION['droits'] == '42' || $_SESSION['droits'] == '1337') {
+    if ($_SESSION['droits'] == '42' || $_SESSION['droits'] == '1337') {
 
     header('Location: index.php');
+
 } else {
 
+    session_start();
     $title = "Edition";
     $css = "edit_articles";
     
@@ -12,81 +14,86 @@ if ($_SESSION['droits'] == '42' || $_SESSION['droits'] == '1337') {
 
 ?>
 
-        <main>
+    <main>
 
-            <?php
-            
-                if (isset($_POST['submit'])) {
+        <?php
 
-                    if (empty($_POST['titre']) || empty($_POST['corp-txt']) || empty($_POST['categories'])) {
+            if (isset($_POST['submit'])) {
 
-                        echo "<p> Veuillez remplir tout les champs</p>";
-                    } 
-                    
-                    else{
+                if (empty($_POST['titre']) || empty($_POST['corp-txt']) || empty($_POST['categories'])) {
 
-                        $article = $_POST['titre'] . '/' . $_POST['corp-txt'];
-
-                        $id_categories = $_POST['categories'];                        
-
-                        $insert = new Article();
-
-                        $insert->creation($article, $_SESSION['id'], $id_categories);
-
-                        echo "<p>Votre article est correctement enregistré</p>";
-                    }
-                }
-            ?>
-            
-            <h1>Crétation d'un Article</h1>
-
-            <div class="containerA">
+                    echo "<p> Veuillez remplir tout les champs</p>";
+                } 
                 
-                <form action=""  method="POST" class="articlecreate">
+                else{
 
-                    
+                    $article = $_POST['titre'] . '/' . $_POST['corp-txt'];
 
-                    <label for="categories">Catégorie</label>
+                    $id_categories = $_POST['categories'];                        
 
-                        <select name="categories" id="categories" >
+                    $insert = new Article();
 
-                            <option>--Choisir une Catégorie--</option>';
+                    $insert->creation($article, $_SESSION['id'], $id_categories);
 
-                                <?php
-                                    $categories = new Categorie();
+                    echo "<p>Votre article est correctement enregistré</p>";
+                }
+            }
+        ?>
 
-                                    $res5 = $categories->getcategories();
-                                    for ($i = 0; isset($res5[$i]); $i++) {
-                                        echo "<option value='" . $res5[$i]['id'] . "'>" . $res5[$i]['nom'] . '</option>';
-                                    }
-                                ?> 
-                        </select>
+        <h1>Crétation d'un Article</h1>
 
-                    <label for="titre">Titre de l'article</label>
-                    <input name="titre" type="text" placeholder="Votre titre">
+        <div class="containerA">
+            
+            <form action=""  method="POST" class="articlecreate">
 
-                    <label for="corp-txt">Article</label>
-                    <textarea id="corp-txt" name="corp-txt" placeholder="Votre article" rows="20" cols="40"></textarea>
-                    <input type="submit" name="submit" value="Envoyer">
+                
 
-                </form>
+                <label for="categories">Catégorie</label>
 
-            </div>
+                    <select name="categories" id="categories" >
 
+                        <option>--Choisir une Catégorie--</option>';
 
+                            <?php
+                                $categories = new Categorie();
 
-        </main>
+                                $res5 = $categories->getcategories();
 
+                                for ($i = 0; isset($res5[$i]); $i++) {
 
-        <footer>
+                                    echo "<option value='" . $res5[$i]['id'] . "'>" . $res5[$i]['nom'] . '</option>';
 
-            <?php include('php/include/footer.inc.php') ?>
+                                }
+                            ?> 
 
-        </footer>
+                    </select>
 
-    </body>
+                <label for="titre">Titre de l'article</label>
+                <input name="titre" type="text" placeholder="Votre titre">
 
-    </html>
+                <label for="corp-txt">Article</label>
+                <textarea id="corp-txt" name="corp-txt" placeholder="Votre article" rows="20" cols="40"></textarea>
+                <input type="submit" name="submit" value="Envoyer">
 
-<?php } ?>
+            </form>
+
+        </div>
+
+    </main>
+
+    <footer>
+
+        <?php include('php/include/footer.inc.php') ?>
+
+    </footer>
+
+</body>
+
+</html>
+
+<?php 
+
+    } 
+    
+?>
 

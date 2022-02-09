@@ -1,18 +1,18 @@
 <?php
-session_start();
+    session_start();
 
-if ($_SESSION['droits'] == '1') {
+    if ($_SESSION['droits'] == '1') {
 
-    header('Location: index.php');
+        header('Location: index.php');
     
-} else {
+    } else {
 
-    $title = "Edition";
-    $css = "new_articles";
+        $title = "New Article";
+        $css = "new_articles";
     
-    require ('php/include/header.inc.php');
+        require ('php/include/header.inc.php');
 
-?>
+    ?>
 
 
 

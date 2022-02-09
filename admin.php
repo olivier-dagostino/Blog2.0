@@ -1,14 +1,15 @@
 <?php
-session_start();
 
-if ($_SESSION['droits'] != 1337) {
+    session_start();
 
-    header('Location: index.php');
-} else {
+    if ($_SESSION['droits'] != 1337) {
 
-    $title = "Admin";
-    $css = "admin";
-    require ('php/include/header.inc.php');
+        header('Location: index.php');
+    } else {
+
+        $title = "Admin";
+        $css = "admin";
+        require ('php/include/header.inc.php');
 
 ?>
     <main>
@@ -31,20 +32,21 @@ if ($_SESSION['droits'] != 1337) {
                 ?>
 
             </thead>
+
             <tbody>
 
                 <tr>
                     <?php
 
-                    foreach ($res1 as $key => $value) { // pour chaque valeur qui se trouve dans la $res1 (pour chaques étudiants) 
-                        echo '<tr>'; //on echo une ligne
+                        foreach ($res1 as $key => $value) { // pour chaque valeur qui se trouve dans la $res1 (pour chaques étudiants) 
+                            echo '<tr>'; //on echo une ligne
 
-                        foreach ($value as $key1 => $value1) //Pour chaque info de l'étudiant on écho une case
-                        {
-                            echo "<td>$value1</td>";  // j'echo l'info
+                            foreach ($value as $key1 => $value1){ //Pour chaque info de l'étudiant on écho une case
+                                
+                                echo "<td>$value1</td>";  // j'echo l'info
+                            }
+                            echo '</tr>';
                         }
-                        echo '</tr>';
-                    }
 
                     ?>
                 </tr>
@@ -53,13 +55,18 @@ if ($_SESSION['droits'] != 1337) {
         </table>
 
     </main>
+
     <footer>
 
         <?php require 'php/include/footer.inc.php'; ?>
 
     </footer>
-    </body>
+</body>
 
-    </html>
+</html>
 
-<?php } ?>
+<?php 
+
+    }
+ 
+?>

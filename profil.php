@@ -1,15 +1,17 @@
 <?php
 
-if (!isset($_SESSION['droits'])) {
-    
-    header('Location: index.php');
+    session_start();
 
-} else {
+    if (!isset($_SESSION['droits'])) {
+        
+        header('Location: index.php');
 
-    $title = "Edition";
-    $css = "edit_articles";
-    
-    require ('php/include/header.inc.php');
+    } else {
+
+        $title = "Profil";
+        $css = "profil";
+        
+        require ('php/include/header.inc.php');
     
 ?>
 
@@ -37,19 +39,23 @@ if (!isset($_SESSION['droits'])) {
                     if (empty($_POST['login']) || empty($_POST['password']) || empty($_POST['email']) || empty($_POST['confirm'])) {
 
                         echo "<p>Veuillez remplir tout les champs!</p>";
+                        
                     } elseif ($_POST['password'] != $_POST['confirm']) {
 
                         echo "<p>Verifiez votre mot de passe</p> ";
+
                     } else {
 
                         $update = new User();
                         $update->update($_POST['login'], $_POST['password'], $_POST['email']);
+
                     }
                 }
                 ?>
 
 
                 <form class="form-update-profil" name="update-profil" action="" method="post">
+
                     <h2>Modifier votre Profil</h2>
 
                     <div class="form-update-profil-1">
@@ -66,13 +72,13 @@ if (!isset($_SESSION['droits'])) {
 
                     </div>
 
-
                     <div class="form-update-profil-3">
 
                         <label for="password">Ancien Mot de Passe</label>
                         <input id="password" name="old_password" value="" type="password" placeholder="Votre Mot de Passe" />
 
                     </div>
+
                     <div class="form-update-profil-4">
 
                         <label for="password">Nouveau Mot de Passe</label>
@@ -105,7 +111,6 @@ if (!isset($_SESSION['droits'])) {
 
             </div>
 
-
         </main>
 
         <footer>
@@ -117,4 +122,5 @@ if (!isset($_SESSION['droits'])) {
     </body>
 
     </html>
+    
 <?php } ?>

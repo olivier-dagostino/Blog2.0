@@ -1,6 +1,7 @@
 <?php
 
-    $title = "Admin";
+    session_start();
+    $title = "Connexion";
     $css = "connexion";
     
     require ('php/include/header.inc.php'); 
@@ -8,21 +9,21 @@
 
     <main>
 
-    <?php
+        <?php
 
-        if (isset($_POST['submit'])) {
+            if (isset($_POST['submit'])) {
 
-            if (empty($_POST['login']) || empty($_POST['password'])) {
+                if (empty($_POST['login']) || empty($_POST['password'])) {
 
-                echo "<p> Veuillez remplir tout les champs</p>";
+                    echo "<p> Veuillez remplir tout les champs</p>";
 
-            } else {
+                } else {
 
-                $connect = new User();
-                $connect->connect($_POST['login'], $_POST['password']);
+                    $connect = new User();
+                    $connect->connect($_POST['login'], $_POST['password']);
+                }
             }
-        }
-    ?>
+        ?>
 
         <div class="form-connexion">
 

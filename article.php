@@ -1,8 +1,11 @@
 <?php
+
+    session_start();
     $title = "Article";
     $css = "article";
     require ('php/include/header.inc.php');
     require('php/include/autoloader.inc.php');
+
 ?>
     <main>
 
@@ -29,6 +32,7 @@
                     $comm->insertcom($corp, $_GET['id'], $_SESSION['id']);
                     echo "<p>Votre commentaire est bien enregistré</p>";
                     header("Refresh:2, URL=article.php?id=$id");
+
                 }
             }
         ?>
@@ -54,6 +58,7 @@
                         <p>Le <?php echo date('d/m/Y', $date2); ?> </p>
 
                         <?php
+
                             if (isset($_SESSION['id'])) {
 
                                 echo "<a href='#1' class='com'>Laissez un commentaire</a>";
@@ -61,11 +66,13 @@
                         ?>
 
                     </div>
+
                 </div>
 
                 <div class="containerD">
 
                     <?php
+
                         for ($i = 0; isset($com[$i]); $i++) {
 
                             $commentaire = explode('/', $com[$i]['commentaire']);
@@ -93,31 +100,45 @@
                     ?>
 
                 </div>
+
             </div>
+            
         </div>
         
         <?php
+
             if (isset($_SESSION['id'])) :
+
         ?>
             <form action="#" method="post" class="insertcom">
 
                 <div class="box3" id="1">
+
                     <p class="leavecom">Laissez un commentaire</p>
                     <label for="titre">Titre du commentaire</label>
                     <input type="text" name="titre" placeholder="votre titre">
                     <label for="corp">Votre commentaire</label>
                     <textarea id="corp" name="corp" placeholder="Votre article" rows="15" cols="33"></textarea>
                     <input type="submit" name="submit" value="Envoyer">
+
                 </div>
                 <img src="#" alt="logo" class="newlogo">
             </form>
+
         <?php
+
             endif;
+
         ?>
+        
     </main>
+
     <footer>
+
         <?php
+
             require('php/include/footer.inc.php');
+
         ?>
     </footer>
 </body>
