@@ -4,7 +4,7 @@
     $title = "Article";
     $css = "article";
     require ('php/include/header.inc.php');
-    require('php/include/autoloader.inc.php');
+    // require('php/include/autoloader.inc.php');
 
 ?>
     <main>

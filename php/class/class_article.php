@@ -23,7 +23,6 @@ class Article
         $jour = $date->format('Y-m-d H:i:s');
         $sth->execute(array($article, $id_utilisateur, $id_categorie, $jour));
 
-
     }
 
     // récupère les 5 derniers article

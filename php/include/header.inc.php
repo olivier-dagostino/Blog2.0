@@ -36,7 +36,7 @@ require('php/include/autoloader.inc.php');
                     </ul>  
 
                 </li>
-
+                <li class="menu-home"><a href="article.php">Articles</a></li>
                 <?php
 
                     if (isset($_SESSION['droits'])) { /*utilisateurs*/
