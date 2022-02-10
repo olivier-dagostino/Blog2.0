@@ -14,9 +14,11 @@
 
             <div class="containerA1">
 
-                <h2>Titre Article 1</h2>
+                <h2><?php echo $article[0]; ?></h2>
 
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam, enim totam quaerat vero tenetur iste repellat dolorum hic commodi ipsa aspernatur soluta laborum! Laborum labore porro autem veniam ut.</p>
+                <p>
+                    <?php echo $article[1]; ?>
+                </p>
 
             </div>
 
