@@ -23,9 +23,9 @@
 
             $date2 = strtotime($text["0"]['date']);
                       
-            // $comm = new Commentaire();
-            // $com = $comm->getComAndUserById($_GET['id']);
-            // $id = $_GET['id'];
+            $comm = new Commentaire();
+            $com = $comm->getComAndUserById($_GET['id']);
+            $id = $_GET['id'];
 
             if (isset($_POST['submit'])) {
 
@@ -44,7 +44,7 @@
             }
         ?>
 
-        <!-- <div class="containerA">
+             <div class="containerA">
 
             <div class="containerB">
 
@@ -52,32 +52,32 @@
 
                     <div class="containerC1">
 
-                        <h1 class="titre"><?php //echo $article['0']; ?></h1>
-                        <p class="article"><?php //echo $article["1"]; ?></p>
+                        <h1 class="titre"><?php echo $article['0']; ?></h1>
+                        <p class="article"><?php echo $article["1"]; ?></p>
 
                     </div>
 
                     <div class="containerC2">
 
-                        <!-- <p>Ecrit par <?php// echo $text["0"]['login']; ?></p> -->
+                         <p>Ecrit par <?php echo $text["0"]['login']; ?></p> 
 
-                        <!-- <img src="#" alt=""> -->
+                         <img src="#" alt=""> 
 
-                        <!-- <p>Le <?php //echo date('d/m/Y', $date2); ?> </p> -->
+                         <p>Le <?php echo date('d/m/Y', $date2); ?> </p> 
 
                         <?php
 
-                            // if (isset($_SESSION['id'])) {
+                             if (isset($_SESSION['id'])) {
 
-                                // echo "<a href='#1' class='com'>Laissez un commentaire</a>";
-                            // }
+                                 echo "<a href='#1' class='com'>Laissez un commentaire</a>";
+                             }
                         ?>
 
-                    <!-- </div>
+                     </div>
 
                 </div>
 
-                <div class="containerD"> --> -->
+                <div class="containerD">
 
                     <?php
 
@@ -107,11 +107,11 @@
 
                     ?>
 
-                <!-- </div>
+                 </div>
 
             </div>
             
-        </div> -->
+        </div> 
         
         <?php
 

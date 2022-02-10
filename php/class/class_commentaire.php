@@ -3,9 +3,6 @@ require_once('class_dbh.php');
 
 class Commentaire extends Dbh
 {
-    private $id;
-    private $id_user;
-    private $id_article;
     
     public function getComAndUserById($get)
     {
