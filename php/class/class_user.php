@@ -1,26 +1,20 @@
 <?php
+require_once('class_dbh.php');
 
-class User
+class User extends Dbh
 {
   private $id;
   public $login;
   public $password;
   public $email;
   public $droits;
-  private $bd;
-
-  public function __construct()
-  {
-
-    $this->bd = new PDO('mysql:host=localhost:8889;dbname=blog', 'root', 'root');
-  }
 
   public function register($login, $password, $email)
   {
 
     try {
 
-      $req = $this->bd->prepare("SELECT * FROM `utilisateurs` WHERE login=?");
+      $req = $this->connect->prepare("SELECT * FROM `utilisateurs` WHERE login=?");
       $req->execute();
     } catch (Exception $e) {
 
@@ -32,7 +26,7 @@ class User
 
       try {
 
-        $sth = $this->bd->prepare("INSERT INTO `utilisateurs` (`login`, `password`, `email`) VALUES (?,?,?)");
+        $sth = $this->connect()->prepare("INSERT INTO `utilisateurs` (`login`, `password`, `email`) VALUES (?,?,?)");
         $passwordprotect = password_hash($password, PASSWORD_DEFAULT);
         $sth->execute(array($login, $passwordprotect, $email));
         $confirmation = '<p>Bienvenue ' . $_POST['login'];
@@ -49,13 +43,13 @@ class User
     }
   }
 
-  public function connect($login, $password)
+  public function login($login, $password)
   {
 
-    $sth = $this->bd->prepare("SELECT * FROM `utilisateurs` WHERE `login` =?");
+    $sth = $this->connect()->prepare("SELECT * FROM `utilisateurs` WHERE `login` =?");
     $sth->execute(array($login));
     $res = $sth->fetch(PDO::FETCH_ASSOC);
-
+    
     if ($login === $res['login'] && password_verify($password, $res['password'])) {
 
       $this->id = $res['id'];
@@ -90,7 +84,7 @@ class User
   public function getLogin($login)
   {
 
-    $sth = $this->bd->prepare("SELECT `login` FROM `utilisateurs` WHERE `login` ='$login' ");
+    $sth = $this->connect()->prepare("SELECT `login` FROM `utilisateurs` WHERE `login` ='$login' ");
     $sth->execute();
     return $sth->fetch();
   }
@@ -98,7 +92,7 @@ class User
   public function getAllInfoForUser($login)
   {
 
-    $sth = $this->bd->prepare("SELECT * FROM `utilisateurs` WHERE `login` = '$login' ");
+    $sth = $this->connect()->prepare("SELECT * FROM `utilisateurs` WHERE `login` = '$login' ");
     $sth->execute();
     $res = $sth->fetch(PDO::FETCH_ASSOC);
     return $res;
@@ -107,7 +101,7 @@ class User
   public function getAllInfoForAllUsers()
   {
 
-    $sth = $this->bd->prepare("SELECT * FROM `utilisateurs`");
+    $sth = $this->connect()->prepare("SELECT * FROM `utilisateurs`");
     $sth->execute();
     $res = $sth->fetchAll(PDO::FETCH_ASSOC);
     return $res;
@@ -117,7 +111,7 @@ class User
   {
 
     $log = $_SESSION['login'];
-    $sth = $this->bd->prepare("SELECT `id` FROM `utilisateurs` WHERE `login` = '$log' ");
+    $sth = $this->connect()->prepare("SELECT `id` FROM `utilisateurs` WHERE `login` = '$log' ");
     $sth->execute();
     $res = $sth->fetch(PDO::FETCH_ASSOC);
     $this->login = $login;
@@ -128,7 +122,7 @@ class User
 
     try {
 
-      $sth2 = $this->bd->prepare("UPDATE `utilisateurs` SET `login` = ?,`password` = ?,`email` = ? WHERE `id` = '$id'");
+      $sth2 = $this->connect()->prepare("UPDATE `utilisateurs` SET `login` = ?,`password` = ?,`email` = ? WHERE `id` = '$id'");
       $sth2->execute(array($login, password_hash($password, PASSWORD_DEFAULT), $email));
       echo "<p>Modifications effectuées</p>";
     } catch (Exception $e) {
@@ -152,7 +146,7 @@ class User
   public function getAllInfoById($id)
   {
 
-    $sth = $this->bd->prepare("SELECT * FROM utilisateurs WHERE id=$id");
+    $sth = $this->connect()->prepare("SELECT * FROM utilisateurs WHERE id=$id");
     $sth->execute();
     $res = $sth->fetchAll(PDO::FETCH_ASSOC);
     return $res;
@@ -161,7 +155,7 @@ class User
   public function getAllInfo()
   {
 
-    $sth = $this->bd->prepare("SELECT * FROM utilisateurs");
+    $sth = $this->connect()->prepare("SELECT * FROM utilisateurs");
     $sth->execute();
     $res = $sth->fetchAll(PDO::FETCH_ASSOC);
     return $res;
@@ -170,7 +164,7 @@ class User
   public function updateAdmin($id, $droits)
   {
 
-    $sth = $this->bd->prepare("UPDATE utilisateurs SET id_droits = ? WHERE id=$id");
+    $sth = $this->connect()->prepare("UPDATE utilisateurs SET id_droits = ? WHERE id=$id");
     $sth->execute(array($droits));
     echo "<p>Modification prise en compte</p>";
   }
@@ -178,7 +172,7 @@ class User
   public function deleteUser($id)
   {
 
-    $sth = $this->bd->prepare("DELETE FROM `utilisateurs` WHERE `id`= $id");
+    $sth = $this->connect()->prepare("DELETE FROM `utilisateurs` WHERE `id`= $id");
     $sth->execute();
     echo "<p>Nous vous confirmons la Suppression de Votre Compte </p>";
   }

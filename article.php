@@ -12,13 +12,16 @@
         <?php
 
             $art = new Article();
-            $text = $art->getArticleById($_GET['id']);
-            $date2 = strtotime($text['date']);
-
-            $article = explode('/', $text['article']);
-            $comm = new Commentaire();
-            $com = $comm->getComAndUserById($_GET['id']);
-            $id = $_GET['id'];
+            $text = $art->getAllArticle();
+            echo "<pre>";           
+            var_dump($text);
+            echo "</pre>"; 
+            
+            $article = explode('/', $text['0']['article']);
+                      
+            // $comm = new Commentaire();
+            // $com = $comm->getComAndUserById($_GET['id']);
+            // $id = $_GET['id'];
 
             if (isset($_POST['submit'])) {
 
