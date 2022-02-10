@@ -43,13 +43,13 @@
                 }
             ?>
             
-            <h1>Crétation d'un Article</h1>
+            
 
             <div class="containerA">
-                
+            <h1>Crétation d'un Article</h1>
                 <form action=""  method="POST" class="articlecreate">
 
-                    
+                    <div class="containerA1">
 
                     <label for="categories">Catégorie</label>
 
@@ -69,11 +69,12 @@
 
                     <label for="titre">Titre de l'article</label>
                     <input name="titre" type="text" placeholder="Votre titre">
-
+                </div>
+                <div class="containerA2">
                     <label for="corp-txt">Article</label>
                     <textarea id="corp-txt" name="corp-txt" placeholder="Votre article" rows="20" cols="40"></textarea>
                     <input type="submit" name="submit" value="Envoyer">
-
+                </div>
                 </form>
 
             </div>
