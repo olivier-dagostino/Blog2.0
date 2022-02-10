@@ -24,11 +24,12 @@ require('php/include/autoloader.inc.php');
             <ul>
 
                 <li class="menu-home"><a href="index.php">Accueil</a></li>
-                <li class="menu-cat"><a href="#">Catégories</a>
+                <li class="menu-cat"><a href="#">Articles</a>
 
                     <ul class="submenu">
 
-                        <li><a href="#">Histoire de la ville </a></li>
+                        <li><a href="article.php">Tous les Articles</a></li>
+                        <li><a href="#">Histoire de la ville</a></li>
                         <li><a href="#">Berceau du Cinéma</a></li>
                         <li><a href="#">Le Chantier Naval</a></li>
                         <li><a href="#">Le Parc National des Calanques</a></li>
@@ -36,7 +37,6 @@ require('php/include/autoloader.inc.php');
                     </ul>  
 
                 </li>
-                <li class="menu-home"><a href="article.php?start=0">Articles</a></li>
                 <?php
 
                     if (isset($_SESSION['droits'])) { /*utilisateurs*/
