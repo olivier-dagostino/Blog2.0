@@ -53,7 +53,7 @@ class Article extends Dbh
     }
     public function getAllArticle()
     {
-        $sth=$this->connect()->prepare("SELECT * FROM `articles`");
+        $sth=$this->connect()->prepare("SELECT articles.article, articles.date, utilisateurs.login, articles.id FROM articles INNER JOIN utilisateurs on utilisateurs.id = articles.id_utilisateur;");
         $sth->execute();
         $res=$sth->fetchAll(PDO::FETCH_ASSOC);
         return $res;
