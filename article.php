@@ -13,11 +13,12 @@
 
             $art = new Article();
             $text = $art->getAllArticle();
+            // $date2 = strtotime($text['date']);
             // echo "<pre>";           
             // var_dump($text);
             // echo "</pre>"; 
             
-            $article = explode('/', $text);
+            $article = explode('/', $text['0']['article']);
                       
             // $comm = new Commentaire();
             // $com = $comm->getComAndUserById($_GET['id']);
@@ -60,13 +61,7 @@
 
                         <p>Le <?php echo date('d/m/Y', $date2); ?> </p>
 
-                        <?php
-
-                            if (isset($_SESSION['id'])) {
-
-                                echo "<a href='#1' class='com'>Laissez un commentaire</a>";
-                            }
-                        ?>
+                        
 
                     </div>
 
@@ -74,7 +69,13 @@
 
                 <div class="containerD">
 
-                    <?php
+                <?php
+
+                    if (isset($_SESSION['id'])) {
+
+                        echo "<a href='#1' class='com'>Laissez un commentaire</a>";
+                    }
+                    
 
                         for ($i = 0; isset($com[$i]); $i++) {
 
@@ -113,20 +114,21 @@
             if (isset($_SESSION['id'])) :
 
         ?>
-            <form action="#" method="post" class="insertcom">
+            
+            <div class="box3" id="1">
+                
+                <form action=""  method="POST" class="insertcom">
 
-                <div class="box3" id="1">
+                    
 
-                    <p class="leavecom">Laissez un commentaire</p>
-                    <label for="titre">Titre du commentaire</label>
-                    <input type="text" name="titre" placeholder="votre titre">
-                    <label for="corp">Votre commentaire</label>
-                    <textarea id="corp" name="corp" placeholder="Votre article" rows="15" cols="33"></textarea>
+                    <label for="corp-txt">Votre Commentaire</label>
+                    <textarea id="corp-txt" name="corp-txt" placeholder="Votre article" rows="10" cols="40"></textarea>
                     <input type="submit" name="submit" value="Envoyer">
 
-                </div>
-                <img src="#" alt="logo" class="newlogo">
-            </form>
+                </form>
+
+            </div>
+
 
         <?php
 
