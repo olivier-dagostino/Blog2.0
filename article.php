@@ -13,16 +13,16 @@
 
             $art = new Article();
             $text = $art->getAllArticle();
-            // $date2 = strtotime($text['date']);
-            // echo "<pre>";           
-            // var_dump($text);
-            // echo "</pre>"; 
+            $date2 = strtotime($text['0']['article']);
+            echo "<pre>";           
+            var_dump($text);
+            echo "</pre>"; 
             
             $article = explode('/', $text['0']['article']);
                       
-            // $comm = new Commentaire();
-            // $com = $comm->getComAndUserById($_GET['id']);
-            // $id = $_GET['id'];
+            $comm = new Commentaire();
+            $com = $comm->getComAndUserById($_GET['id']);
+            $id = $_GET['id'];
 
             if (isset($_POST['submit'])) {
 
@@ -119,7 +119,6 @@
                 
                 <form action=""  method="POST" class="insertcom">
 
-                    
 
                     <label for="corp-txt">Votre Commentaire</label>
                     <textarea id="corp-txt" name="corp-txt" placeholder="Votre article" rows="10" cols="40"></textarea>

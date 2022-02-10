@@ -6,7 +6,7 @@ class Commentaire extends Dbh
     
     public function getComAndUserById($get)
     {
-        $sth = $this->connect()->prepare("SELECT `commentaires.commentaire`, `commentaires.date`, `utilisateurs.login`, `utilisateurs.active` FROM `commentaires` INNER JOIN `utilisateurs` ON `commentaires.id_utilisateur` = `utilisateurs.id` WHERE `id_article` =$get ORDER BY date DESC ");
+        $sth = $this->connect()->prepare("SELECT `commentaires.commentaire`, `commentaires.date`, `utilisateurs.login`, `utilisateurs.active` FROM `commentaires` INNER JOIN `utilisateurs` ON `commentaires.id_utilisateur` = `utilisateurs.id` WHERE `id_article` = $get ORDER BY date DESC ");
         $sth->execute();
         $commentaire = $sth->fetchAll(PDO::FETCH_ASSOC);
         return $commentaire;
