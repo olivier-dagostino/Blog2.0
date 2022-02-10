@@ -10,7 +10,7 @@ class Dbh
 
             $username = "root";
             $password = "root";
-            $dbh = new PDO('mysql:host=localhost:; dbname=blog', $username, $password);
+            $dbh = new PDO('mysql:host=localhost:8889; dbname=blog', $username, $password);
             return $dbh;
             
         } catch (PDOException $e) {

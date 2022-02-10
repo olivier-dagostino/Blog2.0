@@ -13,9 +13,9 @@
 
             $art = new Article();
             $text = $art->getAllArticle();
-            echo "<pre>";           
-            var_dump($text);
-            echo "</pre>"; 
+            // echo "<pre>";           
+            // var_dump($text);
+            // echo "</pre>"; 
             
             $article = explode('/', $text);
                       
