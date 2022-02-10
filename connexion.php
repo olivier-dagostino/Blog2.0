@@ -1,54 +1,29 @@
-<?php    
-    require ('php/class/class_user.php');
+<?php
+
     session_start();
-
-?>
-
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Indie+Flower&display=swap" rel="stylesheet">
+    $title = "Connexion";
+    $css = "connexion";
     
-    <link rel="stylesheet" href="assets/css/header.css">
-    <link rel="stylesheet" href="assets/css/connexion.css">
-    <link rel="stylesheet" href="assets/css/footer.css">
-
-    <title>Connexion</title> 
-</head>
-
-<body>
-
-    <header>
-
-        <?php include('php/include/header.inc.php'); ?>
-
-    </header>
-
+    require ('php/include/header.inc.php'); 
+?>
 
     <main>
 
-    <?php
+        <?php
 
-        if (isset($_POST['submit'])) {
+            if (isset($_POST['submit'])) {
 
-            if (empty($_POST['login']) || empty($_POST['password'])) {
+                if (empty($_POST['login']) || empty($_POST['password'])) {
 
-                echo "<p> Veuillez remplir tout les champs</p>";
+                    echo "<p> Veuillez remplir tout les champs</p>";
 
-            } else {
+                } else {
 
-                $connect = new User();
-                $connect->connect($_POST['login'], $_POST['password']);
+                    $connect = new User();
+                    $connect->login($_POST['login'], $_POST['password']);
+                }
             }
-        }
-    ?>
+        ?>
 
         <div class="form-connexion">
 
@@ -78,3 +53,4 @@
 </body>
 
 </html>
+
