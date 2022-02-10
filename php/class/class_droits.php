@@ -3,7 +3,7 @@ require_once('class_dbh.php');
 
 class Droits extends Dbh
 {
-    private $id;
+    
     public $nom;
 
     public function getDroitsById($droits)

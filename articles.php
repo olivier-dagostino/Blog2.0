@@ -47,14 +47,32 @@
 
                 else {
                     
-                    $FiveArticles = $article->getAllArticle();
+                    $articles = $article->getAllArticle();
+                    
 
-                    foreach ($FiveArticles as $article){
-    
-                        var_dump($article);
+                    foreach($articles as $article){
 
-                        
+                        $display = explode('/', $article['article']);
+
+                        var_dump($display);
+
+                        /* for($i = 0; isset($display[$i]); $i++){
+
+                            echo "<p>$display[$i]</p>";
+
+                        } */
+
                     }
+                    die();
+                    foreach ($display as $titre => $article){
+
+                    echo "<h1>" . $titre . "</h1><p>" . $article . "</p>";
+
+                    // echo "<article>" . $article ['article'] . "</article>";
+
+                    }
+
+                    
 
 
                 }
