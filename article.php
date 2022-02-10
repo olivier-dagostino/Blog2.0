@@ -17,7 +17,7 @@
             var_dump($text);
             echo "</pre>"; 
             
-            $article = explode('/', $text['0']['article']);
+            $article = explode('/', $text);
                       
             // $comm = new Commentaire();
             // $com = $comm->getComAndUserById($_GET['id']);

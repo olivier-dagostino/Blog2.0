@@ -42,14 +42,17 @@ main {
 
   background-color: #3a86ff;
   padding: 20px;
+  max-width: 30%;
 }
 .containerA2{
 
   background-color: #8338ec;
   padding: 20px;
+  max-width: 30%;
 }
 .containerA3{
 
   background-color: #ff006e;
   padding: 20px;
+  max-width: 30%;
 }

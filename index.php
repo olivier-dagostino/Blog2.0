@@ -13,31 +13,76 @@
         <div class="containerA">
 
             <div class="containerA1">
-                
+
+                <?php
+
+                    $art = new Article();
+                    $text = $art->getAllArticle();
+                    echo "<pre>";           
+
+                    echo "</pre>"; 
+                    
+                    $article = explode('/', $text['0']['article']);
+
+                ?>
 
                 <h2><?php echo $article[0]; ?></h2>
 
                 <p>
+
                     <?php echo $article[1]; ?>
+
+                </p>
+
+            </div>
+            <div class="containerA2">
+
+                <?php
+
+                    $art = new Article();
+                    $text = $art->getAllArticle();
+                    echo "<pre>";           
+                    
+                    echo "</pre>"; 
+                    
+                    $article = explode('/', $text['5']['article']);
+
+                ?>
+
+                <h2><?php echo $article[0];?></h2>
+
+                <p>
+
+                    <?php echo $article[1];?>
+
+                </p>
+
+            </div>
+            <div class="containerA3">
+
+                <?php
+
+                    $art = new Article();
+                    $text = $art->getAllArticle();
+                    // echo "<pre>";           
+                    
+                    // echo "</pre>"; 
+                    
+                    $article = explode('/', $text['3']['article']);
+
+                ?>
+
+                <h2><?php echo $article[0]; ?></h2>
+
+                <p>
+
+                    <?php echo $article[1]; ?>
+
                 </p>
 
             </div>
 
-            <div class="containerA2">
-
-                <h2>Titre Article 2</h2>
-
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque, omnis sapiente! Voluptates, incidunt quisquam. Culpa officia accusantium laudantium labore, adipisci sint excepturi blanditiis aut quas mollitia id porro, cumque nostrum!</p>
-
-            </div>
-
-            <div class="containerA3">
-
-                <h2>Titre Article 3</h2>
-                
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati minus error dignissimos impedit dolorem animi illum. Provident esse obcaecati unde delectus et id, rerum expedita impedit incidunt necessitatibus earum maiores.</p>
-
-            </div>
+            
 
         </div>
 
