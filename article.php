@@ -13,18 +13,13 @@
 
             $art = new Article();
             $text = $art->getAllArticle();
-
-             /* echo "<pre>";           
-            var_dump($text);
-            echo "</pre>"; 
-            die; */
              
             $article = explode('/', $text['0']['article']);
 
             $date2 = strtotime($text["0"]['date']);
                       
             $comm = new Commentaire();
-            $com = $comm->getComAndUserById($_GET['id']);
+            $com = $comm->getComAndUserById($_SESSION['id']);
             $id = $_GET['id'];
 
             if (isset($_POST['submit'])) {
