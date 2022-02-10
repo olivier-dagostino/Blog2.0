@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    require ('php/class/class_user.php'); 
+    require('php/include/autoloader.inc.php');
 
 ?>
 
