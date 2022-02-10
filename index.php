@@ -1,35 +1,42 @@
-<?php session_start();?>
-<!DOCTYPE html>
-<html lang="fr">
+<?php 
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    session_start();
+    $title = "Accueil";
+    $css = "index";
+    require ('php/include/header.inc.php'); 
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Indie+Flower&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="assets/css/header.css">
-    <link rel="stylesheet" href="assets/css/index.css">
-    <link rel="stylesheet" href="assets/css/footer.css">
-    
-    <title>Blog</title>
-</head>
-
-<body>
-
-    <header>
-
-        <?php include('php/include/header.inc.php') ?>
-
-    </header>
-
-
+?>
     <main>
 
         <h1 id="titre-presentation">Bienvenue</h1>
+
+        <div class="containerA">
+
+            <div class="containerA1">
+
+                <h2>Titre Article 1</h2>
+
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, quibusdam, enim totam quaerat vero tenetur iste repellat dolorum hic commodi ipsa aspernatur soluta laborum! Laborum labore porro autem veniam ut.</p>
+
+            </div>
+
+            <div class="containerA2">
+
+                <h2>Titre Article 2</h2>
+
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque, omnis sapiente! Voluptates, incidunt quisquam. Culpa officia accusantium laudantium labore, adipisci sint excepturi blanditiis aut quas mollitia id porro, cumque nostrum!</p>
+
+            </div>
+
+            <div class="containerA3">
+
+                <h2>Titre Article 3</h2>
+                
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati minus error dignissimos impedit dolorem animi illum. Provident esse obcaecati unde delectus et id, rerum expedita impedit incidunt necessitatibus earum maiores.</p>
+
+            </div>
+
+        </div>
 
     </main>
 

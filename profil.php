@@ -1,115 +1,126 @@
 <?php
 
-session_start();
+    session_start();
 
-if (!isset($_SESSION['droits'])) {
+    if (!isset($_SESSION['droits'])) {
+        
+        header('Location: index.php');
 
-    header('Location: index.php');
-} else {
+    } else {
 
-$title = "Profil";
-$css = "profil";
-
-include('php/include/header.inc.php');
-
+        $title = "Profil";
+        $css = "profil";
+        
+        require ('php/include/header.inc.php');
+    
 ?>
 
-    <main>
+   
 
-        <?php
-
-        $info = new User();
-        $res1 = $info->getAllInfoForUser($_SESSION['login']);
-
-
-        $droits = new Droits();
-        $res2 = $droits->getDroitsById($res1['id_droits']);
-
-        ?>
-
-        <div class="update-profil">
+        <main>
 
             <?php
 
-            if (isset($_POST['submit'])) {
+                $info = new User();
+                $res1 = $info->getAllInfoForUser($_SESSION['login']);
+                
 
-                if (empty($_POST['login']) || empty($_POST['password']) || empty($_POST['email']) || empty($_POST['confirm'])) {
-
-                    echo "<p>Veuillez remplir tout les champs!</p>";
-                } elseif ($_POST['password'] != $_POST['confirm']) {
-
-                    echo "<p>Verifiez votre mot de passe</p> ";
-                } else {
-
-                    $update = new User();
-                    $update->update($_POST['login'], $_POST['password'], $_POST['email']);
-                }
-            }
+                $droits = new Droits();
+                $res2 = $droits->getDroitsById($res1['id_droits']);
+                
             ?>
 
+            <div class="update-profil">
 
-            <form class="form-update-profil" name="update-profil" action="" method="post">
-                <h2>Modifier votre Profil</h2>
+                <?php
 
-                <div class="form-update-profil-1">
+                if (isset($_POST['submit'])) {
 
-                    <label for="login">Login</label>
-                    <input id="login" name="login" value="<?php echo $res1['login'] ?>" type="text" placeholder="" />
+                    if (empty($_POST['login']) || empty($_POST['password']) || empty($_POST['email']) || empty($_POST['confirm'])) {
 
-                </div>
+                        echo "<p>Veuillez remplir tout les champs!</p>";
+                        
+                    } elseif ($_POST['password'] != $_POST['confirm']) {
 
-                <div class="form-update-profil-2">
+                        echo "<p>Verifiez votre mot de passe</p> ";
 
-                    <label for="email">Email</label>
-                    <input id="email" name="email" value="<?php echo $res1['email'] ?>" type="text" placeholder="" />
+                    } else {
 
-                </div>
+                        $update = new User();
+                        $update->update($_POST['login'], $_POST['password'], $_POST['email']);
 
-
-                <div class="form-update-profil-3">
-
-                    <label for="password">Ancien Mot de Passe</label>
-                    <input id="password" name="old_password" value="" type="password" placeholder="Votre Mot de Passe" />
-
-                </div>
-                <div class="form-update-profil-4">
-
-                    <label for="password">Nouveau Mot de Passe</label>
-                    <input id="password" name="password" value="" type="password" placeholder="Votre Mot de Passe" />
-
-                </div>
-
-                <div class="form-update-profil-5">
-
-                    <label for="password">Confirmer Mot de Passe</label>
-                    <input id="confirmer" name="confirm" value="" type="password" placeholder="Votre Mot de Passe" />
-
-                </div>
-
-                <div class="form-update-profil-6">
-
-                    <input name="env" type="submit" placeholder="Envoyer">
-                    <input type="submit" name="delete" value="Supprimer Votre Compte">
-
-                    <?php
-                    if (isset($_POST['delete'])) {
-
-                        header("location:delete.php");
                     }
-                    ?>
-
-                </div>
-
-            </form>
-
-        </div>
+                }
+                ?>
 
 
-    </main>
+                <form class="form-update-profil" name="update-profil" action="" method="post">
 
+                    <h2>Modifier votre Profil</h2>
 
-    <?php 
+                    <div class="form-update-profil-1">
+
+                        <label for="login">Login</label>
+                        <input id="login" name="login" value="<?php echo $res1['login'] ?>" type="text" placeholder="" />
+
+                    </div>
+
+                    <div class="form-update-profil-2">
+
+                        <label for="email">Email</label>
+                        <input id="email" name="email" value="<?php echo $res1['email'] ?>" type="text" placeholder="" />
+
+                    </div>
+
+                    <div class="form-update-profil-3">
+
+                        <label for="password">Ancien Mot de Passe</label>
+                        <input id="password" name="old_password" value="" type="password" placeholder="Votre Mot de Passe" />
+
+                    </div>
+
+                    <div class="form-update-profil-4">
+
+                        <label for="password">Nouveau Mot de Passe</label>
+                        <input id="password" name="password" value="" type="password" placeholder="Votre Mot de Passe" />
+
+                    </div>
+
+                    <div class="form-update-profil-5">
+
+                        <label for="password">Confirmer Mot de Passe</label>
+                        <input id="confirmer" name="confirm" value="" type="password" placeholder="Votre Mot de Passe" />
+
+                    </div>
+
+                    <div class="form-update-profil-6">
+
+                        <input name="env" type="submit" placeholder="Envoyer">
+                        <input type="submit" name="delete" value="Supprimer Votre Compte">
+
+                        <?php
+                            if (isset($_POST['delete'])) {
+
+                                header("location:delete.php");
+                            }
+                        ?>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </main>
+
+        <footer>
+
+            <?php require 'php/include/footer.inc.php'; ?>
+
+        </footer>
+
+    </body>
+
+    </html>
     
-    require 'php/include/footer.inc.php'; 
-    
-    }?>
+<?php } ?>

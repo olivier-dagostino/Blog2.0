@@ -32,3 +32,24 @@ main {
   background-repeat: no-repeat;
   min-height: 80vh;
 }
+
+.containerA{
+
+  display: flex;
+  justify-content: space-around;
+}
+.containerA1{
+
+  background-color: #3a86ff;
+  padding: 20px;
+}
+.containerA2{
+
+  background-color: #8338ec;
+  padding: 20px;
+}
+.containerA3{
+
+  background-color: #ff006e;
+  padding: 20px;
+}
