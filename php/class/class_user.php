@@ -3,7 +3,7 @@ require_once('class_dbh.php');
 
 class User extends Dbh
 {
-  private $id;
+  
   public $login;
   public $password;
   public $email;
