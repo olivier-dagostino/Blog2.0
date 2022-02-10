@@ -34,23 +34,23 @@
 
                 <?php
 
-                if (isset($_POST['submit'])) {
+                    if (isset($_POST['submit'])) {
 
-                    if (empty($_POST['login']) || empty($_POST['password']) || empty($_POST['email']) || empty($_POST['confirm'])) {
+                        if (empty($_POST['login']) || empty($_POST['password']) || empty($_POST['email']) || empty($_POST['confirm'])) {
 
-                        echo "<p>Veuillez remplir tout les champs!</p>";
-                        
-                    } elseif ($_POST['password'] != $_POST['confirm']) {
+                            echo "<p>Veuillez remplir tout les champs!</p>";
+                            
+                        } elseif ($_POST['password'] != $_POST['confirm']) {
 
-                        echo "<p>Verifiez votre mot de passe</p> ";
+                            echo "<p>Verifiez votre mot de passe</p> ";
 
-                    } else {
+                        } else {
 
-                        $update = new User();
-                        $update->update($_POST['login'], $_POST['password'], $_POST['email']);
+                            $update = new User();
+                            $update->update($_POST['login'], $_POST['password'], $_POST['email']);
 
+                        }
                     }
-                }
                 ?>
 
 

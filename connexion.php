@@ -1,6 +1,13 @@
 <?php
 
-    session_start();
+session_start();
+
+    if (!isset($_SESSION['id'])) {
+
+        header ('Location: index.php');
+
+    } else {
+
     $title = "Connexion";
     $css = "connexion";
     
@@ -20,7 +27,7 @@
                 } else {
 
                     $connect = new User();
-                    $connect->connect($_POST['login'], $_POST['password']);
+                    $connect->login($_POST['login'], $_POST['password']);
                 }
             }
         ?>
@@ -53,3 +60,4 @@
 </body>
 
 </html>
+<? } ?>
