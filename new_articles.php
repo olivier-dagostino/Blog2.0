@@ -46,7 +46,7 @@
             
 
             <div class="containerA">
-            <h1>Crétation d'un Article</h1>
+            <h1>Création d'un Article</h1>
                 <form action=""  method="POST" class="articlecreate">
 
                     <div class="containerA1">
