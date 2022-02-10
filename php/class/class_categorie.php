@@ -4,7 +4,7 @@ require_once('class_dbh.php');
 
 class Categorie extends Dbh
 {
-    private $id;
+    
     public $nom;
 
     public function getcategories()
