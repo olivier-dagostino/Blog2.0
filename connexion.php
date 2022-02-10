@@ -1,13 +1,6 @@
 <?php
 
-session_start();
-
-    if (!isset($_SESSION['id'])) {
-
-        header ('Location: index.php');
-
-    } else {
-
+    session_start();
     $title = "Connexion";
     $css = "connexion";
     
@@ -60,4 +53,4 @@ session_start();
 </body>
 
 </html>
-<? } ?>
+
