@@ -67,6 +67,19 @@ class Article extends Dbh
 
     }
 
+    //fonction pour récupérer les trois derniers articles pour l'index
+    public function getIndexArticles ()
+    {
+        $get=$this->connect()->prepare("SELECT articles.article, articles.date, utilisateurs.login FROM articles INNER JOIN utilisateurs on utilisateurs.id = articles.id_utilisateur ORDER BY date DESC LIMIT 3;");
+
+        $get->execute();
+
+        $index=$get->fetchAll(PDO::FETCH_ASSOC);
+
+        return $index;
+        
+    }
+
 
 
 }

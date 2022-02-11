@@ -50,7 +50,7 @@ class User extends Dbh
     $sth->execute(array($login));
     $res = $sth->fetch(PDO::FETCH_ASSOC);
     
-    if ($login === $res['login'] && password_verify($password, $res['password'])) {
+    if ($login === $res['login'] && password_verify($password, $res['password']) === true) {
 
       $this->id = $res['id'];
       $this->login = $login;
