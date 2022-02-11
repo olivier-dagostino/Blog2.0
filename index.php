@@ -41,11 +41,7 @@
 
                     $art = new Article();
                     $text = $art->getAllArticle();
-                    echo "<pre>";           
-                    
-                    echo "</pre>"; 
-                    
-                    $article = explode('/', $text['5']['article']);
+                    $article = explode('/', $text['4']['article']);
 
                 ?>
 
@@ -64,9 +60,9 @@
 
                     $art = new Article();
                     $text = $art->getAllArticle();
-                    // echo "<pre>";           
-                    
-                    // echo "</pre>"; 
+                    echo "<pre>";           
+
+                    echo "</pre>"; 
                     
                     $article = explode('/', $text['3']['article']);
 
