@@ -5,11 +5,12 @@
     $css = "article";
     require ('php/include/header.inc.php');
 
+    $article = new Article();
+
 ?> 
         <main>
-            <?php
 
-                $article = new Article();
+            <?php
 
                 if (isset($_GET["start"])){
 
@@ -48,32 +49,6 @@
                 else {
                     
                     $articles = $article->getAllArticle();
-                    
-
-                    foreach($articles as $article){
-
-                        $display = explode('/', $article['article']);
-
-                        var_dump($display);
-
-                        /* for($i = 0; isset($display[$i]); $i++){
-
-                            echo "<p>$display[$i]</p>";
-
-                        } */
-
-                    }
-                    die();
-                    foreach ($display as $titre => $article){
-
-                    echo "<h1>" . $titre . "</h1><p>" . $article . "</p>";
-
-                    // echo "<article>" . $article ['article'] . "</article>";
-
-                    }
-
-                    
-
 
                 }
 

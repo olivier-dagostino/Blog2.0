@@ -11,8 +11,8 @@
     <main>
 
 <?php
-$text = $article->getIndexArticles();
-// var_dump($text);
+
+$text = $article->getArticles(3,'');
 
 ?>
     </main>

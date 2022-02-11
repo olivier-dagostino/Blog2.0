@@ -68,9 +68,18 @@ class Article extends Dbh
     }
 
     //fonction pour récupérer les trois derniers articles pour l'index
-    public function getIndexArticles()
+    public function getArticles(int $limit, $categorie = '')
     {
-        $getIndexArticles=$this->connect()->prepare("SELECT articles.titre, articles.article, articles.date, utilisateurs.login FROM articles INNER JOIN utilisateurs on utilisateurs.id = articles.id_utilisateur ORDER BY date DESC LIMIT 3;");
+
+        switch ($categorie) {
+
+            case 
+
+            $getIndexArticles = $this->connect()->prepare("SELECT articles.titre, articles.article, articles.date, utilisateurs.login FROM articles INNER JOIN utilisateurs on utilisateurs.id = articles.id_utilisateur ORDER BY date DESC LIMIT $limit");
+            
+        } else {
+            $sth = $this->connect()->prepare("SELECT articles.article, articles.date, utilisateurs.login, utilisateurs.active, articles.id  FROM articles INNER JOIN utilisateurs on utilisateurs.id = articles.id_utilisateur AND articles.id_categorie = $categorie ORDER BY date DESC LIMIT $get,5 ");
+        }
 
         $getIndexArticles->execute();
 
