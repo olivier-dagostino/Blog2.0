@@ -12,17 +12,18 @@
 
 <?php
 
-$text = $article->getArticles(3,'');
+    $text = $article->getIndexArticles();
 
 ?>
+
     </main>
 
 
-    <footer>
+
 
         <?php include('php/include/footer.inc.php') ?>
 
-    </footer>
+  
 
 </body>
 
