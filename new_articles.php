@@ -23,20 +23,18 @@
             
                 if (isset($_POST['submit'])) {
 
-                    if (empty($_POST['titre']) || empty($_POST['corp-txt']) || empty($_POST['categories'])) {
+                    if (empty($_POST['titre']) || empty($_POST['article']) || empty($_POST['categories'])) {
 
                         echo "<p> Veuillez remplir tout les champs</p>";
                     } 
                     
                     else{
 
-                        $article = $_POST['titre'] . '/' . $_POST['corp-txt'];
-
-                        $id_categories = $_POST['categories'];                        
-
+                        $id_categories = $_POST['categories'];
+                                                
                         $insert = new Article();
 
-                        $insert->creation($article, $_SESSION['id'], $id_categories);
+                        $insert->creation($_POST['titre'], $_POST['article'], $_SESSION['id'], $_POST['categories']);
 
                         echo "<p>Votre article est correctement enregistré</p>";
                     }
@@ -71,8 +69,8 @@
                     <input name="titre" type="text" placeholder="Votre titre">
                 </div>
                 <div class="containerA2">
-                    <label for="corp-txt">Article</label>
-                    <textarea id="corp-txt" name="corp-txt" placeholder="Votre article" rows="20" cols="40"></textarea>
+                    <label for="article">Article</label>
+                    <textarea id="article" name="article" placeholder="Votre article" rows="20" cols="40"></textarea>
                     <input type="submit" name="submit" value="Envoyer">
                 </div>
                 </form>

@@ -8,14 +8,14 @@ class Article extends Dbh
     public $id_categorie;
     public $date;
 
-    public function creation($article, $id_utilisateur, $id_categorie)
+    public function creation($titre, $article, $id_utilisateur, $id_categorie)
     {
 
-        $sth = $this->connect()->prepare("INSERT INTO `articles`(`article`,`id_utilisateur`,`id_categorie`,`date`) VALUES(?,?,?,?)");
+        $sth = $this->connect()->prepare("INSERT INTO `articles`(`titre`,`article`,`id_utilisateur`,`id_categorie`,`date`) VALUES(?,?,?,?,?)");
         $date = new DateTime();
         $date->setTimestamp(time());
         $jour = $date->format('Y-m-d H:i:s');
-        $sth->execute(array($article, $id_utilisateur, $id_categorie, $jour));
+        $sth->execute(array($titre, $article, $id_utilisateur, $id_categorie, $jour));
 
 
     }

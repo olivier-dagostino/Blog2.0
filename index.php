@@ -5,83 +5,30 @@
     $css = "index";
     require ('php/include/header.inc.php'); 
 
+    $article = new Article();
+    $text = $article->getIndexArticles();
 ?>
     <main>
 
         <h1 id="titre-presentation">Bienvenue</h1>
 
-        <div class="containerA">
+        <div class="containerA1">
 
-            <div class="containerA1">
+            <?php        
+                // $article = explode('/', $text['0']['article']);
 
-                <?php
+            ?>
 
-                    $art = new Article();
-                    $text = $art->getAllArticle();
-                    echo "<pre>";           
+            <h2><?php echo $article[0]; ?></h2>
 
-                    echo "</pre>"; 
-                    
-                    $article = explode('/', $text['0']['article']);
+            <p>
 
-                ?>
+                <?php echo $article[1]; ?>
 
-                <h2><?php echo $article[0]; ?></h2>
-
-                <p>
-
-                    <?php echo $article[1]; ?>
-
-                </p>
-
-            </div>
-            <div class="containerA2">
-
-                <?php
-
-                    $art = new Article();
-                    $text = $art->getAllArticle();
-                    $article = explode('/', $text['4']['article']);
-
-                ?>
-
-                <h2><?php echo $article[0];?></h2>
-
-                <p>
-
-                    <?php echo $article[1];?>
-
-                </p>
-
-            </div>
-            <div class="containerA3">
-
-                <?php
-
-                    $art = new Article();
-                    $text = $art->getAllArticle();
-                    echo "<pre>";           
-
-                    echo "</pre>"; 
-                    
-                    $article = explode('/', $text['3']['article']);
-
-                ?>
-
-                <h2><?php echo $article[0]; ?></h2>
-
-                <p>
-
-                    <?php echo $article[1]; ?>
-
-                </p>
-
-            </div>
-
-            
+            </p>
 
         </div>
-
+        
     </main>
 
 
