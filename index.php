@@ -11,18 +11,19 @@
     <main>
 
 <?php
-$text = $article->getIndexArticles();
-// var_dump($text);
+
+    $text = $article->getIndexArticles();
 
 ?>
+
     </main>
 
 
-    <footer>
+
 
         <?php include('php/include/footer.inc.php') ?>
 
-    </footer>
+  
 
 </body>
 
