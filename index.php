@@ -12,22 +12,7 @@
 
         <h1 id="titre-presentation">Bienvenue</h1>
 
-        <div class="containerA1">
-
-            <?php        
-                // $article = explode('/', $text['0']['article']);
-
-            ?>
-
-            <h2><?php echo $article[0]; ?></h2>
-
-            <p>
-
-                <?php echo $article[1]; ?>
-
-            </p>
-
-        </div>
+        
         
     </main>
 
