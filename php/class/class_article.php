@@ -67,9 +67,32 @@ class Article extends Dbh
 
     }
 
+    public function totalPages()
+    {
+        // On prépare la requête
+        $query = $this->connect()->prepare('SELECT COUNT(*) AS nb_articles FROM `articles`;');
+
+        // On exécute
+        $query->execute();
+
+        // On récupère le nombre d'articles
+        $result = $query->fetch();
+
+        $nbArticles = (int) $result['nb_articles'];
+
+        // On détermine le nombre d'articles par page
+        $parPage = 10;
+
+        // On calcule le nombre de pages total
+        $pages = ceil($nbArticles / $parPage);
+
+        return $pages;
+    }
+
     //récupérer les articles en fonction de la pagination et de la catégorie
     public function getArticles(int $limit, $start, $categorie = '')
     {
+
         if (isset($categorie) && !empty($categorie)){
 
             $getArticles = $this->connect()->prepare("SELECT articles.titre, articles.article, articles.date, utilisateurs.login FROM articles INNER JOIN utilisateurs on utilisateurs.id = articles.id_utilisateur AND articles.id_categorie = :categorie ORDER BY date DESC LIMIT :start,5 ");
@@ -87,9 +110,9 @@ class Article extends Dbh
             
                 echo "<p>" . $article["article"] . "</p>";
             
-                echo "<p>" . $article["login"] . "</p>";
+                echo "<p>Auteur : " . $article["login"] . "</p>";
             
-                echo "<p>" . $article["date"] . "</p></article>"; 
+                echo "<p>Ecrit le : " . $article["date"] . "</p></article>"; 
             
             }        
             
@@ -114,9 +137,9 @@ class Article extends Dbh
             
                 echo "<p>" . $article["article"] . "</p>";
             
-                echo "<p>" . $article["login"] . "</p>";
+                echo "<p>Auteur : " . $article["login"] . "</p>";
             
-                echo "<p>" . $article["date"] . "</p></article>"; 
+                echo "<p>Ecrit le : " . $article["date"] . "</p></article>"; 
             
             }        
 
