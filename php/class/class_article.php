@@ -67,40 +67,50 @@ class Article extends Dbh
 
     }
 
-    //fonction pour récupérer les trois derniers articles pour l'index
-    public function getArticles(int $limit, $categorie = '')
+    //récupérer les articles en fonction de la pagination et de la catégorie
+    public function getArticles(int $limit, $start, $categorie = '')
     {
+        if (isset($categorie) && !empty($categorie)){
 
-        switch ($categorie) {
+            $getArticles = $this->connect()->prepare("SELECT articles.article, articles.date, utilisateurs.login, articles.id  FROM articles INNER JOIN utilisateurs on utilisateurs.id = articles.id_utilisateur AND articles.id_categorie = :categorie ORDER BY date DESC LIMIT :start,5 ");
 
-            case 
-
-            $getIndexArticles = $this->connect()->prepare("SELECT articles.titre, articles.article, articles.date, utilisateurs.login FROM articles INNER JOIN utilisateurs on utilisateurs.id = articles.id_utilisateur ORDER BY date DESC LIMIT $limit");
+            $getArticles->bindValue(':start', $start, PDO::PARAM_INT);
+            $getArticles->bindValue(':categorie', $categorie, PDO::PARAM_INT);
+            
+            $getArticles->execute();
+            
+            $articles = $getArticles->fetchAll(PDO::FETCH_ASSOC);
+            var_dump($articles);
+            
+            return $articles;
             
         } else {
-            $sth = $this->connect()->prepare("SELECT articles.article, articles.date, utilisateurs.login, utilisateurs.active, articles.id  FROM articles INNER JOIN utilisateurs on utilisateurs.id = articles.id_utilisateur AND articles.id_categorie = $categorie ORDER BY date DESC LIMIT $get,5 ");
-        }
 
-        $getIndexArticles->execute();
+            $getArticles = $this->connect()->prepare("SELECT articles.titre, articles.article, articles.date, utilisateurs.login FROM articles INNER JOIN utilisateurs on utilisateurs.id = articles.id_utilisateur ORDER BY date DESC LIMIT :start,:limit");
 
-        $res=$getIndexArticles->fetchAll(PDO::FETCH_ASSOC);
-
-        foreach ($res as $article) {
-                            
+            $getArticles->bindValue(':start', $start, PDO::PARAM_INT);
+            $getArticles->bindValue(':limit', $limit, PDO::PARAM_INT);
+    
+            // On exécute
+            $getArticles->execute();
+    
+            // On récupère les valeurs dans un tableau associatif
+            $articles = $getArticles->fetchAll(PDO::FETCH_ASSOC);
+            
+            foreach ($articles as $article) {
+                                
                 echo "<article><h2>" . $article["titre"] . "</h2>";
-
+            
                 echo "<p>" . $article["article"] . "</p>";
-
+            
                 echo "<p>" . $article["login"] . "</p>";
-
+            
                 echo "<p>" . $article["date"] . "</p></article>"; 
             
-        } 
+            }        
+
+            return $articles;
     
-        return $res;
-        
+        }
     }
-
-
-
 }

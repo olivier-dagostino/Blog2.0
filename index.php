@@ -12,7 +12,7 @@
 
 <?php
 
-    $text = $article->getIndexArticles();
+    $text = $article->getArticles(3,1);
 
 ?>
 

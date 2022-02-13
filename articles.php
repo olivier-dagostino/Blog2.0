@@ -7,59 +7,47 @@
 
     $article = new Article();
 
-?> 
-        <main>
+    ?>
 
-            <?php
-
-                if (isset($_GET["start"])){
-
-                    if(isset($_GET["categorie"])){
-
-                        $FiveArticles = $article->get5Article($_GET["start"], $_GET["categorie"]);
+<main>
     
-                        foreach ($FiveArticles as $article){
-    
-                            echo $key;
-    
-                            foreach($article as $key => $value){
-                                
-                                echo $value;
-                            }
-                        }
-                    }
-                    
-                    else {
+    <?php
 
-                        $FiveArticles = $article->get5Article($_GET["start"], '');
+        // On détermine sur quelle page on se trouve
+        if(isset($_GET['start']) && !empty($_GET['start'])){
 
-                        foreach ($FiveArticles as $article){
-    
-                            echo $key;
-    
-                            foreach($article as $key => $value){
-                                
-                                echo $value;
-                            }
-                        }
-                    }
-                    
-                }
+            $currentPage = (int) strip_tags($_GET['start']);
 
-                else {
-                    
-                    $articles = $article->getAllArticle();
+            if(isset($_GET['categorie']) && !empty($_GET['categorie'])){
+            
+            // Calcul du 1er article de la page
+            $start = $currentPage * 5 - 5;
 
-                }
+            $articles= $article->getArticles(5, $start, $_GET['categorie']);
 
-            ?>
+            }else{
+
+                $currentPage = (int) strip_tags($_GET['start']);
+
+                $start = $currentPage * 5 - 5;
+
+                $articles= $article->getArticles(5, $start, '');
+
+            }
+
+        }else{
+
+            $currentPage = 1;
+
+            $start = $currentPage * 5 - 5;
+
+            $articles= $article->getArticles(5, $start);
+
+        }
+
+    ?>
 
         </main>
 
-        <footer>
         <?php require('php/include/footer.inc.php'); ?>
-        </footer>
 
-    </body>
-
-</html>
