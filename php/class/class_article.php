@@ -72,7 +72,7 @@ class Article extends Dbh
     {
         if (isset($categorie) && !empty($categorie)){
 
-            $getArticles = $this->connect()->prepare("SELECT articles.article, articles.date, utilisateurs.login, articles.id  FROM articles INNER JOIN utilisateurs on utilisateurs.id = articles.id_utilisateur AND articles.id_categorie = :categorie ORDER BY date DESC LIMIT :start,5 ");
+            $getArticles = $this->connect()->prepare("SELECT articles.titre, articles.article, articles.date, utilisateurs.login FROM articles INNER JOIN utilisateurs on utilisateurs.id = articles.id_utilisateur AND articles.id_categorie = :categorie ORDER BY date DESC LIMIT :start,5 ");
 
             $getArticles->bindValue(':start', $start, PDO::PARAM_INT);
             $getArticles->bindValue(':categorie', $categorie, PDO::PARAM_INT);
@@ -80,7 +80,18 @@ class Article extends Dbh
             $getArticles->execute();
             
             $articles = $getArticles->fetchAll(PDO::FETCH_ASSOC);
-            var_dump($articles);
+
+            foreach ($articles as $article) {
+                                
+                echo "<article><h2>" . $article["titre"] . "</h2>";
+            
+                echo "<p>" . $article["article"] . "</p>";
+            
+                echo "<p>" . $article["login"] . "</p>";
+            
+                echo "<p>" . $article["date"] . "</p></article>"; 
+            
+            }        
             
             return $articles;
             

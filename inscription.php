@@ -6,9 +6,6 @@
     require ('php/include/header.inc.php');
 
 ?>
-
-
-
     <main>
 
         <?php 
@@ -75,12 +72,4 @@
 
     </main>
 
-    <footer>
-
-        <?php require 'php/include/footer.inc.php'; ?>
-
-    </footer>
-    
-</body>
-
-</html>
+    <?php require 'php/include/footer.inc.php'; ?>

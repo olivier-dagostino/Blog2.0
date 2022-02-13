@@ -10,21 +10,12 @@
 ?>
     <main>
 
-<?php
+        <?php
 
-    $text = $article->getArticles(3,1);
+            $text = $article->getArticles(3,1);
 
-?>
+        ?>
 
     </main>
 
-
-
-
-        <?php include('php/include/footer.inc.php') ?>
-
-  
-
-</body>
-
-</html>
+    <?php include('php/include/footer.inc.php') ?>

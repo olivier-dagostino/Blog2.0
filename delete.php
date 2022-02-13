@@ -47,19 +47,4 @@
 
     </main>
 
-
-    <footer>
-
-        <?php include('php/include/footer.inc.php') ?>
-
-    </footer>
-
-</body>
-
-</html>
-
-<?php
-
-    } 
-
-?>
+    <?php include('php/include/footer.inc.php') ; } ?>

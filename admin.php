@@ -61,17 +61,4 @@
 
     </main>
 
-    <footer>
-
-        <?php require 'php/include/footer.inc.php'; ?>
-
-    </footer>
-</body>
-
-</html>
-
-<?php 
-
-    }
- 
-?>
+    <?php require 'php/include/footer.inc.php'; } ?>

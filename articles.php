@@ -7,7 +7,7 @@
 
     $article = new Article();
 
-    ?>
+?>
 
 <main>
     
@@ -37,17 +37,21 @@
 
         }else{
 
-            $currentPage = 1;
-
-            $start = $currentPage * 5 - 5;
-
-            $articles= $article->getArticles(5, $start);
+            if(isset($_GET['categorie']) && !empty($_GET['categorie'])){
+                
+                $articles= $article->getArticles(5, 0, $_GET['categorie']);
+    
+                }else{
+        
+                    $articles= $article->getArticles(5, 0);
+    
+                }    
 
         }
 
     ?>
 
-        </main>
+</main>
 
-        <?php require('php/include/footer.inc.php'); ?>
+<?php require('php/include/footer.inc.php'); ?>
 

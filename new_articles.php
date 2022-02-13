@@ -1,4 +1,5 @@
 <?php
+
     session_start();
 
     if ($_SESSION['droits'] == '1') {
@@ -12,85 +13,74 @@
     
         require ('php/include/header.inc.php');
 
-    ?>
+?>
 
 
 
 
-        <main>
+    <main>
 
-            <?php
-            
-                if (isset($_POST['submit'])) {
+        <?php
+        
+            if (isset($_POST['submit'])) {
 
-                    if (empty($_POST['titre']) || empty($_POST['article']) || empty($_POST['categories'])) {
+                if (empty($_POST['titre']) || empty($_POST['article']) || empty($_POST['categories'])) {
 
-                        echo "<p> Veuillez remplir tout les champs</p>";
-                    } 
-                    
-                    else{
+                    echo "<p> Veuillez remplir tout les champs</p>";
+                } 
+                
+                else{
 
-                        $id_categories = $_POST['categories'];
-                                                
-                        $insert = new Article();
+                    $id_categories = $_POST['categories'];
+                                            
+                    $insert = new Article();
 
-                        $insert->creation($_POST['titre'], $_POST['article'], $_SESSION['id'], $_POST['categories']);
+                    $insert->creation($_POST['titre'], $_POST['article'], $_SESSION['id'], $_POST['categories']);
 
-                        echo "<p>Votre article est correctement enregistré</p>";
-                    }
+                    echo "<p>Votre article est correctement enregistré</p>";
                 }
-            ?>
-            
-            
+            }
+        ?>
+        
+        
 
-            <div class="containerA">
-            <h1>Création d'un Article</h1>
-                <form action=""  method="POST" class="articlecreate">
+        <div class="containerA">
+        <h1>Création d'un Article</h1>
+            <form action=""  method="POST" class="articlecreate">
 
-                    <div class="containerA1">
+                <div class="containerA1">
 
-                    <label for="categories">Catégorie</label>
+                <label for="categories">Catégorie</label>
 
-                        <select name="categories" id="categories" >
+                    <select name="categories" id="categories" >
 
-                            <option>--Choisir une Catégorie--</option>';
+                        <option>--Choisir une Catégorie--</option>';
 
-                                <?php
-                                    $categories = new Categorie();
+                            <?php
+                                $categories = new Categorie();
 
-                                    $res5 = $categories->getcategories();
-                                    for ($i = 0; isset($res5[$i]); $i++) {
-                                        echo "<option value='" . $res5[$i]['id'] . "'>" . $res5[$i]['nom'] . '</option>';
-                                    }
-                                ?> 
-                        </select>
+                                $res5 = $categories->getcategories();
+                                for ($i = 0; isset($res5[$i]); $i++) {
+                                    echo "<option value='" . $res5[$i]['id'] . "'>" . $res5[$i]['nom'] . '</option>';
+                                }
+                            ?> 
+                    </select>
 
-                    <label for="titre">Titre de l'article</label>
-                    <input name="titre" type="text" placeholder="Votre titre">
-                </div>
-                <div class="containerA2">
-                    <label for="article">Article</label>
-                    <textarea id="article" name="article" placeholder="Votre article" rows="20" cols="40"></textarea>
-                    <input type="submit" name="submit" value="Envoyer">
-                </div>
-                </form>
-
+                <label for="titre">Titre de l'article</label>
+                <input name="titre" type="text" placeholder="Votre titre">
             </div>
+            <div class="containerA2">
+                <label for="article">Article</label>
+                <textarea id="article" name="article" placeholder="Votre article" rows="20" cols="40"></textarea>
+                <input type="submit" name="submit" value="Envoyer">
+            </div>
+            </form>
+
+        </div>
 
 
 
-        </main>
+    </main>
 
-
-        <footer>
-
-            <?php include('php/include/footer.inc.php') ?>
-
-        </footer>
-
-    </body>
-
-    </html>
-
-<?php } ?>
+    <?php include('php/include/footer.inc.php'); } ?>
 
