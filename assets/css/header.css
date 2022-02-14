@@ -155,6 +155,8 @@ nav input[type="checkbox"]:checked ~ ul {
     background-color: rgba(29, 197, 151, 0.97);
     text-align: center;
     padding: 12px 0px;
+    margin: 0px;
+    width: 100%;
   }
 
   nav ul {
@@ -170,11 +172,20 @@ nav input[type="checkbox"]:checked ~ ul {
   nav ul li,
   nav ul li:hover a {
     padding: 10px 0px;
+    width: 100%;
   }
 
   nav li:hover .submenu {
     display: block;
     position: static;
+  }
+  nav > ul > li > a {
+    padding: 5px;
+    text-decoration: none;
+    color: #fff;
+  }
+  header > nav > ul > li:hover a {
+    padding: 5px 5px 5px 5px;
   }
 }
 

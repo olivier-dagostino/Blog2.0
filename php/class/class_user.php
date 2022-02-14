@@ -101,7 +101,7 @@ class User extends Dbh
   public function getAllInfoForAllUsers()
   {
 
-    $sth = $this->connect()->prepare("SELECT * FROM `utilisateurs`");
+    $sth = $this->connect()->prepare("SELECT `id`,`login`,`email`, `id_droits` FROM `utilisateurs`");
     $sth->execute();
     $res = $sth->fetchAll(PDO::FETCH_ASSOC);
     return $res;
@@ -130,6 +130,7 @@ class User extends Dbh
       echo 'Exception reçue : ', $e->getMessage(), "\n";
     }
   }
+
 
   public function isConnected()
   {

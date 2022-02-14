@@ -54,3 +54,17 @@ input {
 .first > .form-connexion > form > label {
   text-align: center;
 }
+
+@media screen and (max-width: 780px) {
+  header{
+    position: cover;
+    top:0;
+    width: 100%;
+    z-index: 1;
+  }
+  #form-connexion {
+    z-index: -1;
+  }
+  
+  
+}
