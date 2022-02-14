@@ -1,5 +1,12 @@
 /* HEADER */
 
+header{
+  position: sticky;
+  top:0;
+  width: 100%;
+}
+
+
 * {
   margin: 0px;
   padding: 0px;
@@ -53,7 +60,7 @@ nav > ul > li > a {
   color: #fff;
 }
 
-nav > ul > li:hover a {
+header > nav > ul > li:hover a {
   padding: 15px 30px 20px 30px;
 }
 
@@ -136,6 +143,11 @@ nav input[type="checkbox"]:checked ~ ul {
 }
 
 @media screen and (max-width: 780px) {
+  header{
+    position: sticky;
+    top:0;
+    width: 100%;
+  }
   .menu-mobile {
     display: block;
     color: #fff;

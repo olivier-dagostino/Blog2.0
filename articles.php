@@ -55,7 +55,7 @@
 
     ?>
 
-<nav>
+<nav id="select-page">
     <ul class="pagination">
         <!-- Lien vers la page précédente (désactivé si on se trouve sur la 1ère page) -->
         <li class="page-item <?= ($currentPage == 1) ? "disabled" : "" ?>">
