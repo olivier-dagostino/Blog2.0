@@ -1,5 +1,12 @@
 /* HEADER */
 
+header{
+  position: sticky;
+  top:0;
+  width: 100%;
+}
+
+
 * {
   margin: 0px;
   padding: 0px;
@@ -136,6 +143,11 @@ nav input[type="checkbox"]:checked ~ ul {
 }
 
 @media screen and (max-width: 780px) {
+  header{
+    position: sticky;
+    top:0;
+    width: 100%;
+  }
   .menu-mobile {
     display: block;
     color: #fff;
