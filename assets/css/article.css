@@ -66,6 +66,18 @@ article{
   padding: 20px;
 }
 
+article a img{
+  margin-right: 15px;
+  width: auto;
+  height: 15px;
+}
+
+article a {
+  margin: 15px;
+  text-decoration: none;
+  color: #0056b3;
+}
+
 .box3{
   padding: 30px;
   margin: 20px;
