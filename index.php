@@ -9,7 +9,7 @@
     
 ?>
     <main>
-
+        <h1 id="titre-presentation">Bienvenue</h1>
         <?php
 
             $text = $article->getArticles(3,1);
