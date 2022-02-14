@@ -57,6 +57,13 @@
   text-align: center;
 }
 
+#logo-git{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+
 @media screen and (max-width: 780px) {
   .footer {
     display: flex;

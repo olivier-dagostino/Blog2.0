@@ -43,6 +43,7 @@
                         <li><a href="#"></a></li>
 
                     </ul>
+                    <a id="logo-git" href="https://github.com/olivier-dagostino/Blog2.0"><i class="fa fa-github" style="font-size:50px"></i></a>
                     
 
                 </div>
