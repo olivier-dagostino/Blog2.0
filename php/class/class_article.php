@@ -95,7 +95,7 @@ class Article extends Dbh
 
         if (isset($categorie) && !empty($categorie)){
 
-            $getArticles = $this->connect()->prepare("SELECT articles.titre, articles.article, articles.date, utilisateurs.login FROM articles INNER JOIN utilisateurs on utilisateurs.id = articles.id_utilisateur AND articles.id_categorie = :categorie ORDER BY date DESC LIMIT :start,5 ");
+            $getArticles = $this->connect()->prepare("SELECT articles.titre, articles.article, articles.date, articles.id, utilisateurs.login FROM articles INNER JOIN utilisateurs on utilisateurs.id = articles.id_utilisateur AND articles.id_categorie = :categorie ORDER BY date DESC LIMIT :start,5 ");
 
             $getArticles->bindValue(':start', $start, PDO::PARAM_INT);
             $getArticles->bindValue(':categorie', $categorie, PDO::PARAM_INT);
@@ -112,7 +112,11 @@ class Article extends Dbh
             
                 echo "<p>Auteur : " . $article["login"] . "</p>";
             
-                echo "<p>Ecrit le : " . $article["date"] . "</p></article>"; 
+                echo "<p>Ecrit le : " . $article["date"] . "</p>";
+                
+                echo "<a href='article.php?id=" . $article['id'] . "'><img src='assets/img/comment.png' alt='comment icons'>Commentaires</a></article>";
+
+                // echo "<a href='article.php?id=" . $article['id'] . "'>Commentaires</a>";
             
             }        
             
