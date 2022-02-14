@@ -53,7 +53,7 @@ nav > ul > li > a {
   color: #fff;
 }
 
-nav > ul > li:hover a {
+header > nav > ul > li:hover a {
   padding: 15px 30px 20px 30px;
 }
 
