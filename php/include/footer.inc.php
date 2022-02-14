@@ -9,7 +9,6 @@
                     <ul>
 
                         <li><a href="index.php">Accueil</a></li><br>
-                        <li><a href="#">Catégories</a></li><br>
                         <li><a href="articles.php">Articles</a></li><br>
                         <li><a href="#">Galerie</a></li>
 
@@ -23,10 +22,10 @@
 
                     <ul>
                         
-                        <li><a href="#">Histoire de la Ville</a></li><br>
-                        <li><a href="#">Le Chantier Naval</a></li><br>
-                        <li><a href="#">Le Berceau du Cinema</a></li><br>
-                        <li><a href="#">Le Parc National des Calanques</a></li>
+                        <li><a href="articles.php?categorie=1">Histoire de la Ville</a></li><br>
+                        <li><a href="articles.php?categorie=2">Le Berceau du Cinéma</a></li><br>
+                        <li><a href="articles.php?categorie=3">Le Chantier Naval</a></li><br>
+                        <li><a href="articles.php?categorie=4">Le Parc National des Calanques</a></li>
 
                     </ul>
 
