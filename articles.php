@@ -7,11 +7,11 @@
 
     $article = new Article();
 
+    $categorie = new Categorie();
+
 ?>
 
 <main>
-
-    <h1>Les Articles</h1>
     
     <?php
 
@@ -25,6 +25,10 @@
             // Calcul du 1er article de la page
             $start = $currentPage * 5 - 5;
 
+            $categories = $categorie->getAllInfoById($_GET['categorie']);
+
+            echo "<h1>" . $categorie['nom'] . "<h1>";
+
             $articles= $article->getArticles(5, $start, $_GET['categorie']);
 
             }else{
@@ -32,6 +36,8 @@
                 $currentPage = (int) strip_tags($_GET['start']);
 
                 $start = $currentPage * 5 - 5;
+
+                echo "<h1>Articles les plus récents</h1>";
 
                 $articles= $article->getArticles(5, $start, '');
 
@@ -42,10 +48,16 @@
             $currentPage = 1;
 
             if(isset($_GET['categorie']) && !empty($_GET['categorie'])){
+
+                $categories = $categorie->getAllInfoById($_GET['categorie']);
+
+                echo "<h1>" . $categories[0]['nom'] . "</h1>";    
                 
                 $articles= $article->getArticles(5, 0, $_GET['categorie']);
     
                 }else{
+
+                    echo "<h1>Articles les plus récents</h1>";
         
                     $articles= $article->getArticles(5, 0);
     

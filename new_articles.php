@@ -59,7 +59,7 @@
                             <?php
                                 $categories = new Categorie();
 
-                                $res5 = $categories->getcategories();
+                                $res5 = $categories->getCategories();
                                 for ($i = 0; isset($res5[$i]); $i++) {
                                     echo "<option value='" . $res5[$i]['id'] . "'>" . $res5[$i]['nom'] . '</option>';
                                 }
