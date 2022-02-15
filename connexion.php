@@ -24,9 +24,9 @@
                 }
             }
         ?>
-
+<div class="container">
         <div class="form-connexion">
-
+            <h2>Formulaire d'Inscription</h2>
             <form action="#" id="form-connexion"  method="post">
 
                 <label for="login">Login</label>
@@ -39,6 +39,7 @@
 
             </form>
 
+        </div>
         </div>
 
     </main>

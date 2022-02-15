@@ -78,7 +78,7 @@ nav a {
 nav > ul > li > a {
   padding: 20px;
   text-decoration: none;
-  color: #fff;
+  /* color: #fff; */
 }
 
 header > nav > ul > li:hover a {

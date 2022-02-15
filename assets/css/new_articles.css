@@ -36,7 +36,6 @@ h1 {
 
 .containerA{
     padding: 25px;
-    margin: 25px;
     height: fit-content;
     width: fit-content;
     /* border-radius: 20px; */
@@ -72,6 +71,7 @@ h1 {
 form {
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
 }
 
 label {

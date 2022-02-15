@@ -33,13 +33,13 @@
         <div class="container">                 
         <form action="php/include/commentaire.inc.php"  method="POST">
 
-            <!-- <fieldset> -->
+            
 
                 <legend>Ajouter un commentaire</legend>
 
                 <input type="text" name="id_article" value="<?= $_GET['id'] ?>" hidden>
 
-                <label for="titre">Titre du commentaire</label>
+                <label for="titre">Titre</label>
                 <input name="titre" type="text" placeholder="Titre du commentaire">
 
                 <label for="comm">Votre Commentaire</label>
@@ -48,7 +48,7 @@
 
                 <input type="submit" name="submit" value="Envoyer">
 
-            <!-- </fieldset> -->
+            
 
         </form>
         </div>

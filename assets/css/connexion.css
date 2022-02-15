@@ -1,7 +1,7 @@
 /*Module Connexion*/
 
 main {
-  background-image: url(../img/plages-laciotat.jpeg);
+  background-image: url(https://kreativedecks.com/wp-content/uploads/2021/01/1200x630_100_300_000000x30x0.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 80vh;
@@ -11,17 +11,18 @@ main {
   color: red;
 }
 
+.container{
+  display: flex;
+  justify-content: center;
+}
 .form-connexion {
+  
   padding: 30px;
   height: fit-content;
   width: fit-content;
   /* border-radius: 20px; */
   /* box-shadow: 16px -14px 5px 0px rgb(76 76 84 / 20%); */
   background-color: #3181c5bf;
-  position: absolute;
-  top: 20%;
-  left: 20%;
-  color: #ebeff1;
   z-index: 0;
 }
 
@@ -42,7 +43,7 @@ h1 {
 
 h2 {
   text-align: center;
-  padding: 10px;
+  padding: 15px;
   font-weight: bold ;
   font-size: 25px;
 }
@@ -81,14 +82,11 @@ input {
 
 @media screen and (max-width: 780px) {
   
-  main{
-    
-  }
 
   #form-connexion{
+
     display: flex;
     justify-content: center;
-    color: #ebeff1;
     margin-top: 30px;
     z-index: 0;
   }
