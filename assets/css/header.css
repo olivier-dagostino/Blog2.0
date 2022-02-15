@@ -148,7 +148,10 @@ nav input[type="checkbox"]:checked ~ ul {
     position: sticky;
     top:0;
     width: 100%;
+    z-index: 1;
   }
+
+  
   .menu-mobile {
     display: block;
     color: #fff;

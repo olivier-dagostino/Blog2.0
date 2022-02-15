@@ -79,7 +79,7 @@ require('php/include/autoloader.inc.php');
                                         <ul class="submenu">
 
                                             <li><a href="new_articles.php">Créer un Article</a></li>
-                                            <li><a href="#">Mes articles</a></li> 
+                                            <li><a href="mesarticles.php">Mes articles</a></li> 
                                             <li><a href="edit_articles.php">Edition d\'un article</a></li>
 
                                         </ul>
