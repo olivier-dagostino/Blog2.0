@@ -9,7 +9,7 @@
     } else {
 
         $title = "New Article";
-        $css = "new_articles";
+        $css = "new_article";
     
         require ('php/include/header.inc.php');
 
@@ -67,18 +67,24 @@
                     </select>
 
                 <label for="titre">Titre de l'article</label>
+
                 <input name="titre" type="text" placeholder="Votre titre">
+
             </div>
+            
             <div class="containerA2">
+
                 <label for="article">Article</label>
+
                 <textarea id="article" name="article" placeholder="Votre article" rows="20" cols="40"></textarea>
+
                 <input type="submit" name="submit" value="Envoyer">
+
             </div>
+
             </form>
 
         </div>
-
-
 
     </main>
 

@@ -1,83 +1,62 @@
 <?php
 
-    if ($_SESSION['droits'] == '42' || $_SESSION['droits'] == '1337') {
+session_start();
+
+if ($_SESSION['droits'] !== '42' && $_SESSION['droits'] !== '1337') {
 
     header('Location: index.php');
-
 } else {
 
-    session_start();
     $title = "Edition";
     $css = "edit_articles";
-    
-    require ('php/include/header.inc.php');
+
+    require('php/include/header.inc.php');
 
 ?>
 
     <main>
 
-        <?php
+        <h1>Modification d'article</h1>
 
-            if (isset($_POST['submit'])) {
+            <form action="php/include/edit_article.inc.php" method="POST" class="articlecreate">
 
-                if (empty($_POST['titre']) || empty($_POST['article']) || empty($_POST['categories'])) {
+                <fieldset>
 
-                    echo "<p> Veuillez remplir tout les champs</p>";
-                } 
-                
-                else{
+                    <legend>Modification d'un Article</legend>
 
-                    $id_categories = $_POST['categories'];                        
+                    <label for="categories">Catégorie</label>
 
-                    $insert = new Article();
-
-                    $insert->creation($_POST['titre'], $_POST['article'], $_SESSION['id'], $id_categories);
-
-                    echo "<p>Votre article est correctement enregistré</p>";
-                }
-            }
-        ?>
-
-        <h1>Crétation d'un Article</h1>
-
-        <div class="containerA">
-            
-            <form action=""  method="POST" class="articlecreate">
-
-                
-
-                <label for="categories">Catégorie</label>
-
-                    <select name="categories" id="categories" >
+                    <select name="categories" id="categories">
 
                         <option>--Choisir une Catégorie--</option>';
 
-                            <?php
-                                $categories = new Categorie();
+                        <?php
 
-                                $res5 = $categories->getCategories();
+                            $categories = new Categorie();
 
-                                for ($i = 0; isset($res5[$i]); $i++) {
+                            $cat = $categories->getCategories();
 
-                                    echo "<option value='" . $res5[$i]['id'] . "'>" . $res5[$i]['nom'] . '</option>';
+                            for ($i = 0; isset($cat[$i]); $i++) {
 
-                                }
-                            ?> 
+                                echo "<option value='" . $cat[$i]['id'] . "'>" . $cat[$i]['nom'] . '</option>';
+                            }
+
+                        ?>
 
                     </select>
 
-                <label for="titre">Titre de l'article</label>
-                <input name="titre" type="text" placeholder="Votre titre">
+                    <label for="titre">Titre de l'article</label>
+                    <input name="titre" type="text" placeholder="Votre titre">
 
-                <label for="article">Article</label>
-                <textarea id="article" name="article" placeholder="Votre article" rows="20" cols="40"></textarea>
-                <input type="submit" name="submit" value="Envoyer">
+                    <label for="article">Article</label>
+                    <textarea id="article" name="article" placeholder="Votre article" rows="20" cols="40"></textarea>
+
+                    <input type="submit" name="submit" value="Envoyer">
+
+                </fieldset>
 
             </form>
 
-        </div>
-
     </main>
 
-    <?php include('php/include/footer.inc.php'); } ?>
-
+<?php include('php/include/footer.inc.php'); } ?>
