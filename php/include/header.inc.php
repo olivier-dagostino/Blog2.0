@@ -25,7 +25,7 @@ require('php/include/autoloader.inc.php');
             <ul>
 
                 <li class="menu-home"><a href="index.php">Accueil</a></li>
-                <li class="menu-cat"><a href="articles.php">Articles</a>
+                <li class="menu-cat"><a href="#">Articles</a>
 
                     <ul class="submenu">
 

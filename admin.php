@@ -30,7 +30,6 @@
                 }
                 echo'<th>ID</th>';
                 echo'<th>LOGIN</th>';
-                echo'<th>MOT DE PASSE</th>';
                 echo'<th>EMAIL</th>';
                 echo'<th>DROIT</th>';
                 echo '</tr>';
@@ -43,18 +42,42 @@
                 <tr>
                     <?php
 
-                        foreach ($res1 as $key => $value) { // pour chaque valeur qui se trouve dans la $res1 (pour chaques étudiants) 
+                        foreach ($res1 as $key => $value) { // pour chaque valeur qui se trouve dans la $res1 
                             echo '<tr>'; //on echo une ligne
                             
-                           
-                            foreach ($value as $key1 => $value1){ //Pour chaque info de l'étudiant on écho une case
-                                echo "<td>$value1</td>";  // j'echo l'info
-                            }
+                                foreach ($value as $key1 => $value1){ //Pour chaque info de l'étudiant on écho une case
+                                    
+                                    echo "<td>$value1</td>";
+                                    // j'echo l'info
+                                    
+                                }
+
+                                echo "<td>
+                                        <form action='php/include/admin.inc.php' method='POST'>
+
+                                            <select name='select-droits' id='select-droitd'>
+
+                                                <option>--Droits--</option>
+                                                <option value='1'>Utilisateurs</option>
+                                                <option value='42'>Modérateur</option>
+                                                <option value='1337'>Admin</option>
+
+                                            </select>
+                                        
+                                            <button type='submit' name='submit'>Modifier les Droits</button>
+
+                                            
+                                        </form>
+                                    </td>";
+                                
                             echo '</tr>';
                         }
 
+
                     ?>
+                    
                 </tr>
+                <tr></tr>
 
             </tbody>
         </table>

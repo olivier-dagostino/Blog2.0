@@ -146,7 +146,7 @@ class Article extends Dbh
             
                 echo "<p>Ecrit le : " . $article["date"] . "</p>";
                 
-                echo "<a href='article.php?id=" . $article['id'] . "'><img src='assets/img/comment.png' alt='comment icons'>Commentaires</a></article>";
+                echo "<a href='article.php?id=" . $article['id'] . "'><img src='assets/img/comment.png' alt='comment icons' id='logo-comment' style='height: 50px;width: 50px;'>Commentaires</a></article>";
             
             }        
 

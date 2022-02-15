@@ -224,3 +224,7 @@ input {
   border-top-right-radius:.2rem;
   border-bottom-right-radius:.2rem
 }
+
+img #logo-comment{
+  height: 10px;
+}
