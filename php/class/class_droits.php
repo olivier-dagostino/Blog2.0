@@ -29,4 +29,5 @@ class Droits extends Dbh
         $res= $sth->fetch();
         return $res;
     }
+
 }

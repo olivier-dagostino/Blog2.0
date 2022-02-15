@@ -8,9 +8,9 @@ spl_autoload_register('myAutoLoader');
 
         $url = $_SERVER ['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 
-        if (strpos($url, 'includes') !== false) {
+        if (strpos($url, 'include') !== false) {
 
-            $path = '../php/class/class_';
+            $path = '../class/class_';
 
         } else {
 

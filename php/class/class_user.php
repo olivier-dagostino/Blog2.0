@@ -177,4 +177,17 @@ class User extends Dbh
     $sth->execute();
     echo "<p>Nous vous confirmons la Suppression de Votre Compte </p>";
   }
+
+  // Modifier les droits d'un utilisateur
+  public function setDroit($id_droit, $id_utilisateur)
+  {
+
+      $set = $this->connect()->prepare("UPDATE utilisateurs SET id_droits = :id_droit WHERE id = :id ;");
+
+      $res = $set->execute(array(':id_droit' => $id_droit, ':id' => $id_utilisateur));
+
+      header("location:../../admin.php");
+
+  }
+
 }
