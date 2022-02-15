@@ -19,3 +19,8 @@ Bienvenue val
     ?>
 
     <br /><b>Warning</b>:  Trying to access array offset on value of type bool in <b>/Applications/MAMP/htdocs/blog2.0/profil.php</b> on line <b>79</b><br />
+
+
+    Exception reçue : SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '?' at line 1
+Bienvenue test
+
