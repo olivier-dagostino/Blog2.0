@@ -49,12 +49,6 @@ p {
 
 }
 
-p:nth-child(3){
-  font-weight: bold;
-  text-transform: capitalize;
-}
-
-
 article{
   background-color: #dee2e673;
   display: flex;
