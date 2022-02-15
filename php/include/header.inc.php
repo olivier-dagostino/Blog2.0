@@ -25,11 +25,11 @@ require('php/include/autoloader.inc.php');
             <ul>
 
                 <li class="menu-home"><a href="index.php">Accueil</a></li>
-                <li class="menu-cat"><a href="#">Articles</a>
+                <li class="menu-cat"><a href="articles.php">Articles</a>
 
                     <ul class="submenu">
 
-                        <li><a href="articles.php?">Tous les Articles</a></li>
+                        <li><a href="articles.php">Tous les Articles</a></li>
                         <li><a href="articles.php?categorie=1">Histoire de la ville</a></li>
                         <li><a href="articles.php?categorie=2">Berceau du Cinéma</a></li>
                         <li><a href="articles.php?categorie=3">Le Chantier Naval</a></li>

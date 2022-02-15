@@ -78,7 +78,8 @@ article a {
   color: #0056b3;
 }
 
-.box3{
+form {
+
   padding: 30px;
   margin: 20px;
   height: fit-content;
@@ -89,11 +90,7 @@ article a {
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
 
-form {
-  display: flex;
-  flex-direction: column;
 }
 
 label {
