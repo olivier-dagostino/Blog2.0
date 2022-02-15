@@ -29,8 +29,6 @@
                 <input type="submit" name="delete" value="Supprimer mon Compte">
                 <?php
 
-                    
-
                     if ($_POST['delete']) {
 
                         $info = new User();

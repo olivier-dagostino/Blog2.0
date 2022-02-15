@@ -7,7 +7,7 @@ if ($_SESSION['droits'] != 1337) {
     header('Location: index.php');
 } else {
 
-    $title = "Admin";
+    $title = "Gestion des Utilisateurs";
     $css = "admin";
     require('php/include/header.inc.php');
 
@@ -60,17 +60,25 @@ if ($_SESSION['droits'] != 1337) {
                                     <button type='submit' name='submit'>Modifier les Droits</button>
 
                                 </form>
-                                <form action='delete.php'>
-
-                                    <button type='submit' name='delete'>Supprimer</button>
-
-                                </form>
+                                
                             </td>";
 
                     echo '</tr>';
                 }
+                
+                // if ($_POST['delete']) {
 
+                //     $info = new User();
+                //     $res1 = $info->deleteUser($value['id']);
+                //     echo 'Votre Compte à bien été supprimé';
+                //     session_unset();
+                //     header('location: index.php');
+                // }
+                // <form action='#' method='POST'>
+                // <input type='text' name='id' value='" . $value['id'] . "' hidden>
+                // <button type='submit' name='delete'>Supprimer</button>
 
+                // </form>
                 ?>
 
 
