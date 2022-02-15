@@ -4,12 +4,21 @@ require_once('class_dbh.php');
 class Commentaire extends Dbh
 {
     
-    public function getComAndUserById($get)
+    public function getCommentaires($id_article)
     {
-        $sth = $this->connect()->prepare("SELECT `commentaires.commentaire`, `commentaires.date`, `utilisateurs.login`, `utilisateurs.active` FROM `commentaires` INNER JOIN `utilisateurs` ON `commentaires.id_utilisateur` = `utilisateurs.id` WHERE `id_article` = $get ORDER BY date DESC ");
-        $sth->execute();
-        $commentaire = $sth->fetchAll(PDO::FETCH_ASSOC);
-        return $commentaire;
+        $sth = $this->connect()->prepare("SELECT commentaires.commentaire, commentaires.date, utilisateurs.login FROM commentaires INNER JOIN utilisateurs ON commentaires.id_utilisateur = utilisateurs.id WHERE id_article = :id ORDER BY date DESC;");
+
+        $sth->execute(array(':id' => $id_article));
+
+        if ($sth->rowCount() == 0){
+            return "Il n'y a aucun commentaires";
+        } else {
+            
+            $commentaires = $sth->fetchAll(PDO::FETCH_ASSOC);
+
+            return $commentaires;
+
+        }
 
     }
 

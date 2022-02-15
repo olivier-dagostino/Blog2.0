@@ -4,25 +4,31 @@
     $title = "Article";
     $css = "article";
     require ('php/include/header.inc.php');
-    // require('php/include/autoloader.inc.php');
+    
+    $article = new Article();
+
+    $commentaire = new Commentaire();
+
+    if (isset($_GET['id']) && !empty($_GET['id'])){
+    
+        $article = $article->getArticleById($_GET['id']);
+        
+        $commentaires = $commentaire->getCommentaires($_GET['id']);
+    
+        $id = $_GET['id'];
+    
+    } else {
+    
+        header('location: articles.php');
+    
+    }
 
 ?>
+
     <main>
 
         <?php
-
-            $art = new Article();
-            $text = $art->getAllArticle();
-            $date2 = strtotime($text['0']['article']);
-            echo "<pre>";           
-            var_dump($text);
-            echo "</pre>"; 
             
-            $article = explode('/', $text['0']['article']);
-                      
-            $comm = new Commentaire();
-            $com = $comm->getComAndUserById($_GET['id']);
-            $id = $_GET['id'];
 
             if (isset($_POST['submit'])) {
 
@@ -40,6 +46,7 @@
                 }
             }
         ?>
+
         <div class="containerA">
 
             <div class="containerB">
@@ -48,21 +55,16 @@
 
                     <div class="containerC1">
 
-                        <h1 class="titre"><?php echo $article[0]; ?></h1>
-                        <p class="article"><?php echo $article[1]; ?></p>
+                        <h1 class="titre"><?= $article[0]["titre"]; ?></h1>
+                        <p class="article"><?= $article[0]["article"]; ?></p>
 
                     </div>
 
                     <div class="containerC2">
 
-                        <p>Ecrit par <?php echo $text['login']; ?></p>
+                        <p>Ecrit par <?= $article[0]['login']; ?></p>
 
-                        <img src="#" alt="">
-
-                        <p>Le <?php echo date('d/m/Y', $date2); ?> </p>
-
-                        
-
+                        <p>Le <?= $article[0]["date"]; ?> </p>
                     </div>
 
                 </div>

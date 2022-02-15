@@ -36,12 +36,15 @@ class Article extends Dbh
         return $res;
     }
 
-    public function getArticleById($get)
+    public function getArticleById($id_article)
     {
-        $sth = $this->connect()->prepare("SELECT `articles.article`, `utilisateurs.login`, `articles.date` FROM `articles` INNER JOIN `utilisateurs` ON `articles.id_utilisateur` = `utilisateurs.id` WHERE `articles.id` = $get");
+        $sth = $this->connect()->prepare("SELECT articles.titre, articles.article, utilisateurs.login, articles.date FROM articles INNER JOIN utilisateurs ON articles.id_utilisateur = utilisateurs.id WHERE articles.id = $id_article ;");
+
         $sth->execute();
+
         $article= $sth->fetchAll();
-        return$article;
+
+        return $article;
     }
 
     public function getAllInfoById($id)
