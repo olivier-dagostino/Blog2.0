@@ -20,22 +20,6 @@ class Article extends Dbh
 
     }
 
-    // récupère les 5 derniers article
-    public function get5Article($get, $categorie = '') 
-    {
-
-        if (empty($categorie)) {
-
-            $sth = $this->connect()->prepare("SELECT articles.article, articles.date, utilisateurs.login, utilisateurs.active, articles.id  FROM articles INNER JOIN utilisateurs on utilisateurs.id = articles.id_utilisateur ORDER BY date DESC LIMIT $get,5 ");
-            
-        } else {
-            $sth = $this->connect()->prepare("SELECT articles.article, articles.date, utilisateurs.login, utilisateurs.active, articles.id  FROM articles INNER JOIN utilisateurs on utilisateurs.id = articles.id_utilisateur AND articles.id_categorie = $categorie ORDER BY date DESC LIMIT $get,5 ");
-        }
-        $sth->execute();
-        $res = $sth->fetchAll(PDO::FETCH_ASSOC);
-        return $res;
-    }
-
     public function getArticleById($id_article)
     {
         $sth = $this->connect()->prepare("SELECT articles.titre, articles.article, utilisateurs.login, articles.date FROM articles INNER JOIN utilisateurs ON articles.id_utilisateur = utilisateurs.id WHERE articles.id = $id_article ;");
@@ -44,7 +28,18 @@ class Article extends Dbh
 
         $article= $sth->fetchAll();
 
-        return $article;
+        foreach ($article as $array) {
+                                
+            echo "<article><h2>" . $array["titre"] . "</h2>";
+        
+            echo "<p>" . $array["article"] . "</p>";
+        
+            echo "<p>Auteur : " . $array["login"] . "</p>";
+        
+            echo "<p>Ecrit le : " . $array["date"] . "</p>";
+                    
+        }       
+        
     }
 
     public function getAllInfoById($id)
