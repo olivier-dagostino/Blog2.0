@@ -14,7 +14,7 @@ class User extends Dbh
 
     try {
 
-      $req = $this->connect->prepare("SELECT * FROM `utilisateurs` WHERE login=?");
+      $req = $this->connect()->prepare("SELECT * FROM `utilisateurs` WHERE login=?");
       $req->execute();
     } catch (Exception $e) {
 

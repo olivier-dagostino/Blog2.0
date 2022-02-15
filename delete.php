@@ -25,6 +25,8 @@
 
             <form method="POST" action="">
 
+
+                <input type="submit" name="delete" value="Supprimer mon Compte">
                 <?php
 
                     
@@ -34,12 +36,11 @@
                         $info = new User();
                         $res1 = $info->deleteUser($_SESSION['id']);
                         echo 'Votre Compte à bien été supprimé';
-                        header('Refresh:3 ; url: index.php');
+                        session_unset();
+                        header('location: index.php');
                     }
 
                 ?>
-
-                <input type="submit" name="delete" value="Supprimer mon Compte">
 
             </form>
 
