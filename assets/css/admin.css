@@ -1,16 +1,30 @@
 main {
-    background-image: url(../img/61EDD2BE-A5C4-4903-8FD9-7833D0447FBF_1_105_c.jpeg);
+    background-image: url(https://kreativedecks.com/wp-content/uploads/2021/01/1200x630_100_300_000000x30x0.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     min-height: 80vh;
 }
 
 h1 {
-    padding: 50px;
-    text-align: center; 
-    color: #fff;
+    text-align: center;
+    padding: 30px;
+    font-weight: bold ;
+    font-size: 30px;
   
-}
+  }
+  
+  h2 {
+    text-align: center;
+    padding: 10px;
+    font-weight: bold ;
+    font-size: 25px;
+  }
+  
+  p {
+    text-align: left;
+    margin: 10px;
+  
+  }
 table{
     padding: 15px;
     margin: 20px;

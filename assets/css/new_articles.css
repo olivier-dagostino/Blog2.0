@@ -13,13 +13,34 @@ main {
     align-items: center;
 }
 
+h1 {
+    text-align: center;
+    padding: 30px;
+    font-weight: bold ;
+    font-size: 30px;
+  
+  }
+  
+  h2 {
+    text-align: center;
+    padding: 10px;
+    font-weight: bold ;
+    font-size: 25px;
+  }
+  
+  p {
+    text-align: left;
+    margin: 10px;
+  
+  }
+
 .containerA{
     padding: 25px;
     margin: 25px;
     height: fit-content;
     width: fit-content;
     /* border-radius: 20px; */
-    box-shadow: 16px -14px 5px 0px rgb(76 76 84 / 20%);
+    /* box-shadow: 16px -14px 5px 0px rgb(76 76 84 / 20%); */
     background-color: #3181c5bf;
     display: flex;
     flex-direction: column;
@@ -41,9 +62,12 @@ main {
     padding: 20px;
 }
 
-h1{
+h1 {
+
     text-align: center;
-}
+    padding: 30px;
+  
+  }
 
 form {
     display: flex;

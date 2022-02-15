@@ -6,6 +6,27 @@ main {
   min-height: 80vh;
 }
 
+h1 {
+  text-align: center;
+  padding: 30px;
+  font-weight: bold ;
+  font-size: 30px;
+
+}
+
+h2 {
+  text-align: center;
+  padding: 10px;
+  font-weight: bold ;
+  font-size: 25px;
+}
+
+p {
+  text-align: left;
+  margin: 10px;
+
+}
+
 .first-I {
   display: flex;
   justify-content: center;
@@ -24,7 +45,7 @@ main {
   height: fit-content;
   width: fit-content;
   /* border-radius: 20px; */
-  box-shadow: 16px -14px 5px 0px rgb(76 76 84 / 20%);
+  /* box-shadow: 16px -14px 5px 0px rgb(76 76 84 / 20%); */
   background-color: #3181c5bf;
   display: flex;
   flex-direction: column;

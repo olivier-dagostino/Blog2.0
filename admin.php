@@ -26,7 +26,7 @@ if ($_SESSION['droits'] != 1337) {
                 $res1 = $info->getAllInfoForAllUsers();
 
                 ?>
-
+                
             </thead>
 
             <tbody>
