@@ -44,41 +44,33 @@ if ($_SESSION['droits'] != 1337) {
 
                     }
 
-
                     echo"<td>
-                                <form action='php/include/admin.inc.php' method='POST'>
-                                    <input type='text' name='id' value='" . $value['id'] . "' hidden>
-                                    <select name='select-droits' id='select-droitd'>
+                            <form action='php/include/admin.inc.php' method='POST'>
 
-                                        <option>--Droits--</option>
-                                        <option value='1'>Utilisateurs</option>
-                                        <option value='42'>Modérateur</option>
-                                        <option value='1337'>Admin</option>
+                                <input type='text' name='id' value='" . $value['id'] . "' hidden>
 
-                                    </select>
+                                <select name='select-droits' id='select-droitd'>
+
+                                    <option>--Droits--</option>
+                                    <option value='1'>Utilisateurs</option>
+                                    <option value='42'>Modérateur</option>
+                                    <option value='1337'>Admin</option>
+
+                                </select>
+                            
+                                <button type='submit' name='submit'>Modifier les Droits</button>
+
+                                <button type='submit' name='delete'>Supprimer</button>
+
+                            </form>
                                 
-                                    <button type='submit' name='submit'>Modifier les Droits</button>
-
-                                </form>
-                                
-                            </td>";
+                        </td>";
 
                     echo '</tr>';
                 }
                 
-                // if ($_POST['delete']) {
-
-                //     $info = new User();
-                //     $res1 = $info->deleteUser($value['id']);
-                //     echo 'Votre Compte à bien été supprimé';
-                //     session_unset();
-                //     header('location: index.php');
-                // }
-                // <form action='#' method='POST'>
-                // <input type='text' name='id' value='" . $value['id'] . "' hidden>
-                // <button type='submit' name='delete'>Supprimer</button>
-
-                // </form>
+                
+                
                 ?>
 
 
