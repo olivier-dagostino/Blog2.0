@@ -44,7 +44,6 @@
 
                         foreach ($res1 as $key => $value) { // pour chaque valeur qui se trouve dans la $res1 
                             echo '<tr>'; //on echo une ligne
-                            
                                 foreach ($value as $key1 => $value1){ //Pour chaque info de l'étudiant on écho une case
                                     
                                     echo "<td>$value1</td>";
@@ -52,9 +51,10 @@
                                     
                                 }
 
+
                                 echo "<td>
                                         <form action='php/include/admin.inc.php' method='POST'>
-
+                                        <input type='text' name='id' value='".$value['id']."' hidden>
                                             <select name='select-droits' id='select-droitd'>
 
                                                 <option>--Droits--</option>

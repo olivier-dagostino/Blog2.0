@@ -10,6 +10,7 @@ if ($_POST['submit'] !== null) {
     
     $user = new User();
 
-    $user->setDroit($_POST['select-droits'], $_SESSION['id']);
+    $user->setDroit($_POST['select-droits'], $_POST['id']);
+    // var_dump($_POST);
 }
 ?>
