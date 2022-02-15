@@ -75,12 +75,11 @@ require('php/include/autoloader.inc.php');
 
                                     </li>
                                     
-                                    <li class="menu-edit"><a href="edit_articles.php">Edition</a>
+                                    <li class="menu-edit"><a href="#">Edition</a>
                                         <ul class="submenu">
 
-                                            <li><a href="new_articles.php">Créer un Article</a></li>
-                                            <li><a href="mesarticles.php">Mes articles</a></li> 
-                                            <li><a href="edit_articles.php">Edition d\'un article</a></li>
+                                            <li><a href="new_article.php">Créer un Article</a></li>
+                                            <li><a href="mes_articles.php">Mes articles</a></li> 
 
                                         </ul>
                                     </li>
@@ -107,9 +106,8 @@ require('php/include/autoloader.inc.php');
                                 <li class="menu-edit"><a href="#">Edition</a>
                                     <ul class="submenu">
 
-                                        <li><a href="new_articles.php">Créer un Article</a></li>
-                                        <li><a href="#">Mes articles</a></li> 
-                                        <li><a href="edit_articles.php">Edition d\'un article</a></li>
+                                        <li><a href="new_article.php">Créer un Article</a></li>
+                                        <li><a href="mes_articles.php">Mes articles</a></li> 
 
                                     </ul>
                                 </li>
