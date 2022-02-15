@@ -14,7 +14,7 @@ h1 {
     
     height: fit-content;
     width: fit-content;
-    border-radius: 20px;
+    /* border-radius: 20px; */
     background-color: #3181c5bf;
     display: flex;
     flex-direction: column;
@@ -33,7 +33,7 @@ h1 {
 input{
     
   margin: 20px;
-  border-radius: 20px;
+  /* border-radius: 20px; */
   font-size: inherit;
   box-shadow: none;
   border: none;

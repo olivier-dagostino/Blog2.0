@@ -15,7 +15,7 @@
     margin: 20px;
     height: fit-content;
     width: fit-content;
-    border-radius: 20px;
+    /* border-radius: 20px; */
     box-shadow: 16px -14px 5px 0px rgb(76 76 84 / 20%);
     background-color: #3181c5bf;
     display: flex;
@@ -35,7 +35,7 @@ label {
 }
 
 input {
-    border-radius: 25px;
+    /* border-radius: 25px; */
     padding: 5px;
     margin: 5px;
 }
@@ -43,6 +43,6 @@ input {
 
 
 select{
-    border-radius: 25px;
+    /* border-radius: 25px; */
     text-align: center;
 }

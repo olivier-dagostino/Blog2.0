@@ -25,25 +25,18 @@
                 $info = new User();
                 $res1 = $info->getAllInfoForAllUsers();
                 
-                echo '<tr>';
-                foreach ($res1 as $key => $value) {
-                }
-                echo'<th>ID</th>';
-                echo'<th>LOGIN</th>';
-                echo'<th>EMAIL</th>';
-                echo'<th>DROIT</th>';
-                echo '</tr>';
                 ?>
 
             </thead>
 
             <tbody>
 
-                <tr>
+                
                     <?php
 
                         foreach ($res1 as $key => $value) { // pour chaque valeur qui se trouve dans la $res1 
                             echo '<tr>'; //on echo une ligne
+                            
                                 foreach ($value as $key1 => $value1){ //Pour chaque info de l'étudiant on écho une case
                                     
                                     echo "<td>$value1</td>";
@@ -76,7 +69,7 @@
 
                     ?>
                     
-                </tr>
+                
                 <tr></tr>
 
             </tbody>
