@@ -47,7 +47,7 @@ if ($_SESSION['droits'] != 1337) {
 
                                     <select name='select-droits' id='select-droitd'>
 
-                                        <option>--Droits--</option>
+                                        <option>- Droits -</option>
                                         <option value='1'>Utilisateurs</option>
                                         <option value='42'>Modérateur</option>
                                         <option value='1337'>Admin</option>
@@ -95,7 +95,8 @@ if ($_SESSION['droits'] != 1337) {
                                 <input type='text' name='id_article' value='" . $article['id'] . "' hidden>
                                 <input type='text' name='id_categorie' value='" . $article['id_categorie'] . "' hidden>
                                 
-                                    <select name='categorie' id='catégorie'>";
+                                    <select name='categorie' id='catégorie'>
+                                    <option>- Catégorie -</option>";
                                     foreach ($getCategories as $index => $categorie) {
 
                                         echo "<option value = '" . $categorie['id'] . "'> - " . $categorie['id'] . " - " . $categorie['nom'] . "</option>";

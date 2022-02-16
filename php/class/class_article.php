@@ -139,10 +139,10 @@ class Article extends Dbh
 
     }
 
-    public function update($article, $catego, $enligne,$id)
+    public function setCategorie( $id_categorie,$id_article)
     {
-        $sth=$this->connect()->prepare("UPDATE `articles` SET `article` = ?, `id_categorie` = ?, `enligne` = ? WHERE `id` = $id");
-        $sth->execute(array($article,$catego,$enligne));
+        $sth=$this->connect()->prepare("UPDATE articles SET id_categorie = :categorie WHERE id = :id ");
+        $sth->execute(array(':categorie' => $id_categorie, ':id' => $id_article));
         echo "<p> Votre Modification a été prise en compte</p>";
 
     }

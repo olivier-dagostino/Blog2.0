@@ -54,4 +54,6 @@ class Categorie extends Dbh
         $sth->execute(array($nom));
         echo "<p>Nouvelle Catégorie bien enregistrer/p>";
     }
+
+    
 }
