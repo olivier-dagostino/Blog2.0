@@ -88,7 +88,7 @@ if ($_SESSION['droits'] != 1337) {
         </section>
 
         <section class="gestion-com">
-            <h1>Gestion des Commentaire</h1>
+            <h1>Gestion des Commentaires</h1>
         </section>
 
     </main>

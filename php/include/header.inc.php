@@ -115,7 +115,7 @@ require('php/include/autoloader.inc.php');
 
                                     <ul class="submenu">
 
-                                        <li><a href="admin.php">Gestion des utilisateurs</a></li>
+                                        <li><a href="admin.php">DashBoard</a></li>
 
                                     </ul>
                                     
