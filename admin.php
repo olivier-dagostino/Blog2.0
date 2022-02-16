@@ -93,14 +93,14 @@ if ($_SESSION['droits'] != 1337) {
                                 <form action='php/include/admin.inc.php' method='POST'>
 
                                 <input type='text' name='id_article' value='" . $article['id'] . "' hidden>
-                                <input type='text' name='id_categorie' value='" . $article['id_categorie'] . "' hidden>
                                 
-                                    <select name='categorie' id='catégorie'>
-                                    <option>- Catégorie -</option>";
-                                    foreach ($getCategories as $index => $categorie) {
+                                    <select name='id_categorie' id='catégorie'>
 
-                                        echo "<option value = '" . $categorie['id'] . "'> - " . $categorie['id'] . " - " . $categorie['nom'] . "</option>";
-                                    }                                    
+                                        <option>- Catégorie -</option>";
+                                        foreach ($getCategories as $index => $categorie) {
+
+                                            echo "<option value = '" . $categorie['id'] . "'> - " . $categorie['id'] . " - " . $categorie['nom'] . "</option>";
+                                        }                                    
 
                                     echo "</select>
                                 
