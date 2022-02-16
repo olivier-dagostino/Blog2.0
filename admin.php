@@ -11,27 +11,27 @@ if ($_SESSION['droits'] != 1337) {
     $css = "admin";
     require('php/include/header.inc.php');
 
+    $user = new User();
+    $article = new Article();
+    $categorie = new Categorie();
+   
+    $res1 = $user->getList();
+    $articles = $article->getList();
+    $getCategories = $categorie->getCategories();
+
+    echo"<pre>";
+    var_dump($articles);
+    echo"</pre>";
+
+    die();
 ?>
     <main>
 
         <section class="gestion-user">
+
             <h1>Gestion des Utilisateurs</h1>
+
             <table>
-
-
-                <thead>
-
-                    <?php
-
-                    $user = new User();
-                    $res1 = $user->getList();
-
-                    ?>
-
-                </thead>
-
-                <tbody>
-
 
                     <?php
 
@@ -41,7 +41,7 @@ if ($_SESSION['droits'] != 1337) {
 
                         foreach ($value as $key1 => $value1) {
 
-                            echo "<td>test</td>";
+                            echo "<td>$value1</td>";
                         }
 
                         echo "<td>
@@ -67,12 +67,10 @@ if ($_SESSION['droits'] != 1337) {
                             </td>";
 
                         echo '</tr>';
+
                     }
 
-                    ?>
-
-
-                </tbody>
+                ?>
 
             </table>
 
@@ -81,83 +79,47 @@ if ($_SESSION['droits'] != 1337) {
         <section class="gestion-article">
 
             <h1>Gestion des Articles</h1>
+
             <table>
 
-
-                <thead>
-
-                    <?php
-
-                    $article = new Article();
-
-                    $articles = $article->getList();
-
-                    $categorie = new Categorie();
-
-                    $getCategories = $categorie->getCategories();
-
-                    ?>
-
-                    <form action="" method="POST">
-
-                        <select name='categorie' id='select-droitd'>
-
-                            <option>--Catégorie--</option>
-                            <?php
-
-                            foreach ($getCategories as $index => $categorie) {
-
-                                echo "<option value = '" . $categorie['id'] . "'>" . $categorie['nom'] . "</option>";
-                            }
-
-
-                            ?>
-                        </select>
-                        </form>
-                </thead>
-
-                <tbody>
-
-                    <?php
+                <?php
 
                     foreach ($articles as $key => $article) {
 
                         echo '<tr>';
 
-                        foreach ($article as $key1 => $value1) {
+                        foreach ($article as $key1 => $value) {
 
-                            echo "<td>$value1</td>";
+                            echo "<td>$value</td>";
                         }
 
                         echo "<td>
                                 <form action='php/include/admin.inc.php' method='POST'>
 
-                                <input type='text' name='id' value='" . $value['id'] . "' hidden>
-                                <input type='text' name='id' value='" . $value['id_categorie'] . "' hidden>
+                                <input type='text' name='id' value='" . $article['id'] . "' hidden>
+                                <input type='text' name='id' value='" . $article['id_categorie'] . "' hidden>
                                 
-                                    <select name='categorie' id='catégorie'>
+                                    <select name='categorie' id='catégorie'>";
+                                    foreach ($getCategories as $index => $categorie) {
 
-                                        <option>--Droits--</option>
-                                        <option value='1'>Utilisateurs</option>
-                                        <option value='42'>Modérateur</option>
-                                        <option value='1337'>Admin</option>
+                                        echo "<option value = '" . $categorie['id'] . "'>" . $categorie['nom'] . "</option>";
+                                    }                                    
 
-                                    </select>
+                                    echo "</select>
                                 
-                                    <button type='submit' name='submit'>Modifier les Droits</button>
+                                    <button type='submit' name='submit'>Modifier la catégorie</button>
 
-                                    <button type='submit' name='delete'>Supprimer</button>
+                                    <button type='submit' name='delete'>Supprimer Article</button>
 
                                 </form>
                                     
                             </td>";
 
                         echo '</tr>';
+
                     }
 
-                    ?>
-
-                </tbody>
+                ?>
 
             </table>
 
@@ -167,11 +129,48 @@ if ($_SESSION['droits'] != 1337) {
 
             <h1>Gestion des Catégories</h1>
 
-        </section>
+            <table>
 
-        <section class="gestion-com">
+                <?php
 
-            <h1>Gestion des Commentaires</h1>
+                    foreach ($articles as $key => $article) {
+
+                        echo '<tr>';
+
+                        foreach ($article as $key1 => $value) {
+
+                            echo "<td>$value</td>";
+                        }
+
+                        echo "<td>
+                                <form action='php/include/admin.inc.php' method='POST'>
+
+                                <input type='text' name='id' value='" . $article['id'] . "' hidden>
+                                <input type='text' name='id' value='" . $article['id_categorie'] . "' hidden>
+                                
+                                    <select name='categorie' id='catégorie'>";
+                                    foreach ($getCategories as $index => $categorie) {
+
+                                        echo "<option value = '" . $categorie['id'] . "'>" . $categorie['nom'] . "</option>";
+                                    }                                    
+
+                                    echo "</select>
+                                
+                                    <button type='submit' name='submit'>Modifier la catégorie</button>
+
+                                    <button type='submit' name='delete'>Supprimer Article</button>
+
+                                </form>
+                                    
+                            </td>";
+
+                        echo '</tr>';
+                        
+                    }
+
+                ?>
+
+            </table>
 
         </section>
 
