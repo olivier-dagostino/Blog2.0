@@ -38,11 +38,26 @@ table {
 table,
 td {
   color: white;
-  padding: 20px;
-  margin: 60px;
+  padding: 5px;
+  margin: 5px;
 }
 
 th {
-  padding: 20px;
+  padding: 5px;
   color: white;
+}
+
+button{
+  padding: 5px;
+}
+select{
+  padding: 5px;
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
 }
