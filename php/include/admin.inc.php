@@ -62,6 +62,14 @@ switch ($_POST) {
     header(('location: ../../admin.php'));
     break;
 
+    // Suppression d'une catégorie
+    case isset($_POST['delete_categorie']);
+
+    $categorie->deleteCategorie($_POST['id_categorie']);
+    $_SESSION['success'] = "Catégorie supprimée";
+    header(('location: ../../admin.php'));
+    break;
+
 }
 
 ?>

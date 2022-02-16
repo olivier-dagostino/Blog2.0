@@ -151,4 +151,5 @@ class Article extends Dbh
         $sth->execute(array(':id' => $id_article));
     }
 
+
 }

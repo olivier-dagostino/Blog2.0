@@ -55,5 +55,13 @@ class Categorie extends Dbh
         echo "<p>Nouvelle Catégorie bien enregistrer/p>";
     }
 
+    // Supprimer la catégorie sélectionnée
+    public function deleteCategorie($id_categorie)
+    {
+        $sth=$this->connect()->prepare("DELETE FROM `categories` WHERE `categories`.`id` = :id");
+        $sth->execute(array(':id' => $id_categorie));
+    }
+
+
     
 }
