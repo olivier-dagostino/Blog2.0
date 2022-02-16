@@ -14,10 +14,10 @@ if ($_SESSION['droits'] != 1337) {
 ?>
     <main>
 
-        <section class="container">
-            
+        <section class="gestion-user">
+            <h1>Gestion des Utilisateurs</h1>
             <table>
-                <h1>Gestion des Utilisateurs</h1>
+                
 
                 <thead>
 
@@ -77,6 +77,18 @@ if ($_SESSION['droits'] != 1337) {
 
             </table>
 
+        </section>
+
+        <section class="gestion-article">
+            <h1>Gestion des Articles</h1>
+        </section>
+
+        <section class="gestion-cat">
+            <h1>Gestion des Catégories</h1>
+        </section>
+
+        <section class="gestion-com">
+            <h1>Gestion des Commentaire</h1>
         </section>
 
     </main>
