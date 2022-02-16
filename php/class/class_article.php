@@ -42,22 +42,6 @@ class Article extends Dbh
         
     }
 
-    public function getAllInfoById($id)
-    {
-        $sth = $this->connect()->prepare("SELECT * FROM `articles` WHERE `articles.id` = $id");
-        $sth->execute();
-        $article= $sth->fetchAll(PDO::FETCH_ASSOC);
-        return$article;
-    }
-
-    public function update($article, $catego, $enligne,$id)
-    {
-        $sth=$this->connect()->prepare("UPDATE `articles` SET `article` = ?, `id_categorie` = ?, `enligne` = ? WHERE `id` = $id");
-        $sth->execute(array($article,$catego,$enligne));
-        echo "<p> Votre Modification a été prise en compte</p>";
-
-    }
-
     public function totalPages()
     {
         // On prépare la requête
@@ -142,4 +126,25 @@ class Article extends Dbh
     
         }
     }
+
+    public function getList()
+    {
+        $getList = $this->connect()->prepare("SELECT articles.id, articles.titre, articles.date,  utilisateurs.login, articles.id_categorie FROM articles INNER JOIN utilisateurs on utilisateurs.id = articles.id_utilisateur ORDER BY date DESC;");
+
+        $getList->execute();
+
+        $res = $getList->fetchAll(PDO::FETCH_ASSOC);
+
+        return $res;
+
+    }
+
+    public function update($article, $catego, $enligne,$id)
+    {
+        $sth=$this->connect()->prepare("UPDATE `articles` SET `article` = ?, `id_categorie` = ?, `enligne` = ? WHERE `id` = $id");
+        $sth->execute(array($article,$catego,$enligne));
+        echo "<p> Votre Modification a été prise en compte</p>";
+
+    }
+
 }

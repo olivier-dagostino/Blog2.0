@@ -17,17 +17,17 @@ if ($_SESSION['droits'] != 1337) {
         <section class="gestion-user">
             <h1>Gestion des Utilisateurs</h1>
             <table>
-                
+
 
                 <thead>
 
                     <?php
 
-                    $info = new User();
-                    $res1 = $info->getAllInfoForAllUsers();
+                    $user = new User();
+                    $res1 = $user->getList();
 
                     ?>
-                    
+
                 </thead>
 
                 <tbody>
@@ -35,17 +35,16 @@ if ($_SESSION['droits'] != 1337) {
 
                     <?php
 
-                    foreach ($res1 as $key => $value) { // pour chaque valeur qui se trouve dans la $res1 
-                        echo '<tr>'; //on echo une ligne
+                    foreach ($res1 as $key => $value) {
 
-                        foreach ($value as $key1 => $value1) { //Pour chaque info de l'étudiant on écho une case
+                        echo '<tr>';
+
+                        foreach ($value as $key1 => $value1) {
 
                             echo "<td>$value1</td>";
-                            // j'echo l'info
-
                         }
 
-                        echo"<td>
+                        echo "<td>
                                 <form action='php/include/admin.inc.php' method='POST'>
 
                                     <input type='text' name='id' value='" . $value['id'] . "' hidden>
@@ -69,7 +68,7 @@ if ($_SESSION['droits'] != 1337) {
 
                         echo '</tr>';
                     }
-                    
+
                     ?>
 
 
@@ -82,8 +81,99 @@ if ($_SESSION['droits'] != 1337) {
         <section class="gestion-article">
 
             <h1>Gestion des Articles</h1>
-            
-            
+            <table>
+
+
+                <thead>
+
+                    <?php
+
+                    $article = new Article();
+
+                    $articles = $article->getList();
+
+                    $categorie = new Categorie();
+
+                    $categories = $categorie->getCategories();
+                    ?>
+
+                    <form action="" method="POST">
+
+                        <select name='categorie' id='select-droitd'>
+
+                            <option>--Catégorie--</option>
+                            
+                            <?php
+
+                            foreach ($categories as $key => $cat) {
+
+                                foreach ($cat as $key => $value) {
+                                    echo "<option value = '" . $cat['id'] . "'>" . $cat['nom'] . "</option>";
+                                }
+                            }
+
+
+                            /* <option>--Droits--</option>
+                                        <option value='1'>Utilisateurs</option>
+                                        <option value='42'>Modérateur</option>
+                                        <option value='1337'>Admin</option> */
+                            ?>
+                        </select>
+                    </form>
+                    <?php die; ?>
+                    foreach ($categories as $key => $value) {
+
+                    echo
+                    }
+
+                    ?>
+
+                </thead>
+
+                <tbody>
+
+                    <?php
+
+                    foreach ($articles as $key => $value) {
+
+                        echo '<tr>';
+
+                        foreach ($value as $key1 => $value1) {
+
+                            echo "<td>$value1</td>";
+                        }
+
+                        echo "<td>
+                                <form action='php/include/admin.inc.php' method='POST'>
+
+                                <input type='text' name='id' value='" . $value['id'] . "' hidden>
+                                <input type='text' name='id' value='" . $value['id_categorie'] . "' hidden>
+                                
+                                    <select name='categorie' id='select-droitd'>
+
+                                        <option>--Droits--</option>
+                                        <option value='1'>Utilisateurs</option>
+                                        <option value='42'>Modérateur</option>
+                                        <option value='1337'>Admin</option>
+
+                                    </select>
+                                
+                                    <button type='submit' name='submit'>Modifier les Droits</button>
+
+                                    <button type='submit' name='delete'>Supprimer</button>
+
+                                </form>
+                                    
+                            </td>";
+
+                        echo '</tr>';
+                    }
+
+                    ?>
+
+                </tbody>
+
+            </table>
 
         </section>
 

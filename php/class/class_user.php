@@ -60,8 +60,11 @@ class User extends Dbh
       $_SESSION['login'] = $login;
       $_SESSION['id'] = $res['id'];
       $_SESSION['droits'] = $res['id_droits'];
-      echo "<p>Vous êtes bien connecté, vous allez être rediriger</p>";
+
+      echo "<p>Vous êtes bien connectés, vous allez être redirigés</p>";
+
       header('Refresh:1; URL=index.php');
+
     } elseif ($login === $res['login'] && password_verify($password, $res['password'])) {
 
       echo '<p >Votre compte est inactif veuillez contacter votre administrateur</p>';
@@ -69,6 +72,7 @@ class User extends Dbh
 
       echo '<p>Verifiez votre Login/Mot de passe</p>';
     }
+
   }
 
   public function disconnect()
@@ -81,14 +85,6 @@ class User extends Dbh
     }
   }
 
-  public function getLogin($login)
-  {
-
-    $sth = $this->connect()->prepare("SELECT `login` FROM `utilisateurs` WHERE `login` ='$login' ");
-    $sth->execute();
-    return $sth->fetch();
-  }
-
   public function getAllInfoForUser($login)
   {
 
@@ -96,15 +92,34 @@ class User extends Dbh
     $sth->execute();
     $res = $sth->fetch(PDO::FETCH_ASSOC);
     return $res;
+
   }
 
-  public function getAllInfoForAllUsers()
+  public function getList()
   {
 
     $sth = $this->connect()->prepare("SELECT `id`,`login`,`email`, `id_droits` FROM `utilisateurs`");
     $sth->execute();
     $res = $sth->fetchAll(PDO::FETCH_ASSOC);
     return $res;
+
+  }
+
+  public function getAllInfo()
+  {
+
+    $sth = $this->connect()->prepare("SELECT * FROM utilisateurs");
+    $sth->execute();
+    $res = $sth->fetchAll(PDO::FETCH_ASSOC);
+    return $res;
+  }
+
+  public function updateAdmin($id, $droits)
+  {
+
+    $sth = $this->connect()->prepare("UPDATE utilisateurs SET id_droits = ? WHERE id=$id");
+    $sth->execute(array($droits));
+    echo "<p>Modification prise en compte</p>";
   }
 
   public function update($login, $password, $email)
@@ -131,44 +146,6 @@ class User extends Dbh
     }
   }
 
-
-  public function isConnected()
-  {
-
-    if (isset($_SESSION['login'])) {
-
-      return true;
-    } else {
-
-      return false;
-    }
-  }
-
-  public function getAllInfoById($id)
-  {
-
-    $sth = $this->connect()->prepare("SELECT * FROM utilisateurs WHERE id=$id");
-    $sth->execute();
-    $res = $sth->fetchAll(PDO::FETCH_ASSOC);
-    return $res;
-  }
-
-  public function getAllInfo()
-  {
-
-    $sth = $this->connect()->prepare("SELECT * FROM utilisateurs");
-    $sth->execute();
-    $res = $sth->fetchAll(PDO::FETCH_ASSOC);
-    return $res;
-  }
-
-  public function updateAdmin($id, $droits)
-  {
-
-    $sth = $this->connect()->prepare("UPDATE utilisateurs SET id_droits = ? WHERE id=$id");
-    $sth->execute(array($droits));
-    echo "<p>Modification prise en compte</p>";
-  }
 
   public function deleteUser($id)
   {
