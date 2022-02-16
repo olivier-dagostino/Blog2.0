@@ -19,11 +19,6 @@ if ($_SESSION['droits'] != 1337) {
     $articles = $article->getList();
     $getCategories = $categorie->getCategories();
 
-    echo"<pre>";
-    var_dump($articles);
-    echo"</pre>";
-
-    die();
 ?>
     <main>
 
@@ -45,6 +40,7 @@ if ($_SESSION['droits'] != 1337) {
                         }
 
                         echo "<td>
+
                                 <form action='php/include/admin.inc.php' method='POST'>
 
                                     <input type='text' name='id' value='" . $value['id'] . "' hidden>
@@ -58,9 +54,9 @@ if ($_SESSION['droits'] != 1337) {
 
                                     </select>
                                 
-                                    <button type='submit' name='submit'>Modifier les Droits</button>
+                                    <button type='submit' name='modif_droit'>Modifier les Droits</button>
 
-                                    <button type='submit' name='delete'>Supprimer</button>
+                                    <button type='submit' name='delete_user'>Supprimer</button>
 
                                 </form>
                                     
@@ -96,8 +92,8 @@ if ($_SESSION['droits'] != 1337) {
                         echo "<td>
                                 <form action='php/include/admin.inc.php' method='POST'>
 
-                                <input type='text' name='id' value='" . $article['id'] . "' hidden>
-                                <input type='text' name='id' value='" . $article['id_categorie'] . "' hidden>
+                                <input type='text' name='id_article' value='" . $article['id'] . "' hidden>
+                                <input type='text' name='id_categorie' value='" . $article['id_categorie'] . "' hidden>
                                 
                                     <select name='categorie' id='catégorie'>";
                                     foreach ($getCategories as $index => $categorie) {
@@ -107,9 +103,9 @@ if ($_SESSION['droits'] != 1337) {
 
                                     echo "</select>
                                 
-                                    <button type='submit' name='submit'>Modifier la catégorie</button>
+                                    <button type='submit' name='modif_categorie'>Modifier la catégorie</button>
 
-                                    <button type='submit' name='delete'>Supprimer Article</button>
+                                    <button type='submit' name='delete_article'>Supprimer Article</button>
 
                                 </form>
                                     
