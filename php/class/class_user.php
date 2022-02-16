@@ -14,7 +14,7 @@ class User extends Dbh
 
     try {
 
-      $req = $this->connect->prepare("SELECT * FROM `utilisateurs` WHERE login=?");
+      $req = $this->connect()->prepare("SELECT * FROM `utilisateurs` WHERE login=?");
       $req->execute();
     } catch (Exception $e) {
 
@@ -50,7 +50,7 @@ class User extends Dbh
     $sth->execute(array($login));
     $res = $sth->fetch(PDO::FETCH_ASSOC);
     
-    if ($login === $res['login'] && password_verify($password, $res['password'])) {
+    if ($login === $res['login'] && password_verify($password, $res['password']) === true) {
 
       $this->id = $res['id'];
       $this->login = $login;
@@ -101,7 +101,7 @@ class User extends Dbh
   public function getAllInfoForAllUsers()
   {
 
-    $sth = $this->connect()->prepare("SELECT * FROM `utilisateurs`");
+    $sth = $this->connect()->prepare("SELECT `id`,`login`,`email`, `id_droits` FROM `utilisateurs`");
     $sth->execute();
     $res = $sth->fetchAll(PDO::FETCH_ASSOC);
     return $res;
@@ -130,6 +130,7 @@ class User extends Dbh
       echo 'Exception reçue : ', $e->getMessage(), "\n";
     }
   }
+
 
   public function isConnected()
   {
@@ -172,8 +173,21 @@ class User extends Dbh
   public function deleteUser($id)
   {
 
-    $sth = $this->connect()->prepare("DELETE FROM `utilisateurs` WHERE `id`= $id");
-    $sth->execute();
+    $sth = $this->connect()->prepare("UPDATE `utilisateurs` SET `login` = 'Utilisateur supprimé', `password` = 'Meline,Sirine,Alex,Oliv MVP' WHERE id = :id");
+    $sth->execute(array(':id' => $id));
     echo "<p>Nous vous confirmons la Suppression de Votre Compte </p>";
   }
+
+  // Modifier les droits d'un utilisateur
+  public function setDroit($id_droit, $id_utilisateur)
+  {
+
+      $set = $this->connect()->prepare("UPDATE utilisateurs SET id_droits = :id_droit WHERE id = :id ;");
+
+      $res = $set->execute(array(':id_droit' => $id_droit, ':id' => $id_utilisateur));
+
+      header("location:../../admin.php");
+
+  }
+
 }

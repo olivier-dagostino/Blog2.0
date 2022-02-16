@@ -6,25 +6,40 @@ main {
   min-height: 80vh;
 }
 
+h1 {
+  text-align: center;
+  padding: 30px;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+h2 {
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+p {
+  text-align: left;
+  margin: 10px;
+}
+
 .first-I {
   display: flex;
   justify-content: center;
-  color: #ebeff1;
-  position: absolute;
-  top: 20%;
-  left: 10%;
 }
 .first-I > .form-inscription > h2 {
   margin: 20px;
-  text-align: center; 
+  text-align: center;
 }
 .form-inscription {
   padding: 30px;
-  margin: 20px;
+
   height: fit-content;
   width: fit-content;
-  border-radius: 20px;
-  box-shadow: 16px -14px 5px 0px rgb(76 76 84 / 20%);
+  /* border-radius: 20px; */
+  /* box-shadow: 16px -14px 5px 0px rgb(76 76 84 / 20%); */
   background-color: #3181c5bf;
   display: flex;
   flex-direction: column;
@@ -48,7 +63,7 @@ main {
   align-items: center;
   margin: 20px;
 }
-.form-inscription-4{
+.form-inscription-4 {
   display: flex;
   justify-content: center;
 }
@@ -58,17 +73,16 @@ input {
   width: 20%;
 }
 input.submit {
-
-  border-radius: 20px;
+  /* border-radius: 20px; */
   font-size: inherit;
   box-shadow: none;
   border: none;
   text-shadow: none;
   padding: 0.5rem 0.8rem;
-} 
+}
 
 input {
-  border-radius: 20px;
+  /* border-radius: 20px; */
   padding: 3px;
   box-shadow: none;
   border: none;
@@ -89,11 +103,39 @@ input::placeholder {
 
 .first > .form-inscription > h2 {
   text-align: center;
-  border: solid #d4d7da;
+
   margin-bottom: 50px;
 }
 
 .first > .form-inscription > form > label {
   text-align: center;
   font-size: 20px;
+}
+
+@media screen and (max-width: 780px) {
+  header {
+    position: cover;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+  }
+  #form-connexion {
+    z-index: -1;
+  }
+
+  .form-inscription-1 {
+    display: flex;
+    flex-direction: column;
+  }
+  .form-inscription-3 {
+    display: flex;
+    flex-direction: column;
+  }
+  input {
+    margin: 20px;
+    width: 50%;
+  }
+  .first-I {
+    margin-top: 30px;
+  }
 }

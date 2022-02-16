@@ -3,61 +3,51 @@ require_once('class_dbh.php');
 
 class Commentaire extends Dbh
 {
-    private $id;
-    private $id_user;
-    private $id_article;
     
-    public function getComAndUserById($get)
+    // Récupere les commentaires d'un article spécifique et les affiche
+    public function getCommentaires($id_article)
     {
-        $sth = $this->connect()->prepare("SELECT `commentaires.commentaire`, `commentaires.date`, `utilisateurs.login`, `utilisateurs.active` FROM `commentaires` INNER JOIN `utilisateurs` ON `commentaires.id_utilisateur` = `utilisateurs.id` WHERE `id_article` =$get ORDER BY date DESC ");
-        $sth->execute();
-        $commentaire = $sth->fetchAll(PDO::FETCH_ASSOC);
-        return $commentaire;
+        $sth = $this->connect()->prepare("SELECT commentaires.titre, commentaires.commentaire, commentaires.date, utilisateurs.login FROM commentaires INNER JOIN utilisateurs ON commentaires.id_utilisateur = utilisateurs.id WHERE id_article = :id ORDER BY date DESC;");
+
+        $sth->execute(array(':id' => $id_article));
+
+        if ($sth->rowCount() == 0){
+            echo "<p>Il n'y a aucun commentaire</p>";
+        } else {
+            
+            $commentaires = $sth->fetchAll(PDO::FETCH_ASSOC);
+
+            echo "<h3>Les commentaires</h3>";
+
+            for ($i = 0; isset($commentaires[$i]); $i++) {
+
+                echo "<section><p>Titre : " . $commentaires[$i]['titre'] . "</p>";
+
+                echo "<p>Ecrit par  " . $commentaires[$i]['login'];
+                $date = strtotime($commentaires[$i]['date']);
+                echo " le " . date('d/m/Y', $date) . "</p>";
+
+
+                echo "<p>" . $commentaires[$i]['commentaire'] . "</p></section>";
+            }
+
+        }
 
     }
 
-    public function insertcom($com,$get,$user)
+    // Insère un commentaire en base de donnée puis l'affiche
+    public function insertCommentaire($titre, $commentaire, $id_article, $id_utilisateur)
     {
-        $sth=$this->connect()->prepare("INSERT INTO `commentaires`(`commentaire`, `id_article`, `id_utilisateur`, `date`) VALUES (?,?,?,?)");
-        $date = new DateTime();
-        $date->setTimestamp(time());
-        $jour = $date->format('Y-m-d H:i:s');
-        $sth->execute(array($com,$get,$user,$jour));
+        $sth = $this->connect()->prepare("INSERT INTO commentaires (titre, commentaire, id_article,id_utilisateur) VALUES (:titre, :commentaire, :id_article, :id_utilisateur)");
+        
+        $sth->execute(array(
+            ':titre' => $titre, 
+            ':commentaire' => $commentaire, 
+            ':id_article' => $id_utilisateur, 
+            ':id_utilisateur' => $id_article));
     }
 
-    public function getComByIdArticle($get)
-    {
-        $sth=$this->connect()->prepare("SELECT * FROM `commentaires` WHERE `id_article` = $get");
-        $sth->execute();
-        $sth2=$sth->fetchAll(PDO::FETCH_ASSOC);
-        return$sth2;
-    }
-
-    public function getAllCom()
-    {
-        $sth=$this->connect()->prepare("SELECT * FROM `commentaires`");
-        $sth->execute();
-        $res=$sth->fetchAll(PDO::FETCH_ASSOC);
-        return$res;
-    }
-
-    public function getCombWithId($get)
-    {
-        $sth=$this->connect()->prepare("SELECT * FROM `commentaires` WHERE `id` = $get");
-        $sth->execute();
-        $res=$sth->fetchAll(PDO::FETCH_ASSOC);
-        return $res;
-
-}
-    public function getComById($get)
-    {
-        $sth=$this->connect()->prepare("SELECT * FROM `commentaires` WHERE `id` = $get");
-        $sth->execute();
-        $res=$sth->fetchAll(PDO::FETCH_ASSOC);
-        return$res;
-    }
-
-    public function updateAdmin($text,$get)
+    public function updateCommentaire($text,$get)
     {
         $sth=$this->connect()->prepare("UPDATE `commentaires` SET `commentaire`=? WHERE `id` = $get");
         $sth->execute(array($text));

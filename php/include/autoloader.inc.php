@@ -1,23 +1,26 @@
-<?php
+<?php 
+
+// Fonction qui require automatiquement le bon fichier en fonction du nom de la class instentiée
 
 spl_autoload_register('myAutoLoader');
 
-function myAutoLoader($className) {
+    function myAutoLoader($classname){
 
-    $url = $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+        $url = $_SERVER ['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 
-    if (strpos($url, 'include') !== false) {
+        if (strpos($url, 'include') !== false) {
 
-        $path = '../php/class/class_';
+            $path = '../class/class_';
 
-    }
+        } else {
 
-    else {
-        $path = 'php/class/class_';
-    }
+            $path = 'php/class/class_';
 
-    $extension = '.php';
+        }
     
-    require_once $path . $className . $extension;
+        $extension = '.php';
 
-}
+        require_once $path . $classname . $extension;
+    }
+
+?>

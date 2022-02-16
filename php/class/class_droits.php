@@ -3,7 +3,7 @@ require_once('class_dbh.php');
 
 class Droits extends Dbh
 {
-    private $id;
+    
     public $nom;
 
     public function getDroitsById($droits)
@@ -29,4 +29,5 @@ class Droits extends Dbh
         $res= $sth->fetch();
         return $res;
     }
+
 }

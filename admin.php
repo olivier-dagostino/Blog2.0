@@ -1,72 +1,97 @@
 <?php
 
-    session_start();
+session_start();
 
-    if ($_SESSION['droits'] != 1337) {
+if ($_SESSION['droits'] != 1337) {
 
-        header('Location: index.php');
-    } else {
+    header('Location: index.php');
+} else {
 
-        $title = "Admin";
-        $css = "admin";
-        require ('php/include/header.inc.php');
+    $title = "Gestion des Utilisateurs";
+    $css = "admin";
+    require('php/include/header.inc.php');
 
 ?>
     <main>
 
-        <h1>Gestion des Utilisateurs</h1>
+        <section class="gestion-user">
+            <h1>Gestion des Utilisateurs</h1>
+            <table>
+                
 
-        <table>
+                <thead>
 
-            <thead>
-
-                <?php
-
-                $info = new User();
-                $res1 = $info->getAllInfoForAllUsers();
-
-                echo '<tr>';
-                foreach ($res1 as $key => $value) {
-                }
-                echo '</tr>';
-                ?>
-
-            </thead>
-
-            <tbody>
-
-                <tr>
                     <?php
 
-                        foreach ($res1 as $key => $value) { // pour chaque valeur qui se trouve dans la $res1 (pour chaques étudiants) 
-                            echo '<tr>'; //on echo une ligne
-
-                            foreach ($value as $key1 => $value1){ //Pour chaque info de l'étudiant on écho une case
-                                
-                                echo "<td>$value1</td>";  // j'echo l'info
-                            }
-                            echo '</tr>';
-                        }
+                    $info = new User();
+                    $res1 = $info->getAllInfoForAllUsers();
 
                     ?>
-                </tr>
+                    
+                </thead>
 
-            </tbody>
-        </table>
+                <tbody>
+
+
+                    <?php
+
+                    foreach ($res1 as $key => $value) { // pour chaque valeur qui se trouve dans la $res1 
+                        echo '<tr>'; //on echo une ligne
+
+                        foreach ($value as $key1 => $value1) { //Pour chaque info de l'étudiant on écho une case
+
+                            echo "<td>$value1</td>";
+                            // j'echo l'info
+
+                        }
+
+                        echo"<td>
+                                <form action='php/include/admin.inc.php' method='POST'>
+
+                                    <input type='text' name='id' value='" . $value['id'] . "' hidden>
+
+                                    <select name='select-droits' id='select-droitd'>
+
+                                        <option>--Droits--</option>
+                                        <option value='1'>Utilisateurs</option>
+                                        <option value='42'>Modérateur</option>
+                                        <option value='1337'>Admin</option>
+
+                                    </select>
+                                
+                                    <button type='submit' name='submit'>Modifier les Droits</button>
+
+                                    <button type='submit' name='delete'>Supprimer</button>
+
+                                </form>
+                                    
+                            </td>";
+
+                        echo '</tr>';
+                    }
+                    
+                    ?>
+
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+        <section class="gestion-article">
+            <h1>Gestion des Articles</h1>
+        </section>
+
+        <section class="gestion-cat">
+            <h1>Gestion des Catégories</h1>
+        </section>
+
+        <section class="gestion-com">
+            <h1>Gestion des Commentaire</h1>
+        </section>
 
     </main>
 
-    <footer>
-
-        <?php require 'php/include/footer.inc.php'; ?>
-
-    </footer>
-</body>
-
-</html>
-
-<?php 
-
-    }
- 
-?>
+<?php require 'php/include/footer.inc.php';
+} ?>

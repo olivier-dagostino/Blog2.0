@@ -1,9 +1,34 @@
 /* HEADER */
-
 * {
   margin: 0px;
   padding: 0px;
 }
+
+header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+h1 {
+  text-align: center;
+  padding: 30px;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+h2 {
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+p {
+  text-align: left;
+  margin: 10px;
+}
+
 body {
   font-family: "Comfortaa", cursive;
 }
@@ -50,10 +75,11 @@ nav a {
 
 nav > ul > li > a {
   padding: 20px;
-  color: #fff;
+  text-decoration: none;
+  /* color: #fff; */
 }
 
-nav > ul > li:hover a {
+header > nav > ul > li:hover a {
   padding: 15px 30px 20px 30px;
 }
 
@@ -136,12 +162,21 @@ nav input[type="checkbox"]:checked ~ ul {
 }
 
 @media screen and (max-width: 780px) {
+  header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+  }
+
   .menu-mobile {
     display: block;
     color: #fff;
     background-color: rgba(29, 197, 151, 0.97);
     text-align: center;
     padding: 12px 0px;
+    margin: 0px;
+    width: 100%;
   }
 
   nav ul {
@@ -157,11 +192,20 @@ nav input[type="checkbox"]:checked ~ ul {
   nav ul li,
   nav ul li:hover a {
     padding: 10px 0px;
+    width: 100%;
   }
 
   nav li:hover .submenu {
     display: block;
     position: static;
+  }
+  nav > ul > li > a {
+    padding: 5px;
+    text-decoration: none;
+    color: #fff;
+  }
+  header > nav > ul > li:hover a {
+    padding: 5px 5px 5px 5px;
   }
 }
 

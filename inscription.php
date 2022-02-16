@@ -6,9 +6,6 @@
     require ('php/include/header.inc.php');
 
 ?>
-
-
-
     <main>
 
         <?php 
@@ -33,7 +30,7 @@
             }
         ?>
 
-        <div class="first-I">
+        <section class="first-I">
 
             <div class="form-inscription">
 
@@ -71,16 +68,8 @@
 
             </div>
 
-        </div>
+        </section>
 
     </main>
 
-    <footer>
-
-        <?php require 'php/include/footer.inc.php'; ?>
-
-    </footer>
-    
-</body>
-
-</html>
+    <?php require 'php/include/footer.inc.php'; ?>

@@ -13,6 +13,7 @@ require('php/include/autoloader.inc.php');
     <link rel="stylesheet" href="assets/css/header.css">
     <link rel="stylesheet" href="assets/css/<?= $css?>.css">
     <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title><?= $title ?></title>
 </head>
 <body>
@@ -24,19 +25,19 @@ require('php/include/autoloader.inc.php');
             <ul>
 
                 <li class="menu-home"><a href="index.php">Accueil</a></li>
-                <li class="menu-cat"><a href="#">Catégories</a>
+                <li class="menu-cat"><a href="articles.php">Articles</a>
 
                     <ul class="submenu">
 
-                        <li><a href="#">Histoire de la ville </a></li>
-                        <li><a href="#">Berceau du Cinéma</a></li>
-                        <li><a href="#">Le Chantier Naval</a></li>
-                        <li><a href="#">Le Parc National des Calanques</a></li>
+                        <li><a href="articles.php">Tous les Articles</a></li>
+                        <li><a href="articles.php?categorie=1">Histoire de la ville</a></li>
+                        <li><a href="articles.php?categorie=2">Berceau du Cinéma</a></li>
+                        <li><a href="articles.php?categorie=3">Le Chantier Naval</a></li>
+                        <li><a href="articles.php?categorie=4">Le Parc National des Calanques</a></li>
 
                     </ul>  
 
                 </li>
-
                 <?php
 
                     if (isset($_SESSION['droits'])) { /*utilisateurs*/
@@ -46,7 +47,7 @@ require('php/include/autoloader.inc.php');
                             case '1':
 
                                 echo '
-                                    <li class="menu-edit"><a href="#">Profil</a>
+                                    <li class="menu-edit"><a href="profil.php">Profil</a>
 
                                         <ul class="submenu">
 
@@ -64,7 +65,7 @@ require('php/include/autoloader.inc.php');
                             case '42':
                                 
                                 echo '
-                                    <li class="menu-edit"><a href="#">Profil</a>
+                                    <li class="menu-edit"><a href="profil.php">Profil</a>
 
                                         <ul class="submenu">
 
@@ -77,9 +78,8 @@ require('php/include/autoloader.inc.php');
                                     <li class="menu-edit"><a href="#">Edition</a>
                                         <ul class="submenu">
 
-                                            <li><a href="new_articles.php">Créer un Article</a></li>
-                                            <li><a href="#">Mes articles</a></li> 
-                                            <li><a href="./edit_articles.php">Edition d\'un article</a></li>
+                                            <li><a href="new_article.php">Créer un Article</a></li>
+                                            <li><a href="mes_articles.php">Mes articles</a></li> 
 
                                         </ul>
                                     </li>
@@ -93,7 +93,7 @@ require('php/include/autoloader.inc.php');
                             case '1337':
 
                             echo '
-                                <li class="menu-edit"><a href="#">Profil</a>
+                                <li class="menu-edit"><a href="profil.php">Profil</a>
 
                                     <ul class="submenu">
 
@@ -106,13 +106,12 @@ require('php/include/autoloader.inc.php');
                                 <li class="menu-edit"><a href="#">Edition</a>
                                     <ul class="submenu">
 
-                                        <li><a href="new_articles.php">Créer un Article</a></li>
-                                        <li><a href="#">Mes articles</a></li> 
-                                        <li><a href="./edit_articles.php">Edition d\'un article</a></li>
+                                        <li><a href="new_article.php">Créer un Article</a></li>
+                                        <li><a href="mes_articles.php">Mes articles</a></li> 
 
                                     </ul>
                                 </li>
-                                <li class="menu-admin"><a href="#">Admin</a>
+                                <li class="menu-admin"><a href="admin.php">Admin</a>
 
                                     <ul class="submenu">
 

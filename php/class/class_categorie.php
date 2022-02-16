@@ -4,16 +4,26 @@ require_once('class_dbh.php');
 
 class Categorie extends Dbh
 {
-    
-    public $nom;
-
-    public function getcategories()
+    // Récupere toutes les info d'une catégorie
+    public function getCategories()
     {
         $sth = $this->connect()->prepare("SELECT * FROM `categories` ");
         $sth->execute();
         $res = $sth->fetchAll(PDO::FETCH_ASSOC);
         return $res;
     }
+
+    public function getAllInfoById($id)
+    {
+        $sth = $this->connect()->prepare("SELECT * FROM `categories` WHERE `id` = :id");
+
+        $sth->execute(array(':id' => $id));
+
+        $categorie = $sth->fetchAll(PDO::FETCH_ASSOC);
+
+        return $categorie;
+    }
+
     public function getid($nom)
     {
         $sth=$this->connect()->prepare("SELECT `id` FROM `categories` WHERE nom='$nom'");
@@ -21,20 +31,7 @@ class Categorie extends Dbh
         $res=$sth->fetchAll(PDO::FETCH_ASSOC);
         return$res;
     }
-    public function getAllInfoById($id)
-    {
-        $sth = $this->connect()->prepare("SELECT * FROM `categories` WHERE `categories.id` = $id");
-        $sth->execute();
-        $catego= $sth->fetchAll(PDO::FETCH_ASSOC);
-        return$catego;
-    }
-    public function getAllCategories()
-    {
-        $sth=$this->connect()->prepare("SELECT * FROM `categories`");
-        $sth->execute();
-        $res=$sth->fetchAll(PDO::FETCH_ASSOC);
-        return $res;
-    }
+
 
     public function getCategoriesByName($name)
     {

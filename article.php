@@ -4,147 +4,55 @@
     $title = "Article";
     $css = "article";
     require ('php/include/header.inc.php');
-    // require('php/include/autoloader.inc.php');
+    
+    $article = new Article();
 
-?>
-    <main>
+    $commentaire = new Commentaire();
+    
+    ?>
 
-        <?php
-
-            $art = new Article();
-            $text = $art->getAllArticle();
-            $date2 = strtotime($text['date']);
-            echo "<pre>";           
-            var_dump($text);
-            echo "</pre>"; 
+<main>
+    
+    <?php
             
-            $article = explode('/', $text['0']['article']);
-                      
-            // $comm = new Commentaire();
-            // $com = $comm->getComAndUserById($_GET['id']);
-            // $id = $_GET['id'];
-
-            if (isset($_POST['submit'])) {
-
-                if (empty($_POST['titre']) || empty($_POST['corp'])) {
-
-                    echo "<p>Veuillez remplir tout les champs</p>";
-
-                } else {
-
-                    $corp = $_POST['titre'] . '/' . $_POST['corp'];
-                    $comm->insertcom($corp, $_GET['id'], $_SESSION['id']);
-                    echo "<p>Votre commentaire est bien enregistré</p>";
-                    header("Refresh:2, URL=article.php?id=$id");
-
-                }
-            }
-        ?>
-        <div class="containerA">
-
-            <div class="containerB">
-
-                <div class="containerC">
-
-                    <div class="containerC1">
-
-                        <h1 class="titre"><?php echo $article[0]; ?></h1>
-                        <p class="article"><?php echo $article[1]; ?></p>
-
-                    </div>
-
-                    <div class="containerC2">
-
-                        <p>Ecrit par <?php echo $text['login']; ?></p>
-
-                        <img src="#" alt="">
-
-                        <p>Le <?php echo date('d/m/Y', $date2); ?> </p>
-
-                        <?php
-
-                            if (isset($_SESSION['id'])) {
-
-                                echo "<a href='#1' class='com'>Laissez un commentaire</a>";
-                            }
-                        ?>
-
-                    </div>
-
-                </div>
-
-                <div class="containerD">
-
-                    <?php
-
-                        for ($i = 0; isset($com[$i]); $i++) {
-
-                            $commentaire = explode('/', $com[$i]['commentaire']);
-                            echo "<div class='box4'>";
-                            echo "<div class='infos2'>";
-                            echo "<p>Titre: $commentaire[0]</p>";
-                            if ($com[$i]['active'] == 0) {
-
-                                echo '<p>Ecrit par ' . $com[$i]['login'] . '</p>';
-                                $date = strtotime($com[$i]['date']);
-                                echo '<p> le ' . date('d/m/Y', $date) . '</p>';
-
-                            } else {
-
-                                $date = strtotime($com[$i]['date']);
-                                echo '<p>Ecrit par Utilisateur</p>';
-                                echo '<p> le ' . date('d/m/Y', $date) . '</p>';
-                            }
-
-                            echo "</div>";
-                            echo "<p class='commentaire'>$commentaire[1]</p>";
-                            echo "</div>";
-                        }
-
-                    ?>
-
-                </div>
-
-            </div>
-            
-        </div>
+        if (isset($_GET['id']) && !empty($_GET['id'])){
         
-        <?php
+            $article = $article->getArticleById($_GET['id']);
+            
+            $commentaires = $commentaire->getCommentaires($_GET['id']);
+                    
+        } else {
+        
+            header('location: articles.php');
+        
+        }
 
-            if (isset($_SESSION['id'])) :
+        if(isset($_SESSION["id"])) : 
 
-        ?>
-            <form action="#" method="post" class="insertcom">
+    ?>
+        <section class="container">
 
-                <div class="box3" id="1">
+            <form action="php/include/commentaire.inc.php"  method="POST">
 
-                    <p class="leavecom">Laissez un commentaire</p>
-                    <label for="titre">Titre du commentaire</label>
-                    <input type="text" name="titre" placeholder="votre titre">
-                    <label for="corp">Votre commentaire</label>
-                    <textarea id="corp" name="corp" placeholder="Votre article" rows="15" cols="33"></textarea>
-                    <input type="submit" name="submit" value="Envoyer">
+                <legend>Ajouter un commentaire</legend>
 
-                </div>
-                <img src="#" alt="logo" class="newlogo">
+                <input type="text" name="id_article" value="<?= $_GET['id'] ?>" hidden>
+
+                <label for="titre">Titre</label>
+                <input name="titre" type="text" placeholder="Titre du commentaire">
+
+                <label for="comm">Votre Commentaire</label>
+
+                <textarea id="comm" name="commentaire" placeholder="Votre commentaire" rows="10" cols="40"></textarea>
+
+                <input type="submit" name="submit" value="Envoyer">
+
             </form>
+            
+        </section>
 
-        <?php
-
-            endif;
-
-        ?>
+        <?php endif ?>
         
     </main>
-
-    <footer>
-
-        <?php
-
-            require('php/include/footer.inc.php');
-
-        ?>
-    </footer>
-</body>
-
-</html>
+    
+    <?php require('php/include/footer.inc.php') ?>
