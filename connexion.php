@@ -5,6 +5,7 @@
     $css = "connexion";
     
     require ('php/include/header.inc.php'); 
+
 ?>
 
     <main>
@@ -24,23 +25,27 @@
                 }
             }
         ?>
-<div class="container">
-        <div class="form-connexion">
-            <h2>Formulaire d'Inscription</h2>
-            <form action="#" id="form-connexion"  method="post">
+        <section class="container">
 
-                <label for="login">Login</label>
-                <input type="text" name="login" required>
+            <div class="form-connexion">
 
-                <label for="password">Mot de Passe</label>
-                <input type="password" name="password" requried>
+                <h2>Formulaire d'Inscription</h2>
 
-                <input type="submit" value="Envoyer" name="submit">
+                <form action="#" id="form-connexion"  method="post">
 
-            </form>
+                    <label for="login">Login</label>
+                    <input type="text" name="login" required>
 
-        </div>
-        </div>
+                    <label for="password">Mot de Passe</label>
+                    <input type="password" name="password" requried>
+
+                    <input type="submit" value="Envoyer" name="submit">
+
+                </form>
+
+            </div>
+            
+        </section>
 
     </main>
 

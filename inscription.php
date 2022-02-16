@@ -30,7 +30,7 @@
             }
         ?>
 
-        <div class="first-I">
+        <section class="first-I">
 
             <div class="form-inscription">
 
@@ -68,7 +68,7 @@
 
             </div>
 
-        </div>
+        </section>
 
     </main>
 

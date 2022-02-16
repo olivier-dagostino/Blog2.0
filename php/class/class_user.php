@@ -173,7 +173,7 @@ class User extends Dbh
   public function deleteUser($id)
   {
 
-    $sth = $this->connect()->prepare("UPDATE `utilisateurs` SET `login` = 'Utilisateur supprimé', `password` = 'Méline,Sirine,Alex,Oliv MVP' WHERE id = :id");
+    $sth = $this->connect()->prepare("UPDATE `utilisateurs` SET `login` = 'Utilisateur supprimé', `password` = 'Meline,Sirine,Alex,Oliv MVP' WHERE id = :id");
     $sth->execute(array(':id' => $id));
     echo "<p>Nous vous confirmons la Suppression de Votre Compte </p>";
   }

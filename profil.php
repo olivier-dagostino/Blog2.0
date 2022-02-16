@@ -30,7 +30,7 @@
             
         ?>
 
-        <div class="update-profil">
+        <section class="update-profil">
 
             <?php
 
@@ -109,7 +109,7 @@
 
             </form>
 
-        </div>
+        </section>
 
     </main>
 

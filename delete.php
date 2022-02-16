@@ -17,7 +17,7 @@
 
     <main>
 
-        <div class="sup">
+        <section class="sup">
 
             <h1>Suppression du Compte</h1>
 
@@ -42,7 +42,7 @@
 
             </form>
 
-        </div>
+        </section>
 
     </main>
 

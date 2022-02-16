@@ -30,10 +30,9 @@
         if(isset($_SESSION["id"])) : 
 
     ?>
-        <div class="container">                 
-        <form action="php/include/commentaire.inc.php"  method="POST">
+        <section class="container">
 
-            
+            <form action="php/include/commentaire.inc.php"  method="POST">
 
                 <legend>Ajouter un commentaire</legend>
 
@@ -48,10 +47,9 @@
 
                 <input type="submit" name="submit" value="Envoyer">
 
+            </form>
             
-
-        </form>
-        </div>
+        </section>
 
         <?php endif ?>
         

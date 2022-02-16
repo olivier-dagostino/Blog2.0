@@ -44,47 +44,47 @@
         
         
 
-        <div class="containerA">
-        <h1>Création d'un Article</h1>
+        <section class="containerA">
+
+            <h1>Création d'un Article</h1>
+
             <form action=""  method="POST" class="articlecreate">
 
                 <div class="containerA1">
 
-                <label for="categories">Catégorie</label>
+                    <label for="categories">Catégorie</label>
+                        <select name="categories" id="categories" >
 
-                    <select name="categories" id="categories" >
+                            <option>--Choisir une Catégorie--</option>';
 
-                        <option>--Choisir une Catégorie--</option>';
+                                <?php
+                                    $categories = new Categorie();
 
-                            <?php
-                                $categories = new Categorie();
+                                    $res5 = $categories->getCategories();
+                                    for ($i = 0; isset($res5[$i]); $i++) {
+                                        echo "<option value='" . $res5[$i]['id'] . "'>" . $res5[$i]['nom'] . '</option>';
+                                    }
+                                ?> 
+                        </select>
 
-                                $res5 = $categories->getCategories();
-                                for ($i = 0; isset($res5[$i]); $i++) {
-                                    echo "<option value='" . $res5[$i]['id'] . "'>" . $res5[$i]['nom'] . '</option>';
-                                }
-                            ?> 
-                    </select>
+                    <label for="titre">Titre de l'article</label>
 
-                <label for="titre">Titre de l'article</label>
+                    <input name="titre" type="text" placeholder="Votre titre">
 
-                <input name="titre" type="text" placeholder="Votre titre">
+                </div>
+                
+                <div class="containerA2">
 
-            </div>
-            
-            <div class="containerA2">
+                    <label for="article">Article</label>
+                    <textarea id="article" name="article" placeholder="Votre article" rows="20" cols="40"></textarea>
 
-                <label for="article">Article</label>
+                    <input type="submit" name="submit" value="Envoyer">
 
-                <textarea id="article" name="article" placeholder="Votre article" rows="20" cols="40"></textarea>
-
-                <input type="submit" name="submit" value="Envoyer">
-
-            </div>
+                </div>
 
             </form>
 
-        </div>
+        </section>
 
     </main>
 
