@@ -57,9 +57,10 @@ switch ($_POST) {
     // Suppression d'un article
     case isset($_POST['delete_article']);
 
-        echo "ok suppressions";
-        header(('location: ../../admin.php'));
-        break;
+    $article->deleteArticle($_POST['id_article']);
+    $_SESSION['success'] = "Article supprimé";
+    header(('location: ../../admin.php'));
+    break;
 
 }
 

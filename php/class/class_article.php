@@ -143,8 +143,12 @@ class Article extends Dbh
     {
         $sth=$this->connect()->prepare("UPDATE articles SET id_categorie = :categorie WHERE id = :id ");
         $sth->execute(array(':categorie' => $id_categorie, ':id' => $id_article));
-        echo "<p> Votre Modification a été prise en compte</p>";
+    }
 
+    public function deleteArticle($id_article)
+    {
+        $sth=$this->connect()->prepare("DELETE FROM `articles` WHERE `articles`.`id` = :id");
+        $sth->execute(array(':id' => $id_article));
     }
 
 }
