@@ -83,6 +83,7 @@ if ($_SESSION['droits'] != 1337) {
 
             <h1>Gestion des Articles</h1>
             
+            
 
         </section>
 
