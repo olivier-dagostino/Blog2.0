@@ -41,7 +41,7 @@ if ($_SESSION['droits'] != 1337) {
 
                         foreach ($value as $key1 => $value1) {
 
-                            echo "<td>$value1</td>";
+                            echo "<td>test</td>";
                         }
 
                         echo "<td>
@@ -94,7 +94,8 @@ if ($_SESSION['droits'] != 1337) {
 
                     $categorie = new Categorie();
 
-                    $categories = $categorie->getCategories();
+                    $getCategories = $categorie->getCategories();
+
                     ?>
 
                     <form action="" method="POST">
@@ -102,43 +103,28 @@ if ($_SESSION['droits'] != 1337) {
                         <select name='categorie' id='select-droitd'>
 
                             <option>--Catégorie--</option>
-                            
                             <?php
 
-                            foreach ($categories as $key => $cat) {
+                            foreach ($getCategories as $index => $categorie) {
 
-                                foreach ($cat as $key => $value) {
-                                    echo "<option value = '" . $cat['id'] . "'>" . $cat['nom'] . "</option>";
-                                }
+                                echo "<option value = '" . $categorie['id'] . "'>" . $categorie['nom'] . "</option>";
                             }
 
 
-                            /* <option>--Droits--</option>
-                                        <option value='1'>Utilisateurs</option>
-                                        <option value='42'>Modérateur</option>
-                                        <option value='1337'>Admin</option> */
                             ?>
                         </select>
-                    </form>
-                    <?php die; ?>
-                    foreach ($categories as $key => $value) {
-
-                    echo
-                    }
-
-                    ?>
-
+                        </form>
                 </thead>
 
                 <tbody>
 
                     <?php
 
-                    foreach ($articles as $key => $value) {
+                    foreach ($articles as $key => $article) {
 
                         echo '<tr>';
 
-                        foreach ($value as $key1 => $value1) {
+                        foreach ($article as $key1 => $value1) {
 
                             echo "<td>$value1</td>";
                         }
@@ -149,7 +135,7 @@ if ($_SESSION['droits'] != 1337) {
                                 <input type='text' name='id' value='" . $value['id'] . "' hidden>
                                 <input type='text' name='id' value='" . $value['id_categorie'] . "' hidden>
                                 
-                                    <select name='categorie' id='select-droitd'>
+                                    <select name='categorie' id='catégorie'>
 
                                         <option>--Droits--</option>
                                         <option value='1'>Utilisateurs</option>

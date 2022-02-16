@@ -129,7 +129,7 @@ class Article extends Dbh
 
     public function getList()
     {
-        $getList = $this->connect()->prepare("SELECT articles.id, articles.titre, articles.date,  utilisateurs.login, articles.id_categorie FROM articles INNER JOIN utilisateurs on utilisateurs.id = articles.id_utilisateur ORDER BY date DESC;");
+        $getList = $this->connect()->prepare("SELECT articles.id, articles.titre, articles.date, utilisateurs.login, articles.id_categorie FROM articles INNER JOIN utilisateurs on utilisateurs.id = articles.id_utilisateur ORDER BY date DESC;");
 
         $getList->execute();
 
