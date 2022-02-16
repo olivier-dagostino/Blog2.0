@@ -98,7 +98,7 @@ if ($_SESSION['droits'] != 1337) {
                                     <select name='categorie' id='catégorie'>";
                                     foreach ($getCategories as $index => $categorie) {
 
-                                        echo "<option value = '" . $categorie['id'] . "'>" . $categorie['nom'] . "</option>";
+                                        echo "<option value = '" . $categorie['id'] . "'> - " . $categorie['id'] . " - " . $categorie['nom'] . "</option>";
                                     }                                    
 
                                     echo "</select>

@@ -4,20 +4,19 @@ session_start();
 
 require('autoloader.inc.php');
 
+$user = new User();
+
+
 switch ($_POST) {
 
     case isset($_POST['delete_user']):
-        var_dump($_POST);
-        $info = new User();
-        $res1 = $info->deleteUser($value['id']);
-        echo 'Votre Compte à bien été supprimé';
-        session_unset();
+
+        $res1 = $user->deleteUser($value['id']);
         header('location: ../../index.php');
         break;
     
     case isset($_POST['modif_droit']);
 
-        $user = new User();
         $user->setDroit($_POST['select-droits'], $_POST['id']);
         header('location: ../../index.php');
         break;
