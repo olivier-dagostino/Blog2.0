@@ -129,13 +129,13 @@ if ($_SESSION['droits'] != 1337) {
 
                 <?php
 
-                    foreach ($articles as $key => $article) {
+                    foreach ($getCategories as $key => $value) {
 
                         echo '<tr>';
 
-                        foreach ($article as $key1 => $value) {
+                        foreach ($value as $key1 => $value2) {
 
-                            echo "<td>$value</td>";
+                            echo "<td>$value2</td>";
                         }
 
                         echo "<td>
@@ -143,16 +143,6 @@ if ($_SESSION['droits'] != 1337) {
 
                                 <input type='text' name='id' value='" . $article['id'] . "' hidden>
                                 <input type='text' name='id' value='" . $article['id_categorie'] . "' hidden>
-                                
-                                    <select name='categorie' id='catégorie'>";
-                                    foreach ($getCategories as $index => $categorie) {
-
-                                        echo "<option value = '" . $categorie['id'] . "'>" . $categorie['nom'] . "</option>";
-                                    }                                    
-
-                                    echo "</select>
-                                
-                                    <button type='submit' name='submit'>Modifier la catégorie</button>
 
                                     <button type='submit' name='delete'>Supprimer Article</button>
 
