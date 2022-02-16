@@ -154,6 +154,7 @@ if ($_SESSION['droits'] != 1337) {
                         }
 
                         echo "<td>
+
                                 <form action='php/include/admin.inc.php' method='POST'>
 
                                 <input type='text' name='id_categorie' value='" . $categorie['id'] . "' hidden>
@@ -162,7 +163,15 @@ if ($_SESSION['droits'] != 1337) {
 
                                 </form>
                                     
-                            </td>";
+                            </td>
+
+                            <td>
+
+                                <form action='php/include/admin.inc.php' method='POST'>
+
+                                    <input type='text' name='id_categorie' value='" . $categorie['id'] . "' hidden>
+
+
 
                         echo '</tr>';
                         
