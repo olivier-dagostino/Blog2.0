@@ -7,7 +7,7 @@ class Commentaire extends Dbh
     // Récupere les commentaires d'un article spécifique et les affiche
     public function getCommentaires($id_article)
     {
-        $sth = $this->connect()->prepare("SELECT commentaires.titre, commentaires.commentaire, commentaires.date, utilisateurs.login FROM commentaires INNER JOIN utilisateurs ON commentaires.id_utilisateur = utilisateurs.id WHERE id_article = :id ORDER BY date DESC;");
+        $sth = $this->connect()->prepare("SELECT commentaires.id, commentaires.titre, commentaires.commentaire, commentaires.date, utilisateurs.login FROM commentaires INNER JOIN utilisateurs ON commentaires.id_utilisateur = utilisateurs.id WHERE id_article = :id ORDER BY date DESC;");
 
         $sth->execute(array(':id' => $id_article));
 
@@ -24,20 +24,23 @@ class Commentaire extends Dbh
                 echo "<section><p>Titre : " . $commentaires[$i]['titre'] . "</p>";
 
                 echo "<p>Ecrit par  " . $commentaires[$i]['login'];
+
                 $date = strtotime($commentaires[$i]['date']);
+
                 echo " le " . date('d/m/Y', $date) . "</p>";
 
                 if (isset(($_SESSION['droits']))){
 
                     if ($_SESSION['droits'] == 42 || $_SESSION['droits'] == 1337) {
 
-                        echo ""
+                        echo "<form action='php/include/commentaire.inc.php' method='post'>
+
+                        <input type='subit' name='id_article' value='$id_article' hidden>
+                        <input type='subit' name='id_commentaire' value='" . $commentaires[$i]['id'] . "' hidden>
+
+                        <button type='submit' name='delete'>Supprimer commentaire</button></form> ";
                     }
                 }
-                
-                    
-                    echo
-            }
 
 
                 echo "<p>" . $commentaires[$i]['commentaire'] . "</p></section>";
@@ -66,10 +69,11 @@ class Commentaire extends Dbh
         echo"<p> Modification prise en compte</p>";
     }
 
-    public function delete($get)
+    public function deleteCommentaire($id_commentaire)
     {
-        $sth=$this->connect()->prepare("DELETE FROM `commentaires` WHERE `id` = $get");
-        $sth->execute();
-        echo "<p> Commentaire supprimé</p>";
+        $sth = $this->connect()->prepare("DELETE FROM `commentaires` WHERE `id` = :id_commentaire");
+
+        $sth->execute(array(':id_commentaire' => $id_commentaire));
+
     }
 }
