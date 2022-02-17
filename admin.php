@@ -200,56 +200,7 @@ if ($_SESSION['droits'] != 1337) {
                  
             </div>
 
-        </section>
-
-        <section class="gestion-com">
-            
-            <h1>Gestion des Commentaires</h1>
-            <table>
-
-                <?php
-
-                    foreach ($getCategories as $key => $categorie) {
-
-                        echo '<tr>';
-                            
-                        foreach ($categorie as $key1 => $value2) {
-
-                            echo "<td>$value2</td>";
-                        }
-
-                        echo "<td>
-
-                                <form action='php/include/admin.inc.php' method='POST'>
-
-                                    <input type='text' name='id_categorie' value='" . $categorie['id'] . "' hidden>
-
-                                    <button type='submit' name='delete_categorie'>Modifier Catégorie</button>
-                                    <button type='submit' name='delete_categorie'>Supprimer Catégorie</button>
-
-                                </form>
-                                    
-                            </td>
-
-                            <td>
-
-                                <form action='php/include/admin.inc.php' method='POST'>
-
-                                    <input type='text' name='id_categorie' value='" . $categorie['id'] . "' hidden>
-                                
-                                </form>    
-                            </td>
-
-
-                        </tr>";
-                        
-                    }
-
-                ?>
-
-            </table>
-
-        </section>
+        </section>            
 
     </main>
 
