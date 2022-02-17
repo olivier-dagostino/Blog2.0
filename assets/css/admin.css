@@ -103,3 +103,14 @@ select{
   padding: 5px;
 }
 
+.new-categ{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.new-categ > label , .new-categ > input, .new-categ > button {
+  padding: 5px;
+  margin: 5px;
+}

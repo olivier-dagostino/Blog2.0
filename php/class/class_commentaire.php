@@ -27,6 +27,18 @@ class Commentaire extends Dbh
                 $date = strtotime($commentaires[$i]['date']);
                 echo " le " . date('d/m/Y', $date) . "</p>";
 
+                if (isset(($_SESSION['droits']))){
+
+                    if ($_SESSION['droits'] == 42 || $_SESSION['droits'] == 1337) {
+
+                        echo ""
+                    }
+                }
+                
+                    
+                    echo
+            }
+
 
                 echo "<p>" . $commentaires[$i]['commentaire'] . "</p></section>";
             }

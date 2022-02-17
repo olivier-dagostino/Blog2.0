@@ -13,6 +13,13 @@ h2 {
   font-size: 25px;
 }
 
+h3{
+  text-decoration: underline;
+  text-align: center;
+  padding: 10px;
+  margin: 10px;
+}
+
 p {
   text-align: left;
   margin: 10px;
@@ -39,7 +46,7 @@ p {
 
 .footer > .footer-1 > ul > li > a {
   text-decoration: none;
-  color: #fff;
+  color: black;
 }
 .footer > .footer-1 > h3 {
   padding: 20px;
@@ -53,7 +60,7 @@ p {
 
 .footer > .footer-2 > ul > li > a {
   text-decoration: none;
-  color: #fff;
+  color: black;
 }
 
 .footer > .footer-2 > h3 {
@@ -67,7 +74,7 @@ p {
 }
 .footer > .footer-3 > ul > li > a {
   text-decoration: none;
-  color: #fff;
+  color: black;
 }
 .footer > .footer-3 > h3 {
   padding: 20px;
@@ -79,6 +86,8 @@ p {
   align-items: center;
   justify-content: center;
   padding: 30px;
+  text-decoration: none;
+  color: black;
 }
 
 @media screen and (max-width: 780px) {

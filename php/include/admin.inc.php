@@ -7,6 +7,7 @@ require('autoloader.inc.php');
 $user = new User();
 $article = new Article();
 $categorie = new Categorie();
+$newcategorie = new Categorie();
 
 switch ($_POST) {
 
@@ -54,6 +55,14 @@ switch ($_POST) {
         header(('location: ../../admin.php'));
         break;
 
+
+    // Nouvelle Catégorie
+    case isset($_POST['new_categorie']):
+        
+        $categorie->createCategories($_POST['titre_new_categ']);
+        header('location: ../../admin.php');
+        break;
+
     // Suppression d'un article
     case isset($_POST['delete_article']);
 
@@ -70,6 +79,7 @@ switch ($_POST) {
     header(('location: ../../admin.php'));
     break;
 
+    
 }
 
 ?>

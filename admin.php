@@ -14,6 +14,7 @@ if ($_SESSION['droits'] != 1337) {
     $user = new User();
     $article = new Article();
     $categorie = new Categorie();
+    $commentaire = new Commentaire();
    
     $res1 = $user->getList();
     $articles = $article->getList();
@@ -147,7 +148,7 @@ if ($_SESSION['droits'] != 1337) {
                     foreach ($getCategories as $key => $categorie) {
 
                         echo '<tr>';
-
+                            
                         foreach ($categorie as $key1 => $value2) {
 
                             echo "<td>$value2</td>";
@@ -157,8 +158,9 @@ if ($_SESSION['droits'] != 1337) {
 
                                 <form action='php/include/admin.inc.php' method='POST'>
 
-                                <input type='text' name='id_categorie' value='" . $categorie['id'] . "' hidden>
+                                    <input type='text' name='id_categorie' value='" . $categorie['id'] . "' hidden>
 
+                                    <button type='submit' name='delete_categorie'>Modifier Catégorie</button>
                                     <button type='submit' name='delete_categorie'>Supprimer Catégorie</button>
 
                                 </form>
@@ -170,10 +172,76 @@ if ($_SESSION['droits'] != 1337) {
                                 <form action='php/include/admin.inc.php' method='POST'>
 
                                     <input type='text' name='id_categorie' value='" . $categorie['id'] . "' hidden>
+                                
+                                </form>    
+                            </td>
 
 
+                        </tr>";
+                        
+                    }
 
-                        echo '</tr>';
+                ?>
+
+            </table>
+
+            <div class="categ">
+
+                <h3>Nouvelle Catégorie</h3>
+
+                <form action='php/include/admin.inc.php' method='POST' class='new-categ'>
+
+                    <label for="new_categ">Titre de la Nouvelle Catégorie</label>
+                    <input type="text" name="titre_new_categ" id="new_categ">
+
+                    <button type="submit" name="new_categorie">Nouvelle Catégorie</button>
+
+                </form>
+                 
+            </div>
+
+        </section>
+
+        <section class="gestion-com">
+            
+            <h1>Gestion des Commentaires</h1>
+            <table>
+
+                <?php
+
+                    foreach ($getCategories as $key => $categorie) {
+
+                        echo '<tr>';
+                            
+                        foreach ($categorie as $key1 => $value2) {
+
+                            echo "<td>$value2</td>";
+                        }
+
+                        echo "<td>
+
+                                <form action='php/include/admin.inc.php' method='POST'>
+
+                                    <input type='text' name='id_categorie' value='" . $categorie['id'] . "' hidden>
+
+                                    <button type='submit' name='delete_categorie'>Modifier Catégorie</button>
+                                    <button type='submit' name='delete_categorie'>Supprimer Catégorie</button>
+
+                                </form>
+                                    
+                            </td>
+
+                            <td>
+
+                                <form action='php/include/admin.inc.php' method='POST'>
+
+                                    <input type='text' name='id_categorie' value='" . $categorie['id'] . "' hidden>
+                                
+                                </form>    
+                            </td>
+
+
+                        </tr>";
                         
                     }
 
