@@ -176,7 +176,6 @@ if ($_SESSION['droits'] != 1337) {
                                 </form>    
                             </td>
 
-
                         </tr>";
                         
                     }
