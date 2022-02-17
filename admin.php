@@ -119,9 +119,9 @@ if ($_SESSION['droits'] != 1337) {
 
                                     echo "</select>
                                 
-                                    <button type='submit' name='modif_categorie'>Modifier la catégorie</button>
+                                    <button type='submit' name='modif_categorie'>Modif Catégorie</button>
 
-                                    <button type='submit' name='delete_article'>Supprimer Article</button>
+                                    <button type='submit' name='delete_article'>Supp Article</button>
 
                                 </form>
                                     
@@ -160,8 +160,8 @@ if ($_SESSION['droits'] != 1337) {
 
                                     <input type='text' name='id_categorie' value='" . $categorie['id'] . "' hidden>
 
-                                    <button type='submit' name='delete_categorie'>Modifier Catégorie</button>
-                                    <button type='submit' name='delete_categorie'>Supprimer Catégorie</button>
+                                    <button type='submit' name='delete_categorie'>Modif Catégorie</button>
+                                    <button type='submit' name='delete_categorie'>Supp Catégorie</button>
 
                                 </form>
                                     
@@ -224,8 +224,8 @@ if ($_SESSION['droits'] != 1337) {
 
                                     <input type='text' name='id_categorie' value='" . $categorie['id'] . "' hidden>
 
-                                    <button type='submit' name='delete_categorie'>Modifier Catégorie</button>
-                                    <button type='submit' name='delete_categorie'>Supprimer Catégorie</button>
+                                    <button type='submit' name='delete_categorie'>Modif Catégorie</button>
+                                    <button type='submit' name='delete_categorie'>Supp Catégorie</button>
 
                                 </form>
                                     
