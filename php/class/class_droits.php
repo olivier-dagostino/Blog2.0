@@ -1,5 +1,5 @@
 <?php
-require_once('class_dbh.php');
+
 
 class Droits extends Dbh
 {

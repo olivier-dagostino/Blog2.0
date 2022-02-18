@@ -1,5 +1,5 @@
 <?php
-require_once('class_dbh.php');
+
 
 class Commentaire extends Dbh
 {
@@ -33,7 +33,7 @@ class Commentaire extends Dbh
 
                     if ($_SESSION['droits'] == 42 || $_SESSION['droits'] == 1337) {
 
-                        echo "<form action='php/include/commentaire.inc.php' method='post'>
+                        echo "<form action='php/include/commentaire_process.php' method='post'>
 
                         <input type='subit' name='id_article' value='$id_article' hidden>
                         <input type='subit' name='id_commentaire' value='" . $commentaires[$i]['id'] . "' hidden>

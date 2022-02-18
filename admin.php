@@ -9,7 +9,7 @@ if ($_SESSION['droits'] != 1337) {
 
     $title = "Gestion des Utilisateurs";
     $css = "admin";
-    require('php/include/header.inc.php');
+    require('php/include/header.php');
 
     $user = new User();
     $article = new Article();
@@ -56,7 +56,7 @@ if ($_SESSION['droits'] != 1337) {
 
                         echo "<td>
 
-                                <form action='php/include/admin.inc.php' method='POST'>
+                                <form action='php/include/admin_process.php' method='POST'>
 
                                     <input type='text' name='id' value='" . $value['id'] . "' hidden>
 
@@ -105,7 +105,7 @@ if ($_SESSION['droits'] != 1337) {
                         }
 
                         echo "<td>
-                                <form action='php/include/admin.inc.php' method='POST'>
+                                <form action='php/include/admin_process.php' method='POST'>
 
                                 <input type='text' name='id_article' value='" . $article['id'] . "' hidden>
                                 
@@ -156,7 +156,7 @@ if ($_SESSION['droits'] != 1337) {
 
                         echo "<td>
 
-                                <form action='php/include/admin.inc.php' method='POST'>
+                                <form action='php/include/admin_process.php' method='POST'>
 
                                     <input type='text' name='id_categorie' value='" . $categorie['id'] . "' hidden>
 
@@ -169,12 +169,13 @@ if ($_SESSION['droits'] != 1337) {
 
                             <td>
 
-                                <form action='php/include/admin.inc.php' method='POST'>
+                                <form action='php/include/admin_process.php' method='POST'>
 
                                     <input type='text' name='id_categorie' value='" . $categorie['id'] . "' hidden>
                                 
                                 </form>    
                             </td>
+
 
                         </tr>";
                         
@@ -188,7 +189,7 @@ if ($_SESSION['droits'] != 1337) {
 
                 <h3>Nouvelle Catégorie</h3>
 
-                <form action='php/include/admin.inc.php' method='POST' class='new-categ'>
+                <form action='php/include/admin_process.php' method='POST' class='new-categ'>
 
                     <label for="new_categ">Titre de la Nouvelle Catégorie</label>
                     <input type="text" name="titre_new_categ" id="new_categ">
@@ -203,5 +204,5 @@ if ($_SESSION['droits'] != 1337) {
 
     </main>
 
-<?php require 'php/include/footer.inc.php';
+<?php require 'php/include/footer.php';
 } ?>

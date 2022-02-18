@@ -10,7 +10,7 @@ if ($_SESSION['droits'] !== '42' && $_SESSION['droits'] !== '1337') {
     $title = "Edition";
     $css = "edit_articles";
 
-    require('php/include/header.inc.php');
+    require('php/include/header.php');
 
 ?>
 
@@ -59,4 +59,4 @@ if ($_SESSION['droits'] !== '42' && $_SESSION['droits'] !== '1337') {
 
     </main>
 
-<?php include('php/include/footer.inc.php'); } ?>
+<?php include('php/include/footer.php'); } ?>

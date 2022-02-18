@@ -31,22 +31,17 @@
 
                 </div>
                 
-                
                 <div class="footer-3">
-                    
-                    <?php if (!isset($_SESSION['id'])) : ?> 
+
                     <h3>Login / Sign Up</h3>
 
                     <ul>
                     
                         <li><a href="connexion.php">Connexion</a></li><br>
                         <li><a href="inscription.php">Inscription</a></li>
-                        
+                        <li><a href="#"></a></li>
+
                     </ul>
-                    <?php endif ?>
-
-                    <h3><a href="https://github.com/olivier-dagostino/Blog2.0">Lien Github</a></h3>
-
                     <a id="logo-git" href="https://github.com/olivier-dagostino/Blog2.0"><i class="fa fa-github" style="font-size:50px"></i></a>
                     
 

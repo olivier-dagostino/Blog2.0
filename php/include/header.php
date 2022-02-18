@@ -1,21 +1,28 @@
-<?php 
+<?php
 
-require('php/include/autoloader.inc.php');
+require('php/class/class_dbh.php');
+require('php/class/class_article.php');
+require('php/class/class_categorie.php');
+require('php/class/class_commentaire.php');
+require('php/class/class_droits.php');
+require('php/class/class_user.php');
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="assets/css/header.css">
-    <link rel="stylesheet" href="assets/css/<?= $css?>.css">
+    <link rel="stylesheet" href="assets/css/<?= $css ?>.css">
     <link rel="stylesheet" href="assets/css/footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title><?= $title ?></title>
 </head>
+
 <body>
     <header>
         <nav>
@@ -35,18 +42,18 @@ require('php/include/autoloader.inc.php');
                         <li><a href="articles.php?categorie=3">Le Chantier Naval</a></li>
                         <li><a href="articles.php?categorie=4">Le Parc National des Calanques</a></li>
 
-                    </ul>  
+                    </ul>
 
                 </li>
                 <?php
 
-                    if (isset($_SESSION['droits'])) { /*utilisateurs*/
+                if (isset($_SESSION['droits'])) { /*utilisateurs*/
 
-                        switch ($_SESSION['droits']) {
+                    switch ($_SESSION['droits']) {
 
-                            case '1':
+                        case '1':
 
-                                echo '
+                            echo '
                                     <li class="menu-edit"><a href="profil.php">Profil</a>
 
                                         <ul class="submenu">
@@ -62,9 +69,9 @@ require('php/include/autoloader.inc.php');
                             ';
                             break;
 
-                            case '42':
-                                
-                                echo '
+                        case '42':
+
+                            echo '
                                     <li class="menu-edit"><a href="profil.php">Profil</a>
 
                                         <ul class="submenu">
@@ -90,7 +97,7 @@ require('php/include/autoloader.inc.php');
                             break;
 
 
-                            case '1337':
+                        case '1337':
 
                             echo '
                                 <li class="menu-edit"><a href="profil.php">Profil</a>
@@ -125,12 +132,10 @@ require('php/include/autoloader.inc.php');
                         </nav>
                             ';
                             break;
+                    }
+                } else {
 
-                            }
-
-                            } else {
-
-                                echo '
+                    echo '
 
                                     <li class="menu-log"><a href="connexion.php">Connexion</a></li>
                                     <li class="menu-sign"><a href="inscription.php">Inscription</a></li>
@@ -138,7 +143,7 @@ require('php/include/autoloader.inc.php');
                                 </ul>
                                 </nav>
                             ';
-                            }
+                }
 
-?>
+                ?>
     </header>

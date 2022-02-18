@@ -11,7 +11,7 @@
         $title = "Profil";
         $css = "profil";
         
-        require ('php/include/header.inc.php');
+        require ('php/include/header.php');
     
 ?>
 
@@ -114,4 +114,4 @@
     </main>
 
 
-    <?php require 'php/include/footer.inc.php'; } ?>
+    <?php require 'php/include/footer.php'; } ?>

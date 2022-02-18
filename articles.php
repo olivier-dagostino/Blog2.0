@@ -3,7 +3,7 @@
     session_start();
     $title = "Articles";
     $css = "article";
-    require ('php/include/header.inc.php');
+    require ('php/include/header.php');
 
     $article = new Article();
 
@@ -93,5 +93,5 @@
 
 </main>
 
-<?php require('php/include/footer.inc.php'); ?>
+<?php require('php/include/footer.php'); ?>
 

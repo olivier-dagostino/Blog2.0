@@ -3,7 +3,7 @@
     $title = "Inscription";
     $css = "inscription";
     
-    require ('php/include/header.inc.php');
+    require ('php/include/header.php');
 
 ?>
     <main>
@@ -72,4 +72,4 @@
 
     </main>
 
-    <?php require 'php/include/footer.inc.php'; ?>
+    <?php require 'php/include/footer.php'; ?>

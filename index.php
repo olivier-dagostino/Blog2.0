@@ -3,7 +3,7 @@
     session_start();
     $title = "Accueil";
     $css = "index";
-    require ('php/include/header.inc.php'); 
+    require ('php/include/header.php'); 
 
     $article = new Article();
     
@@ -20,4 +20,4 @@
 
 </main>
 
-<?php include('php/include/footer.inc.php') ?>
+<?php include('php/include/footer.php') ?>

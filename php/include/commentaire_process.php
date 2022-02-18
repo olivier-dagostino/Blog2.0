@@ -2,7 +2,7 @@
 
 session_start();
 
-require('autoloader.inc.php');
+require('autoloader_process.php');
 
 $commentaire = new Commentaire();
 

@@ -11,7 +11,7 @@
         $title = "New Article";
         $css = "new_article";
     
-        require ('php/include/header.inc.php');
+        require ('php/include/header.php');
 
 ?>
 
@@ -88,5 +88,5 @@
 
     </main>
 
-    <?php include('php/include/footer.inc.php'); } ?>
+    <?php include('php/include/footer.php'); } ?>
 

@@ -3,7 +3,7 @@
     session_start();
     $title = "Article";
     $css = "article";
-    require ('php/include/header.inc.php');
+    require ('php/include/header.php');
     
     $article = new Article();
 
@@ -32,7 +32,7 @@
     ?>
         <section class="container">
 
-            <form action="php/include/commentaire.inc.php"  method="POST">
+            <form action="php/include/commentaire_process.php"  method="POST">
 
                 <legend>Ajouter un commentaire</legend>
 
@@ -55,4 +55,4 @@
         
     </main>
     
-    <?php require('php/include/footer.inc.php') ?>
+    <?php require('php/include/footer.php') ?>
