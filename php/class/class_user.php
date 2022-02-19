@@ -1,6 +1,5 @@
 <?php
 
-
 class User extends Dbh
 {
   private $id;
@@ -46,7 +45,7 @@ class User extends Dbh
   public function login($login, $password)
   {
 
-    $sth = $this->connect()->prepare("SELECT * FROM `utilisateurs` WHERE `login` =?");
+    $sth = $this->connect()->prepare("SELECT * FROM `utilisateurs` WHERE `login` = ?");
     $sth->execute(array($login));
     $res = $sth->fetch(PDO::FETCH_ASSOC);
     

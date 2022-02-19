@@ -27,7 +27,7 @@
 
             $categories = $categorie->getAllInfoById($_GET['categorie']);
 
-            echo "<h1>" . $categorie['nom'] . "<h1>";
+            echo "<h1>" . $categories[0]['nom'] . "</h1>";
 
             $articles= $article->getArticles(5, $start, $_GET['categorie']);
 
@@ -72,19 +72,19 @@
         <ul class="pagination">
             <!-- Lien vers la page précédente (désactivé si on se trouve sur la 1ère page) -->
             <li class="page-item <?= ($currentPage == 1) ? "disabled" : "" ?>">
-                <a href="articles.php?start= <?= $currentPage - 1 ?>" class="page-link">Précédente</a>
+                <a href="articles.php?start= <?= $currentPage - 1 ?><?= (isset($_GET['categorie'])) ? "&categorie=" . $_GET['categorie'] : "" ?>" class="page-link">Précédente</a>
             </li>
 
             <?php $pages = $article->totalPages(); for($page = 1; $page <= $pages; $page++): ?>
                 <!-- Lien vers chacune des pages (activé si on se trouve sur la page correspondante) -->
                 <li class="page-item <?= ($currentPage == $page) ? "active" : "" ?>">
-                    <a href="articles.php?start=<?= $page ?>" class="page-link"><?= $page ?></a>
+                    <a href="articles.php?start=<?= $page ?><?= (isset($_GET['categorie'])) ? "&categorie=" . $_GET['categorie'] : "" ?>" class="page-link"><?= $page ?></a>
                 </li>
             <?php endfor ?>
 
                 <!-- Lien vers la page suivante (désactivé si on se trouve sur la dernière page) -->
                 <li class="page-item <?= ($currentPage == $pages) ? "disabled" : "" ?>">
-                <a href="articles.php?start=<?= $currentPage + 1 ?>" class="page-link">Suivante</a>
+                <a href="articles.php?start=<?= $currentPage + 1 ?><?= (isset($_GET['categorie'])) ? "&categorie=" . $_GET['categorie'] : "" ?>" class="page-link">Suivante</a>
             </li>
         </ul>
         

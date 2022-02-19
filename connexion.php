@@ -29,7 +29,7 @@
 
             <div class="form-connexion">
 
-                <h2>Formulaire d'Inscription</h2>
+                <h2>Formulaire de connexion</h2>
 
                 <form action="#" id="form-connexion"  method="post">
 
