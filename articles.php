@@ -15,7 +15,9 @@ $categorie = new Categorie();
 
     <?php
 
-    $pages = $article->totalPages();
+    $parametre = isset($_GET['categorie']) ? $_GET['categorie'] : null;
+    $pages = $article->totalPages($parametre);
+
 
     // On détermine sur quelle page on se trouve
     if (isset($_GET['start']) && !empty($_GET['start'])) {

@@ -42,10 +42,11 @@ class Article extends Dbh
         
     }
 
-    public function totalPages()
+    public function totalPages($id_categorie)
     {
         // On prépare la requête
-        $query = $this->connect()->prepare('SELECT COUNT(*) AS nb_articles FROM `articles`;');
+        $query = $this->connect()->prepare("SELECT COUNT(*) AS nb_articles FROM `articles` where id_categorie = IFNULL(:id_categorie, id_categorie)");
+        $query->bindValue(':id_categorie', $id_categorie, PDO::PARAM_INT);
 
         // On exécute
         $query->execute();
