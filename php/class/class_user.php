@@ -97,7 +97,7 @@ class User extends Dbh
   public function getList()
   {
 
-    $sth = $this->connect()->prepare("SELECT `id`,`login`,`email`, `id_droits` FROM `utilisateurs`");
+    $sth = $this->connect()->prepare("SELECT `id`,`login`,`email`, `id_droits` FROM `utilisateurs` WHERE actif = 1");
     $sth->execute();
     $res = $sth->fetchAll(PDO::FETCH_ASSOC);
     return $res;
@@ -149,7 +149,7 @@ class User extends Dbh
   public function deleteUser($id)
   {
 
-    $sth = $this->connect()->prepare("UPDATE `utilisateurs` SET `login` = 'Utilisateur supprimé', `password` = 'Meline,Sirine,Alex,Oliv MVP' WHERE id = :id");
+    $sth = $this->connect()->prepare("UPDATE `utilisateurs` SET `login` = 'Utilisateur supprimé', `password` = 'Meline,Sirine,Alex,Oliv MVP', actif = '0' WHERE id = :id");
     $sth->execute(array(':id' => $id));
     echo "<p>Nous vous confirmons la Suppression de Votre Compte </p>";
   }
